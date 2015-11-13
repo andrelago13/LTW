@@ -22,7 +22,8 @@ CREATE TABLE Event
   type INTEGER REFERENCES EventType(id),
   name VARCHAR NOT NULL,
   description VARCHAR NOT NULL,
-  date DATETIME,
+  date DATETIME NOT NULL,
+  public BOOLEAN NOT NULL,
   owner INTEGER REFERENCES User(id),
   image BLOB
 );
@@ -35,7 +36,7 @@ CREATE TABLE EventRegistration
   PRIMARY KEY(idEvent, idUser)
 );
 
-DROP TABLE IF EXISTS EventThread;
+DROP TABLE IF EXISTS Thread;
 CREATE TABLE EventThread
 (
   id INTEGER PRIMARY KEY,
@@ -43,11 +44,25 @@ CREATE TABLE EventThread
   name VARCHAR NOT NULL
 );
 
-DROP TABLE IF EXISTS ThreadComment;
-CREATE TABLE ThreadComment
+DROP TABLE IF EXISTS Comment;
+CREATE TABLE Comment
 (
   id INTEGER PRIMARY KEY,
   idThread INTEGER REFERENCES Thread(id),
   author INTEGER REFERENCES User(id),
   comment TEXT NOT NULL
+);
+
+DROP TABLE IF EXISTS Album;
+CREATE TABLE Album
+(
+  id INTEGER PRIMARY KEY,
+  name VARCHAR NOT NULL
+);
+
+DROP TABLE IF EXISTS Photo;
+CREATE TABLE Photo
+(
+  id INTEGER PRIMARY KEY,
+  image BLOB NOT NULL
 );
