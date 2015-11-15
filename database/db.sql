@@ -38,6 +38,15 @@ CREATE TABLE EventRegistration
   PRIMARY KEY(idEvent, idUser)
 );
 
+DROP TABLE IF EXISTS EventInvite;
+CREATE TABLE EventInvite
+(
+  idEvent INTEGER REFERENCES Event(id),
+  idInvited INTEGER REFERENCES User(id),
+  idInviter INTEGER REFERENCES User(id),
+  PRIMARY KEY(idEvent, idInvited)
+)
+
 DROP TABLE IF EXISTS Thread;
 CREATE TABLE Thread
 (
@@ -59,6 +68,7 @@ DROP TABLE IF EXISTS Album;
 CREATE TABLE Album
 (
   id INTEGER PRIMARY KEY,
+  idEvent INTEGER REFERENCES Event(id),
   name VARCHAR NOT NULL
 );
 
