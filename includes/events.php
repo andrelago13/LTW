@@ -36,6 +36,18 @@ function isUserInvitedToEvent($idUser, $idEvent) {
 	else
 		return false;
 }
+function isUserEventOwner($idUser, $idEvent) {
+	global $db;
+	$stmt = $db->prepare ( 'SELECT * FROM Event WHERE idEvent = :event AND owner = :user' );
+	$stmt->bindParam ( ':event', $idEvent, PDO::PARAM_INT );
+	$stmt->bindParam ( ':user', $idUser, PDO::PARAM_INT );
+	$stmt->execute ();
+	$result = $stmt->fetch ();
+	if ($result)
+		return true;
+	else
+		return false;
+}
 function canSeeEvent($idUser, $idEvent) {
 	if (isEventPublic ( $idEvent ))
 		return true;

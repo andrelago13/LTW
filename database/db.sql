@@ -45,7 +45,7 @@ CREATE TABLE EventInvite
   idInvited INTEGER REFERENCES User(id),
   idInviter INTEGER REFERENCES User(id),
   PRIMARY KEY(idEvent, idInvited)
-)
+);
 
 DROP TABLE IF EXISTS Thread;
 CREATE TABLE Thread
