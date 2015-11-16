@@ -1,5 +1,6 @@
 <?php
-require_once ("../database/connection.php");
+require_once (__DIR__ . "/../config.php");
+require_once (DATABASE_PATH . "/connection.php");
 class AlreadyRegisteredException extends Exception {
 }
 function isEventPublic($idEvent) {
