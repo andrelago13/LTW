@@ -67,6 +67,13 @@ function getAllEvents($amount = -1, $offset = 0) {
 	$stmt->execute ();
 	return $stmt->fetchAll ();
 }
+function getEvent($idEvent) {
+	global $db;
+	$stmt = $db->prepare ( 'SELECT * FROM Event WHERE id = :event' );
+	$stmt->bindParam ( ':event', $idEvent, PDO::PARAM_INT );
+	$stmt->execute ();
+	return $stmt->fetch ();
+}
 function getEventsByOwner($idOwner, $amount = -1, $offset = 0) {
 	global $db;
 	$query = "SELECT * FROM Event WHERE owner = :owner ORDER BY date DESC LIMIT :amount OFFSET :offset";
@@ -88,17 +95,10 @@ function getRegisteredEvents($idUser, $amount = -1, $offset = 0) {
 	$stmt->execute ();
 	return $stmt->fetchAll ();
 }
-function getEvent($idEvent) {
-	global $db;
-	$stmt = $db->prepare ( "SELECT * FROM Event WHERE id = :event" );
-	$stmt->bindParam ( ':event', $idEvent, PDO::PARAM_INT );
-	$stmt->execute ();
-	return $stmt->fetchAll ();
-}
 function getEventRegistrations($idEvent, $amount = -1, $offset = 0) {
 	global $db;
 	$query = "SELECT * FROM EventRegistration
-			INNER JOIN Event ON EventRegistration.idEvent = Event.idEvent
+			INNER JOIN Event ON EventRegistration.idEvent = Event.id
 			INNER JOIN User ON EventRegistration.idUser = User.id
 			WHERE Event.id = :event
 			ORDER BY User.name ASC LIMIT :amount OFFSET :offset";
@@ -127,7 +127,4 @@ function registerInEvent($idUser, $idEvent) {
 	$stmt->bindParam ( ':user', $idUser, PDO::PARAM_INT );
 	$stmt->execute ();
 }
-print_r ( getEventsByOwner ( 1 ) );
-print_r ( getRegisteredEvents ( 1 ) );
-echo "Public: " . canSeeEvent ( 1, 1 ) ? "true" : "false";
 ?>
