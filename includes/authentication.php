@@ -14,7 +14,7 @@ function register($name, $username, $email, $password) {
 	if (strlen($email) > 254)
 		throw new InvalidArgumentException ( "Email too large, maximum 254 chars.");
 	$email = strtolower ( $email );
-	if (! preg_match ( "^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"), $email)
+	if (! preg_match ( "^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$", $email))
 		throw new InvalidArgumentException ( "Invalid email address." );
 	
 	$password_length = strlen ( $password );
