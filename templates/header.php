@@ -5,5 +5,12 @@
 <title>Event Manager</title>
 </head>
 <body>
+	<nav>
+		<ul>
+			<li><a href="#">My events</a></li>
+			<li><a href="#">Create event</a></li>
+			<li><a href="#">Search events</a></li>
+		</ul>
+	</nav>
 <?php
 ?>
