@@ -1,6 +1,6 @@
 <?php
 require_once (__DIR__ . "/config.php");
-require_once(DATABASE_PATH . "/events.php");
+require_once(INCLUDES_PATH . "/events.php");
 
 require (TEMPLATES_PATH . "/header.php");
 require (TEMPLATES_PATH . "/view_event.php");

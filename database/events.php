@@ -49,16 +49,6 @@ function isUserEventOwner($idUser, $idEvent) {
 	else
 		return false;
 }
-function canSeeEvent($idUser, $idEvent) {
-	if (isEventPublic ( $idEvent ))
-		return true;
-	if (isUserRegisteredInEvent ( $idUser, $idEvent ))
-		return true;
-	if (isUserInvitedToEvent ( $idUser, $idEvent ))
-		return true;
-	
-	return false;
-}
 function getAllEvents($amount = -1, $offset = 0) {
 	global $db;
 	$stmt = $db->prepare ( 'SELECT * FROM Event ORDER BY date DESC LIMIT :amount OFFSET :offset' );

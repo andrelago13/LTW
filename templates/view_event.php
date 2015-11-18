@@ -1,6 +1,6 @@
 <?php
 require_once (__DIR__ . "/../config.php");
-require_once (DATABASE_PATH . "/events.php");
+require_once (INCLUDES_PATH . "/events.php");
 
 if (! isset ( $_GET ["id"] )) {
 	http_response_code(400);
