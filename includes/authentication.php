@@ -27,16 +27,10 @@ function createAccount($name, $username, $email, $password) {
 		throw new InvalidArgumentException ( "Password too short, minimum 6 chars." );
 	if ($password_length > 512)
 		throw new InvalidArgumentException ( "Password too large, maximum 512 chars." );
-	$hash = password_hash($password, PASSWORD_DEFAULT);
 	
-	global $db;
-	$query = "INSERT INTO User (name, username, email, hash) VALUES (:name, :username, :email, :hash)";
-	$stmt = $db->prepare ( $query );
-	$stmt->bindParam ( ':name', $name, PDO::PARAM_STR );
-	$stmt->bindParam ( ':username', $username, PDO::PARAM_STR );
-	$stmt->bindParam ( ':email', $email, PDO::PARAM_STR );
-	$stmt->bindParam ( ':hash', $hash, PDO::PARAM_STR );
-	$stmt->execute ();
+	$hash = password_hash ( $password, PASSWORD_DEFAULT );
+	if (! createUser ( $name, $username, $email, $hash ))
+		throw new RuntimeException ( "Error inserting new user in the database." );
 }
 createAccount ( "Joao Pinheiro", "mabaclu", "mabaclu@gmail.com", "123456" );
 ?>

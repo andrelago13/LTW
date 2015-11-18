@@ -17,4 +17,14 @@ function getUserByEmail($email) {
 	$stmt->execute ();
 	return $stmt->fetch ();
 }
+function createUser($name, $username, $email, $hash) {
+	global $db;
+	$query = "INSERT INTO User (name, username, email, hash) VALUES (:name, :username, :email, :hash)";
+	$stmt = $db->prepare ( $query );
+	$stmt->bindParam ( ':name', $name, PDO::PARAM_STR );
+	$stmt->bindParam ( ':username', $username, PDO::PARAM_STR );
+	$stmt->bindParam ( ':email', $email, PDO::PARAM_STR );
+	$stmt->bindParam ( ':hash', $hash, PDO::PARAM_STR );
+	return $stmt->execute ();
+}
 ?>
