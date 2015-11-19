@@ -1,0 +1,73 @@
+html {
+	background: #E6E6E6;
+}
+
+body {
+	margin: 1rem 4rem auto 4rem;
+}
+
+header#pagetop {
+	border-radius: 14px;
+	background: white;
+	border-color: #DBDBDB;
+	border-width: 2px;
+	border-style: solid;
+	padding: 0 0 3rem 0;
+}
+
+h1#title {
+	padding: 0.5rem 0 0 2rem;
+	margin: 0;
+	font-family: "Arial Black", Gadget, sans-serif;
+	font-weight: 900;
+	color: #2720E6;
+	display: block;
+	width: 20rem;
+	text-shadow: 8px 8px 8px rgba(0,0,0,.1);
+}
+
+ul#menuoptions {
+	margin: 1rem 0 1rem 2rem;
+	padding: 0;
+	list-style-type: none;
+}
+
+ul#menuoptions a li {	
+	display: inline;
+	margin: 0;
+	background: #2720E6;
+	padding: 6px 6px 6px 6px;
+	float: left;
+	border-radius: 2px;
+	border-width: 1px;
+	border-style: solid;
+	border-color: grey;
+	box-shadow: 8px 8px 6px rgba(0,0,0,.1);
+}
+
+ul#menuoptions li:hover {
+	background: #5F59FF;
+}
+
+ul#menuoptions a li {	
+	text-decoration: none;
+	color: white;
+	font-family: Gadget, sans-serif;
+}
+
+footer#footer {
+	margin: 0;
+	display: block;
+	width: auto;
+	padding: 0.5rem 1rem 0.5rem 1rem;
+	background-color: white;
+	border-radius: 14px;
+	border-color: #DBDBDB;
+	border-width: 2px;
+	border-style: solid;
+}
+
+footer#footer p {
+	font-family: Gadget, sans-serif;
+}
+
