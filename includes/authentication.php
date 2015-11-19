@@ -32,5 +32,16 @@ function createAccount($name, $username, $email, $password) {
 	if (! createUser ( $name, $username, $email, $hash ))
 		throw new RuntimeException ( "Error inserting new user in the database." );
 }
-createAccount ( "Joao Pinheiro", "mabaclu", "mabaclu@gmail.com", "123456" );
+function login($username, $password) {
+	$user = getUserByUsername ( $username );
+	if (! $user)
+		throw new InvalidArgumentException ( "Username not registered." );
+	
+	if (! password_verify ( $password, $user["hash"] ))
+		throw new InvalidArgumentException ( "Password incorrect." );
+	
+	$_SESSION["username"] = $username;
+}
+//createAccount ( "Joao Pinheiro", "mabaclu", "mabaclu@gmail.com", "123456" );
+login("mabaclu", "123456");
 ?>
