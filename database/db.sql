@@ -77,7 +77,7 @@ DROP TABLE IF EXISTS Photo;
 CREATE TABLE Photo
 (
   id INTEGER PRIMARY KEY,
-  idAlbum INTEGER PRIMARY KEY,
+  idAlbum INTEGER REFERENCES Album(id),
   image BLOB NOT NULL
 );
 
@@ -85,7 +85,7 @@ INSERT INTO EventType (id, name) VALUES (1, 'Party');
 INSERT INTO EventType (id, name) VALUES (2, 'Concert');
 INSERT INTO EventType (id, name) VALUES (3, 'Conference');
 
-INSERT INTO User (id, name, username, email, hash) VALUES (1, 'Gustavo Silva', 'gtugablue', 'silva95gustavo@gmail.com', 'abchashxyz');
+INSERT INTO User (id, name, username, email, hash) VALUES (1, 'Gustavo Silva', 'gtugablue', 'silva95gustavo@gmail.com', '$2y$10$gu7d2oO1Gb/1IWu16bIZt.8Vaai./rYTbE6zkrArxqeYj8QBUPzEa');
 
 INSERT INTO Event (type, name, description, date, public, owner)
 	VALUES (1, 'Churrasco do Reis', 'O Reis passou a todas as cadeiras, therefore churrasco!', '2015-12-12 19:00:00', 0, 1);

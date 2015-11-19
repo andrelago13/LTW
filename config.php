@@ -8,4 +8,8 @@ $dir_file = dirname(__FILE__);
 defined ( "DATABASE_PATH" ) or define ( "DATABASE_PATH", str_replace('\\', '/', realpath ( $dir_file . '/database' )) );
 defined ( "INCLUDES_PATH" ) or define ( "INCLUDES_PATH", str_replace('\\', '/', $dir_file . '/includes' ) );
 defined ( "TEMPLATES_PATH" ) or define ( "TEMPLATES_PATH", str_replace('\\', '/', $dir_file . '/templates' ) );
+
+session_start();
+session_regenerate_id(true); // To prevent session fixation
+
 ?>

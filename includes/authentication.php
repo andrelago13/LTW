@@ -40,8 +40,8 @@ function login($username, $password) {
 	if (! password_verify ( $password, $user["hash"] ))
 		throw new InvalidArgumentException ( "Password incorrect." );
 	
-	$_SESSION["username"] = $username;
+	$_SESSION["userid"] = $user["id"];
 }
 //createAccount ( "Joao Pinheiro", "mabaclu", "mabaclu@gmail.com", "123456" );
-login("mabaclu", "123456");
+login("gtugablue", "123456");
 ?>
