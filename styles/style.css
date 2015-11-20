@@ -1,0 +1,131 @@
+/*//////////////////////////////////////////////////////////////////////////////
+ 									PAGE
+//////////////////////////////////////////////////////////////////////////////*/
+html {
+	background: #E6E6E6;
+}
+
+body {
+	margin: 1rem 4rem auto 4rem;
+}
+
+/*//////////////////////////////////////////////////////////////////////////////
+ 									EVENT
+//////////////////////////////////////////////////////////////////////////////*/
+
+div.event {
+	border-radius: 14px;
+	background: white;
+	border-color: #DBDBDB;
+	border-width: 2px;
+	border-style: solid;
+	padding: 0 0 20rem 0;
+}
+
+div.event h1#title {
+	margin: 1rem 2rem 0 2rem;
+	padding: 0;
+	font: 700 30px "Arial Black", Gadget, sans-serif;
+	text-align: left;
+	color: black;
+	width: auto;
+}
+
+div.event img#image{
+	float:left;
+	margin: 1rem 2rem 1rem 2rem;
+	width: 20rem;
+	height: 20rem;
+	border-radius: 8px;
+	background: black;
+}
+
+div.event p#description {
+	font-family: Arial, sans-serif;
+	font-size: 20px;
+    word-wrap: break-word;
+    margin: 2rem 0 2rem 2rem;
+}
+
+div.event time#date {
+	font-family: Arial, sans-serif;
+	font-size: 15px;
+    margin: 0 0 0 2rem;
+}
+
+/*//////////////////////////////////////////////////////////////////////////////
+ 									HEADER
+//////////////////////////////////////////////////////////////////////////////*/
+
+header#pagetop {
+	border-radius: 14px;
+	background: white;
+	border-color: #DBDBDB;
+	border-width: 2px;
+	border-style: solid;
+}
+
+h1#title {
+	padding: 0.5rem 0 0 2rem;
+	margin: 0;
+	font-family: "Arial Black", Gadget, sans-serif;
+	font-weight: 900;
+	color: #2720E6;
+	display: block;
+	width: 40rem;
+	text-shadow: 8px 8px 8px rgba(0,0,0,.1);
+	
+	margin: 5px auto;
+	text-align: center;
+	font: 700 50px "Arial Black", Gadget, sans-serif;
+}
+
+ul#menuoptions {
+	margin: 1rem 0 1rem 2rem;
+	padding: 0;
+	list-style-type: none;
+	padding: 0 0 0.5rem 0;
+}
+
+ul#menuoptions a li {	
+	display: inline;
+	margin: 0;
+	background: #2720E6;
+	padding: 6px 6px 6px 6px;
+	border-radius: 2px;
+	border-width: 1px;
+	border-style: solid;
+	border-color: grey;
+	box-shadow: 8px 8px 6px rgba(0,0,0,.1);
+}
+
+ul#menuoptions li:hover {
+	background: #5F59FF;
+}
+
+ul#menuoptions a li {	
+	text-decoration: none;
+	color: white;
+	font-family: Gadget, sans-serif;
+}
+
+/*//////////////////////////////////////////////////////////////////////////////
+ 									FOOTER
+//////////////////////////////////////////////////////////////////////////////*/
+
+footer#footer {
+	margin: 0;
+	display: block;
+	width: auto;
+	padding: 0.5rem 1rem 0.5rem 1rem;
+	background-color: white;
+	border-radius: 14px;
+	border-color: #DBDBDB;
+	border-width: 2px;
+	border-style: solid;
+}
+
+footer#footer p {
+	font-family: Gadget, sans-serif;
+}
+
