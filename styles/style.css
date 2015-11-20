@@ -6,7 +6,24 @@ html {
 }
 
 body {
+	font-family:Arial, Helvetica, sans-serif; 
 	margin: 1rem 4rem auto 4rem;
+	min-width: 400px;
+}
+
+.errormsg {
+	margin: 0;
+	border-radius: 14px;
+	background: #FF5B49;
+	border-color: #B61200;
+	border-width: 1px;
+	border-style: solid;
+	padding: 1rem;
+	padding-left: 4rem;
+	background-image: url('../images/error.png');
+	background-repeat: no-repeat;
+	background-position: 1rem center;
+	background-size: 2rem auto;
 }
 
 /*//////////////////////////////////////////////////////////////////////////////
