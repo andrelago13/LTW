@@ -45,6 +45,4 @@ function login($username, $password) {
 function isUserLoggedIn() {
 	return isset($_SESSION["userid"]);
 }
-//createAccount ( "Joao Pinheiro", "mabaclu", "mabaclu@gmail.com", "123456" );
-login("gtugablue", "123456");
 ?>
