@@ -1,15 +1,16 @@
 <?php
 require_once (__DIR__ . "/../config.php");
-require_once (INCLUDES_PATH . "/authentication.php");
+
+require (INCLUDES_PATH . "/login_action.php");
 ?>
 
-<form action="action_login.php" method="post" />
+<form action="login.php" method="post" />
 <div class="username">
 	<label for="username">Username:</label> <input type="text"
 		name="username" id="username">
 </div>
 <div class="password">
-	<label for="password">Password:</label> <input type="text"
+	<label for="password">Password:</label> <input type="password"
 		name="password" id="password">
 </div>
 <div class="submit_btn">
