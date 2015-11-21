@@ -21,7 +21,7 @@ try {
 		echo '<h1>' . $event ["name"] . '</h1>';
 		echo '<img src="database/event_image.php?id=' . $idEvent . '" alt="' . $event ["name"] . '" width="256" height="256" />';
 		echo '<p>' . $event ["description"] . '</p>';
-		echo '<time>' . $event ["date"] . '</time>';
+		echo '<datetime>' . $event ["date"] . '</datetime>';
 		echo '</div>';
 	}
 } catch ( Exception $e ) {
