@@ -1,13 +1,14 @@
 <?php
 require_once (__DIR__ . "/../config.php");
 require_once (TEMPLATES_PATH . "/utils.php");
+require_once(INCLUDES_PATH . "/authentication.php");
 require_once (INCLUDES_PATH . "/events.php");
 
 try {
 	if (! isset ( $_GET ["id"] )) {
 		http_response_code ( 400 );
 		showError ( 'Missing event ID.' );
-	} else if (! isset ( $_SESSION ["userid"] )) {
+	} else if (! isUserLoggedIn ()) {
 		http_response_code ( 403 );
 		showError ( 'You need to login to view this event.' );
 	} else if (! canSeeEvent ( $_SESSION ["userid"], $_GET ["id"] )) {
