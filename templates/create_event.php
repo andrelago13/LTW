@@ -4,6 +4,8 @@ require_once (INCLUDES_PATH . "/authentication.php");
 require_once (DATABASE_PATH . "/events.php");
 require_once (TEMPLATES_PATH . "/utils.php");
 
+require (INCLUDES_PATH . "/create_event_action.php");
+
 if (! isUserLoggedIn ()) {
 	http_response_code ( 403 );
 	showError ( 'You need to login to create an event.' );
