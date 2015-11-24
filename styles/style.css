@@ -27,6 +27,115 @@ body {
 }
 
 /*//////////////////////////////////////////////////////////////////////////////
+ 								LOGIN and REGISTER
+//////////////////////////////////////////////////////////////////////////////*/
+
+form#login_form, form#register_form {
+    width: 90%;
+    padding: 1.5rem 5% 1rem 5%;
+    background: #fff;
+    border-radius: 5px;
+    border-top: 5px solid #2720E6;
+    margin: 1rem auto;
+}
+
+form#login_form h1#title, form#register_form h1#title {
+	width: 15%;
+    text-align: center;
+    color: #000;
+    font-size: 20px;
+    text-transform: uppercase;
+    margin-top: 0;
+    margin-bottom: 20px;
+    padding: 0 auto;
+    margin: 0 auto 1rem auto;
+}
+
+form#login_form input, form#register_form input {
+    width: 30%;
+    height: 42px;
+    box-sizing: border-box;
+    display: block;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin: 0 auto 20px auto;
+    font-size: 14px;
+    padding: 0 20px 0 50px;
+    outline: none;
+}
+
+form#login_form input#username, form#register_form input#username {
+    background: #fff url("resources/username.png") 20px top no-repeat;
+    background-size: 16px 80px;
+}
+
+form#login_form input#username:focus, form#register_form input#username:focus {
+    background: #fff url("resources/username.png") 20px bottom no-repeat;
+    background-size: 16px 80px;
+}
+
+form#login_form input#password, form#register_form input#password {
+    background: #fff url("resources/password.png") 20px top no-repeat;
+    background-size: 16px 80px;
+}
+
+form#login_form input#password:focus, form#register_form input#password:focus {
+    background: #fff url("resources/password.png") 20px bottom no-repeat;
+    background-size: 16px 80px;
+}
+
+form#register_form input#email {
+    background: #fff url("resources/email.png") 20px top no-repeat;
+    background-size: 16px 80px;
+}
+
+form#register_form input#email:focus {
+    background: #fff url("resources/email.png") 20px bottom no-repeat;
+    background-size: 16px 80px;
+}
+
+form#register_form input#name {
+    background: #fff url("resources/name.png") 20px top no-repeat;
+    background-size: 16px 80px;
+}
+
+form#register_form input#name:focus {
+    background: #fff url("resources/name.png") 20px bottom no-repeat;
+    background-size: 16px 80px;
+}
+
+form#login_form input:active, form#login_form input:focus, form#register_form input:active, form#register_form input:focus {
+    border: 1px solid #716def;
+}
+form#login_form button#submit, form#register_form button#submit {
+    width: 30%;
+    display: block;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin: 0 auto 20px auto;
+    height: 40px;
+    background: #2720E6;
+    box-sizing: border-box;
+    border-radius: 5px;
+    border: 1px solid #1713ae;
+    color: #fff;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 14px;
+    outline: none;
+    cursor: pointer;
+}
+
+form#login_form button#submit:hover, form#register_form button#submit:hover {
+    background: #716def;
+}
+
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px rgba(1,0,0,0.1) inset;
+}
+
+
+/*//////////////////////////////////////////////////////////////////////////////
  									EVENT
 //////////////////////////////////////////////////////////////////////////////*/
 
@@ -75,14 +184,17 @@ div.event time#date {
 //////////////////////////////////////////////////////////////////////////////*/
 
 header#pagetop {
-	border-radius: 14px;
-	background: white;
-	border-color: #DBDBDB;
-	border-width: 2px;
-	border-style: solid;
+    background: #fff;
+    border-radius: 5px;
+    border-top: 5px solid #2720E6;
+    margin: 1rem auto;
 }
 
-h1#title {
+header#pagetop nav {
+	padding: 0 0 0.3rem 0;
+}
+
+header#pagetop h1#title {
 	padding: 0.5rem 1rem 0 1rem;
 	margin: 0;
 	font-family: "Arial Black", Gadget, sans-serif;
@@ -97,14 +209,14 @@ h1#title {
 	font: 700 50px "Arial Black", Gadget, sans-serif;
 }
 
-ul#menuoptions {
+header#pagetop ul#menuoptions {
 	margin: 1rem 0 1rem 2rem;
 	padding: 0;
 	list-style-type: none;
 	padding: 0 0 0.5rem 0;
 }
 
-ul#menuoptions a li {	
+header#pagetop ul#menuoptions a li {	
 	display: inline;
 	margin: 0;
 	background: #2720E6;
@@ -116,11 +228,11 @@ ul#menuoptions a li {
 	box-shadow: 8px 8px 6px rgba(0,0,0,.1);
 }
 
-ul#menuoptions li:hover {
+header#pagetop ul#menuoptions li:hover {
 	background: #5F59FF;
 }
 
-ul#menuoptions a li {	
+header#pagetop ul#menuoptions a li {	
 	text-decoration: none;
 	color: white;
 	font-family: Gadget, sans-serif;
@@ -136,10 +248,9 @@ footer#footer {
 	width: auto;
 	padding: 0.5rem 1rem 0.5rem 1rem;
 	background-color: white;
-	border-radius: 14px;
-	border-color: #DBDBDB;
-	border-width: 2px;
-	border-style: solid;
+    background: #fff;
+    border-radius: 5px;
+    border-top: 5px solid #2720E6;
 }
 
 footer#footer p {

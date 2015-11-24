@@ -4,16 +4,9 @@ require_once (__DIR__ . "/../config.php");
 require (INCLUDES_PATH . "/login_action.php");
 ?>
 
-<form action="login.php" method="post" />
-<div class="username">
-	<label for="username">Username:</label> <input type="text"
-		name="username" id="username" value="gtugablue">
-</div>
-<div class="password">
-	<label for="password">Password:</label> <input type="password"
-		name="password" id="password" value="123456">
-</div>
-<div class="submit_btn">
-	<button type="submit">Submit</button>
-</div>
+<form id="login_form" action="login.php" method="post" />
+	<h1 id="title">Login</h1>
+	<input id="username" type="text" value="" placeholder="Username" id="username" />
+	<input id="password" type="password" value="" placeholder="Password" id="password" />
+	<button id="submit" type="submit">Submit</button>
 </form>
