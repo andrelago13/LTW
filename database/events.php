@@ -99,6 +99,13 @@ function getEventRegistrations($idEvent, $amount = -1, $offset = 0) {
 	$stmt->execute ();
 	return $stmt->fetchAll ();
 }
+function getEventTypes() {
+	global $db;
+	$query = "SELECT * FROM EventType";
+	$stmt = $db->prepare($query);
+	$stmt->execute();
+	return $stmt->fetchAll();
+}
 function registerInEvent($idUser, $idEvent) {
 	global $db;
 	
@@ -116,5 +123,18 @@ function registerInEvent($idUser, $idEvent) {
 	$stmt->bindParam ( ':event', $idEvent, PDO::PARAM_INT );
 	$stmt->bindParam ( ':user', $idUser, PDO::PARAM_INT );
 	$stmt->execute ();
+}
+function createEvent($type, $name, $description, $date, $public, $owner, $image) {
+	global $db;
+	$query = "INSERT INTO Event (type, name, description, date, public, owner, image) VALUES (:type, :name, :description, :date, :public, :owner, :image)";
+	$stmt = $db->prepare ( $query );
+	$stmt->bindParam ( ':type', $idEvent, PDO::PARAM_INT );
+	$stmt->bindParam ( ':name', $amount, PDO::PARAM_STR );
+	$stmt->bindParam ( ':description', $amount, PDO::PARAM_STR );
+	$stmt->bindParam ( ':date', $amount, PDO::PARAM_STR );
+	$stmt->bindParam ( ':public', $amount, PDO::PARAM_BOOL );
+	$stmt->bindParam ( ':owner', $amount, PDO::PARAM_INT );
+	$stmt->bindParam ( ':image', $amount, PDO::PARAM_LOB );
+	return $stmt->execute();
 }
 ?>
