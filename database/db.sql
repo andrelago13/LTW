@@ -27,8 +27,7 @@ CREATE TABLE Event
   description VARCHAR NOT NULL,
   date DATETIME NOT NULL,
   public BOOLEAN NOT NULL,
-  owner INTEGER REFERENCES User(id),
-  image BLOB
+  owner INTEGER REFERENCES User(id)
 );
 
 DROP TABLE IF EXISTS EventRegistration;
@@ -77,8 +76,7 @@ DROP TABLE IF EXISTS Photo;
 CREATE TABLE Photo
 (
   id INTEGER PRIMARY KEY,
-  idAlbum INTEGER REFERENCES Album(id),
-  image BLOB NOT NULL
+  idAlbum INTEGER REFERENCES Album(id)
 );
 
 INSERT INTO EventType (id, name) VALUES (1, 'Party');

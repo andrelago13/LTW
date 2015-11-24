@@ -124,17 +124,18 @@ function registerInEvent($idUser, $idEvent) {
 	$stmt->bindParam ( ':user', $idUser, PDO::PARAM_INT );
 	$stmt->execute ();
 }
-function createEvent($type, $name, $description, $date, $public, $owner, $image) {
+function createEvent($type, $name, $description, $date, $public, $owner) {
 	global $db;
-	$query = "INSERT INTO Event (type, name, description, date, public, owner, image) VALUES (:type, :name, :description, :date, :public, :owner, :image)";
+	echo $type . $name . $description . $date . $public . $owner; 
+	$query = "INSERT INTO Event (type, name, description, date, public, owner) VALUES (:type, :name, :description, :date, :public, :owner)";
 	$stmt = $db->prepare ( $query );
 	$stmt->bindParam ( ':type', $idEvent, PDO::PARAM_INT );
 	$stmt->bindParam ( ':name', $amount, PDO::PARAM_STR );
-	$stmt->bindParam ( ':description', $amount, PDO::PARAM_STR );
-	$stmt->bindParam ( ':date', $amount, PDO::PARAM_STR );
-	$stmt->bindParam ( ':public', $amount, PDO::PARAM_BOOL );
-	$stmt->bindParam ( ':owner', $amount, PDO::PARAM_INT );
-	$stmt->bindParam ( ':image', $amount, PDO::PARAM_LOB );
-	return $stmt->execute();
+	$stmt->bindParam ( ':description', $description, PDO::PARAM_STR );
+	$stmt->bindParam ( ':date', $date, PDO::PARAM_STR );
+	$stmt->bindParam ( ':public', $public, PDO::PARAM_BOOL );
+	$stmt->bindParam ( ':owner', $owner, PDO::PARAM_INT );
+	if (!$stmt->execute()) return false;
+	return $db->lastInsertId();
 }
 ?>

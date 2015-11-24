@@ -11,27 +11,27 @@ require_once (INCLUDES_PATH . "/authentication.php");
 <link rel="stylesheet" href="styles/style.css" />
 </head>
 <body>
-	<header id="pagetop" />
-	<h1 id="title">Event Manager</h1>
-	<nav>
-		<ul id="menuoptions">
+	<header id="pagetop">
+		<h1 id="title">Event Manager</h1>
+		<nav>
+			<ul id="menuoptions">
 			<?php
 			if (isUserLoggedIn ()) {
 				?>
-			<a href="#"><li>My events</li></a>
-			<a href="create_event.php"><li>Create event</li></a>
-			<a href="#"><li>Search events</li></a>
-			<a href="logout.php"><li>Logout</li></a>
+			<li><a href="#">My events</a></li>
+				<li><a href="create_event.php">Create event</a></li>
+				<li><a href="#">Search events</a></li>
+				<li><a href="logout.php">Logout</a></li>
 			<?php
 			} else {
 				?>
 			<a href="login.php"><li>Login</li></a>
-			<a href="register.php"><li>Register</li></a>
+				<a href="register.php"><li>Register</li></a>
 				<?php
 			}
 			?>
 		</ul>
-	</nav>
+		</nav>
 	</header>
 <?php
 ?>
