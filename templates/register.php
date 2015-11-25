@@ -21,6 +21,10 @@ require_once (INCLUDES_PATH . "/authentication.php");
 	<label for="password">Password:</label> <input type="password"
 		name="password" id="password">
 </div>
+<div class="password">
+	<label for="password">Confirm password:</label> <input type="password"
+		id="confirm_password">
+</div>
 <div class="submit_btn">
 	<button type="submit">Submit</button>
 </div>
