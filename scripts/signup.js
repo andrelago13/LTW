@@ -59,7 +59,7 @@ function test_name(name) {
 		return "Name too large, maximum 100 chars.";
 	}
 
-	var regex = /^\b[A-Z]([A-Z]|[a-z]|([A-Z]|[a-z])+\'([A-Z]|[a-z])+| )*\b$/; // FIXME isto não aceita acentos
+	var regex = /^\b[A-ZÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ]([A-ZÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ]|[a-záàâãéèêíïóôõöúçñ]|([A-ZÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ]|[a-záàâãéèêíïóôõöúçñ])+\'([A-ZÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ]|[a-záàâãéèêíïóôõöúçñ])+| )*\b$/;
 	if(!regex.test(name)) {
 		return "Invalid name";
 	}
@@ -92,7 +92,7 @@ function test_email(email) {
 		return "Email too large, maximum 254 chars.";
 	}
 
-	var regex = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[a-z]{2,}$/;
+	var regex = /^[A-z0-9._%+-]+@[A-z0-9.-]+\.[a-z]{2,}$/;
 	if(!regex.test(email)) {
 		return "Invalid email.";
 	}
