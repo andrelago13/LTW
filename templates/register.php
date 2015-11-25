@@ -29,3 +29,5 @@ require_once (INCLUDES_PATH . "/authentication.php");
 	</div>
 	<button id="submit" type="submit">Submit</button>
 </form>
+
+<script src="scripts/signup.js"></script>
