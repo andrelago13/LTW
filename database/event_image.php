@@ -6,7 +6,7 @@ if (! isset ( $_GET ["id"] )) {
 	echo "Missing event ID.";
 } else {
 	$event = getEvent ( $_GET ["id"] );
-	if ($event) {
+	if ($event && !@is_null($event["imagePath"])) {
 		header ( 'Location: ../' . $event ['imagePath'] );
 		die ();
 	} else {
