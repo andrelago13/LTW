@@ -92,7 +92,7 @@ function test_email(email) {
 		return "Email too large, maximum 254 chars.";
 	}
 
-	var regex = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/;
+	var regex = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[a-z]{2,}$/;
 	if(!regex.test(email)) {
 		return "Invalid email.";
 	}
