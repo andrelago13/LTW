@@ -126,16 +126,26 @@ function registerInEvent($idUser, $idEvent) {
 }
 function createEvent($type, $name, $description, $date, $public, $owner) {
 	global $db;
-	echo $type . $name . $description . $date . $public . $owner; 
 	$query = "INSERT INTO Event (type, name, description, date, public, owner) VALUES (:type, :name, :description, :date, :public, :owner)";
 	$stmt = $db->prepare ( $query );
-	$stmt->bindParam ( ':type', $idEvent, PDO::PARAM_INT );
-	$stmt->bindParam ( ':name', $amount, PDO::PARAM_STR );
+	$stmt->bindParam ( ':type', $type, PDO::PARAM_INT );
+	$stmt->bindParam ( ':name', $name, PDO::PARAM_STR );
 	$stmt->bindParam ( ':description', $description, PDO::PARAM_STR );
 	$stmt->bindParam ( ':date', $date, PDO::PARAM_STR );
 	$stmt->bindParam ( ':public', $public, PDO::PARAM_BOOL );
 	$stmt->bindParam ( ':owner', $owner, PDO::PARAM_INT );
 	if (!$stmt->execute()) return false;
-	return $db->lastInsertId();
+	$idEvent = $db->lastInsertId('id');
+	registerInEvent($owner, $idEvent);
+	return $idEvent;
+}
+function updateEventImage($idEvent, $imagePath) {
+	global $db;
+	$query = "UPDATE Event SET imagePath = :imagePath WHERE id = :event";
+	$stmt = $db->prepare($query);
+	$stmt->bindParam(':imagePath', $imagePath, PDO::PARAM_STR);
+	$stmt->bindParam(':event', $idEvent, PDO::PARAM_INT);
+	$stmt->execute();
+	return $stmt->rowCount() == 1;
 }
 ?>
