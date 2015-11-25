@@ -64,42 +64,42 @@ form#login_form input, form#register_form input {
     outline: none;
 }
 
-form#login_form input#username, form#register_form input#username {
+form#login_form input#username, form#register_form input#reg_username {
     background: #fff url("resources/username.png") 20px top no-repeat;
     background-size: 16px 80px;
 }
 
-form#login_form input#username:focus, form#register_form input#username:focus {
+form#login_form input#username:focus, form#register_form input#reg_username:focus {
     background: #fff url("resources/username.png") 20px bottom no-repeat;
     background-size: 16px 80px;
 }
 
-form#login_form input#password, form#register_form input#password {
+form#login_form input#password, form#register_form input#reg_password {
     background: #fff url("resources/password.png") 20px top no-repeat;
     background-size: 16px 80px;
 }
 
-form#login_form input#password:focus, form#register_form input#password:focus {
+form#login_form input#password:focus, form#register_form input#reg_password:focus {
     background: #fff url("resources/password.png") 20px bottom no-repeat;
     background-size: 16px 80px;
 }
 
-form#register_form input#email {
+form#register_form input#reg_email {
     background: #fff url("resources/email.png") 20px top no-repeat;
     background-size: 16px 80px;
 }
 
-form#register_form input#email:focus {
+form#register_form input#reg_email:focus {
     background: #fff url("resources/email.png") 20px bottom no-repeat;
     background-size: 16px 80px;
 }
 
-form#register_form input#name {
+form#register_form input#reg_name {
     background: #fff url("resources/name.png") 20px top no-repeat;
     background-size: 16px 80px;
 }
 
-form#register_form input#name:focus {
+form#register_form input#reg_name:focus {
     background: #fff url("resources/name.png") 20px bottom no-repeat;
     background-size: 16px 80px;
 }
