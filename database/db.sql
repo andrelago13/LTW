@@ -81,6 +81,33 @@ CREATE TABLE Photo
   path VARCHAR NOT NULL
 );
 
+DROP TABLE IF EXISTS EventSearch;
+CREATE VIRTUAL TABLE EventSearch USING fts4(id, name, description);
+
+DROP TRIGGER IF EXISTS EventUpdate;
+CREATE TRIGGER EventUpdate
+	AFTER Update ON Event
+	FOR EACH ROW
+	BEGIN
+		UPDATE EventSearch SET name = NEW.name, description = NEW.description WHERE id = NEW.id;
+	END;
+
+DROP TRIGGER IF EXISTS EventInsert;
+CREATE TRIGGER EventInsert
+	AFTER INSERT ON Event
+	FOR EACH ROW
+	BEGIN
+		INSERT INTO EventSearch (id, name, description) VALUES (NEW.id, NEW.name, NEW.description);
+	END;
+	
+DROP TRIGGER IF EXISTS EventDelete;
+CREATE TRIGGER EventDelete
+	AFTER DELETE ON Event
+	FOR EACH ROW
+	BEGIN
+		DELETE FROM EventSearch WHERE id = DELETED.id;
+	END;
+
 INSERT INTO EventType (id, name) VALUES (1, 'Party');
 INSERT INTO EventType (id, name) VALUES (2, 'Concert');
 INSERT INTO EventType (id, name) VALUES (3, 'Conference');
