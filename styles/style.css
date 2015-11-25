@@ -73,49 +73,50 @@ form#login_form input, form#register_form input {
     outline: none;
 }
 
-form#login_form input#username, form#register_form input#reg_username {
+form#login_form input:active, form#login_form input:focus, form#register_form input:active, form#register_form input:focus {
+    border: 1px solid #716def;
+}
+
+form#login_form input#custom_us, form#register_form input#custom_us {
     background: #fff url("resources/username.png") 20px top no-repeat;
     background-size: 16px 80px;
 }
 
-form#login_form input#username:focus, form#register_form input#reg_username:focus {
+form#login_form input#custom_us:focus, form#register_form input#custom_us:focus {
     background: #fff url("resources/username.png") 20px bottom no-repeat;
     background-size: 16px 80px;
 }
 
-form#login_form input#password, form#register_form input#reg_password {
+form#login_form input#custom_pw, form#register_form input#custom_pw, form#register_form input#custom_cpw {
     background: #fff url("resources/password.png") 20px top no-repeat;
     background-size: 16px 80px;
 }
 
-form#login_form input#password:focus, form#register_form input#reg_password:focus {
+form#login_form input#custom_pw:focus, form#register_form input#custom_pw:focus, form#register_form input#custom_cpw:focus {
     background: #fff url("resources/password.png") 20px bottom no-repeat;
     background-size: 16px 80px;
 }
 
-form#register_form input#reg_email {
+form#register_form input#custom_em {
     background: #fff url("resources/email.png") 20px top no-repeat;
     background-size: 16px 80px;
 }
 
-form#register_form input#reg_email:focus {
+form#register_form input#custom_em:focus {
     background: #fff url("resources/email.png") 20px bottom no-repeat;
     background-size: 16px 80px;
 }
 
-form#register_form input#reg_name {
+form#register_form input#custom_nm {
     background: #fff url("resources/name.png") 20px top no-repeat;
     background-size: 16px 80px;
 }
 
-form#register_form input#reg_name:focus {
+form#register_form input#custom_nm:focus {
     background: #fff url("resources/name.png") 20px bottom no-repeat;
     background-size: 16px 80px;
 }
 
-form#login_form input:active, form#login_form input:focus, form#register_form input:active, form#register_form input:focus {
-    border: 1px solid #716def;
-}
 form#login_form button#submit, form#register_form button#submit {
     width: 30%;
     display: block;
@@ -139,10 +140,9 @@ form#login_form button#submit:hover, form#register_form button#submit:hover {
     background: #716def;
 }
 
-input:-webkit-autofill {
-    -webkit-box-shadow: 0 0 0px 1000px rgba(1,0,0,0.1) inset;
-}
-
+/*input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px rgba(1,0,0,0.01) inset;
+}*/
 
 /*//////////////////////////////////////////////////////////////////////////////
  									EVENT
@@ -235,16 +235,13 @@ header#pagetop ul#menuoptions a li {
 	border-style: solid;
 	border-color: grey;
 	box-shadow: 8px 8px 6px rgba(0,0,0,.1);
+	text-decoration: none;
+	color: white;
+	font-family: Gadget, sans-serif;
 }
 
 header#pagetop ul#menuoptions li:hover {
 	background: #5F59FF;
-}
-
-header#pagetop ul#menuoptions a li {	
-	text-decoration: none;
-	color: white;
-	font-family: Gadget, sans-serif;
 }
 
 /*//////////////////////////////////////////////////////////////////////////////
