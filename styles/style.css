@@ -241,10 +241,10 @@ header#pagetop ul#menuoptions li:hover {
 	background: #5F59FF;
 }
 
-header#pagetop ul#menuoptions a li {	
+header#pagetop ul#menuoptions li a {	
 	text-decoration: none;
 	color: white;
-	font-family: Gadget, sans-serif;
+	font-family: 'Raleway', sans-serif;
 }
 
 /*//////////////////////////////////////////////////////////////////////////////

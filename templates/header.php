@@ -9,6 +9,7 @@ require_once (INCLUDES_PATH . "/authentication.php");
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Event Manager</title>
 <link rel="stylesheet" href="styles/style.css" />
+<link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 </head>
 <body>
