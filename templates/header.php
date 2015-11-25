@@ -30,7 +30,7 @@ require_once (INCLUDES_PATH . "/authentication.php");
 			} else {
 				?>
 			<li><a href="login.php">Login</a></li>
-				<li><a href="login.php">Register</a></li>
+				<li><a href="register.php">Register</a></li>
 				<?php
 			}
 			?>
