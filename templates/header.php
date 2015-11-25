@@ -20,22 +20,21 @@ require_once (INCLUDES_PATH . "/authentication.php");
 		<nav>
 			<ul id="menuoptions">
 			<?php
-				if (isUserLoggedIn ()) {
-			?>
-					<li><a href="#">My events</a></li>
-					<li><a href="create_event.php">Create event</a></li>
-					<li><a href="#">Search events</a></li>
-					<li><a href="logout.php">Logout</a></li>
+			if (isUserLoggedIn ()) {
+				?>
+			<li><a href="#">My events</a></li>
+				<li><a href="create_event.php">Create event</a></li>
+				<li><a href="#">Search events</a></li>
+				<li><a href="logout.php">Logout</a></li>
 			<?php
-				} else {
+			} else {
+				?>
+			<li><a href="login.php">Login</a></li>
+				<li><a href="register.php">Register</a></li>
+				<?php
+			}
 			?>
-					<li><a href="login.php">Login</a></li>
-					<li><a href="login.php">Register</a></li>
-			<?php
-				}
-			?>
-			
-			</ul>
+		</ul>
 		</nav>
 	</header>
 <?php
