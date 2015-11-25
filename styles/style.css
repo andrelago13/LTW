@@ -225,7 +225,7 @@ header#pagetop ul#menuoptions {
 	padding: 0 0 0.5rem 0;
 }
 
-header#pagetop ul#menuoptions a li {	
+header#pagetop ul#menuoptions li {	
 	display: inline;
 	margin: 0;
 	background: #2720E6;
