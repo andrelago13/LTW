@@ -12,7 +12,6 @@ require_once (INCLUDES_PATH . "/authentication.php");
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 </head>
 <body>
-<button type="button" id="testbtn">Test button</button>
 	<header id="pagetop">
 		<h1 id="title">Event Manager</h1>
 		<nav>
