@@ -13,23 +13,26 @@ $(document).ready(function() {
 	emailField.keyup(function() {
 		validateField(emailField, function() {
 			return test_email(emailField.val()).length === 0;
-		})
-	})
+		});
+	});
 	usernameField.keyup(function() {
 		validateField(usernameField, function() {
 			return test_username(usernameField.val()).length === 0;
-		})
-	})
+		});
+	});
 	passwordField.keyup(function() {
+		validateField(passwordField, function() {
+			return passwordField.val().length >= 6 && passwordField.val().length <= 512;
+		});
 		validateField(confirmPasswordField, function() {
 			return confirmPassword(passwordField, confirmPasswordField);
-		})
-	})
+		});
+	});
 	confirmPasswordField.keyup(function() {
 		validateField(confirmPasswordField, function() {
 			return confirmPassword(passwordField, confirmPasswordField);
-		})
-	})
+		});
+	});
 });
 
 function confirmPassword(passwordField, confirmPasswordField) {
