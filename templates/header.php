@@ -10,10 +10,9 @@ require_once (INCLUDES_PATH . "/authentication.php");
 <title>Event Manager</title>
 <link rel="stylesheet" href="styles/style.css" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js"></script>
-<script src="scripts/main.js"></script>
 </head>
 <body>
+<button type="button" id="testbtn">Test button</button>
 	<header id="pagetop">
 		<h1 id="title">Event Manager</h1>
 		<nav>
