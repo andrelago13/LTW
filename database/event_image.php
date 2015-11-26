@@ -1,4 +1,5 @@
 <?php
+define("NO_SESSION_REGENERATION", true);
 require_once (__DIR__ . "/../config.php");
 require_once (DATABASE_PATH . "/connection.php");
 require_once (DATABASE_PATH . "/events.php");

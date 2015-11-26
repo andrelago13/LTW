@@ -12,14 +12,9 @@ function showEventBrief($idEvent) {
 	
 	$event = getEvent ( $idEvent );
 	echo '<div class="event_brief" id="event' . $idEvent . '">';
-	echo '<h1>' . htmlspecialchars ( $event ["name"] ) . '</h1>';
+	echo '<h1 class="name">' . htmlspecialchars ( $event ["name"] ) . '</h1>';
 	echo '<img src="database/event_image.php?id=' . $idEvent . '" alt="' . htmlspecialchars ( $event ["name"] ) . '" width="64" height="64" />';
-	
-	$desc = htmlspecialchars ( $event ["description"] );
-	if (strlen ( $desc ) > 50)
-		$desc = substr ( $desc, 0, strrpos ( substr ( $desc, 0, 50 ), ' ' ) ) . '...';
-	echo '<p>' . $desc . '</p>';
-	
+	echo '<p class="description">' . htmlspecialchars ( $event ["description"] ) . '</p>';
 	echo '<datetime>' . htmlspecialchars ( $event ["date"] ) . '</datetime>';
 	echo '</div>';
 }
