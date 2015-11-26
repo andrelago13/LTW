@@ -119,7 +119,7 @@ form#register_form div.form_row:hover, form#login_form div.form_row:hover {
 form#register_form div.form_row input, form#login_form div.form_row input, form#register_form div.form_row input, form#login_form div.form_row input.valid {
 	display: inline-block;
 		
-	width: 80%;
+	width: 70%;
     height: 42px;
     box-sizing: border-box;
     border-radius: 0 5px 5px 0;
@@ -137,8 +137,38 @@ form#register_form div.form_row input, form#login_form div.form_row input, form#
 	TODO		TODO		TODO		TODO		TODO		TODO		TODO		TODO		TODO		TODO		TODO		TODO
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
 
-form#register_form div.form_row input, form#login_form div.form_row input, form#register_form div.form_row input, form#login_form div.form_row input.error {
-	background: red;
+form#register_form div.form_row div.validity {
+	display: inline-block;
+	
+	background: url("resources/images/neutral.png");
+    background-size: contain;
+    background-position: center center;
+    background-repeat: no-repeat;
+	
+	width: 8%;
+    height: 42px;
+    box-sizing: border-box;
+    border: 0 solid #ccc;
+    font-size: 14px;
+    outline: none;
+    color: rgba(1, 1, 1, 0);
+    
+    padding: 12px 10px 5px 0;
+    margin: 0 0 1rem 0.2rem;
+}
+
+form#register_form div.form_row input.valid + div.validity {
+	background: url("resources/images/valid.png");
+    background-size: contain;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+form#register_form div.form_row input.error + div.validity {
+	background: url("resources/images/error.png");
+    background-size: contain;
+    background-position: center center;
+    background-repeat: no-repeat;
 }
 
 form#register_form div.form_row input:focus, form#login_form div.form_row input:focus {
