@@ -133,6 +133,14 @@ form#register_form div.form_row input, form#login_form div.form_row input, form#
     margin: 0;
 }
 
+/*////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	TODO		TODO		TODO		TODO		TODO		TODO		TODO		TODO		TODO		TODO		TODO		TODO
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+
+form#register_form div.form_row input, form#login_form div.form_row input, form#register_form div.form_row input, form#login_form div.form_row input.error {
+	background: red;
+}
+
 form#register_form div.form_row input:focus, form#login_form div.form_row input:focus {
     color: blue;
 }
