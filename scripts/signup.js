@@ -59,7 +59,8 @@ function test_name(name) {
 		return "Name too large, maximum 100 chars.";
 	}
 
-	var regex = /^\b[A-ZÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ]([A-ZÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ]|[a-záàâãéèêíïóôõöúçñ]|([A-ZÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ]|[a-záàâãéèêíïóôõöúçñ])+\'([A-ZÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ]|[a-záàâãéèêíïóôõöúçñ])+| )*\b$/;
+	var regex = /^\b([A-Z]|[\u00C0-\u00DE])(([A-Z]|[\u00C0-\u00DE])|([a-z]|[\u00DF-\u00FF])|(([A-Z]|[\u00C0-\u00DE])|([a-z]|[\u00DF-\u00FF]))+\'(([A-Z]|[\u00C0-\u00DE])|([a-z]|[\u00DF-\u00FF]))+| )*\b$/; // FIXME isto não aceita acentos
+	
 	if(!regex.test(name)) {
 		return "Invalid name";
 	}
@@ -75,8 +76,9 @@ function test_username(username) {
 		return "No username was provided.";
 
 	var regex = /^([A-z0-9]|_|-|\.){3,30}$/;
-	if(!regex.test(username))
+	if(!regex.test(username)) {
 		return "Invalid username.";
+	}
 
 	return '';
 }

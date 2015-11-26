@@ -116,7 +116,7 @@ form#register_form div.form_row:hover, form#login_form div.form_row:hover {
 	border-color: #716def;
 }
 
-form#register_form div.form_row input, form#login_form div.form_row input {
+form#register_form div.form_row input, form#login_form div.form_row input, form#register_form div.form_row input, form#login_form div.form_row input.valid {
 	display: inline-block;
 		
 	width: 80%;

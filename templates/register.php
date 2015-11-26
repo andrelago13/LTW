@@ -9,7 +9,7 @@ require_once (INCLUDES_PATH . "/authentication.php");
 	
 	<div class="form_row" id="reg_name_row">
 		<div class="form_row_icon" id="reg_name_icon">test</div><!-- Este comentário mantém os elementos em linha
-		--><input class="register_name" id="reg_name" name="name" type="text" value="" placeholder="Name" />
+		--><input id="reg_name" name="name" type="text" value="" placeholder="Name" />
 	</div>
 	<div class="form_row" id="reg_email_row">
 		<div class="form_row_icon" id="reg_email_icon">test</div><!--
