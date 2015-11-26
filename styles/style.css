@@ -133,9 +133,9 @@ form#register_form div.form_row input, form#login_form div.form_row input, form#
     margin: 0;
 }
 
-/*////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	TODO		TODO		TODO		TODO		TODO		TODO		TODO		TODO		TODO		TODO		TODO		TODO
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+form#register_form div.form_row input:focus, form#login_form div.form_row input:focus {
+    color: blue;
+}
 
 form#register_form div.form_row div.validity {
 	display: inline-block;
@@ -169,10 +169,6 @@ form#register_form div.form_row input.error + div.validity {
     background-size: contain;
     background-position: center center;
     background-repeat: no-repeat;
-}
-
-form#register_form div.form_row input:focus, form#login_form div.form_row input:focus {
-    color: blue;
 }
 
 /*	Name row	*/
