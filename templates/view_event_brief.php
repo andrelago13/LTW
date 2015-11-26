@@ -11,7 +11,7 @@ function showEventBrief($idEvent) {
 		throw new RuntimeException ( "You do not have access to this event." );
 	
 	$event = getEvent ( $idEvent );
-	echo '<div class="event_brief" id="event"' . $idEvent . '">';
+	echo '<div class="event_brief" id="event' . $idEvent . '">';
 	echo '<h1>' . htmlspecialchars ( $event ["name"] ) . '</h1>';
 	echo '<img src="database/event_image.php?id=' . $idEvent . '" alt="' . htmlspecialchars ( $event ["name"] ) . '" width="64" height="64" />';
 	

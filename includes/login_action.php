@@ -6,7 +6,7 @@ require_once (TEMPLATES_PATH . "/utils.php");
 if (isset ( $_POST ['username'] ) && isset ( $_POST ['password'] )) {
 	try {
 		login ( $_POST ['username'], $_POST ['password'] );
-		header ( "Location: index.php" );
+		header ( "Location: my_events.php" );
 		die ();
 	} catch ( Exception $e ) {
 		showError($e->getMessage());
