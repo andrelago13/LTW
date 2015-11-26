@@ -24,7 +24,6 @@ require_once (INCLUDES_PATH . "/authentication.php");
 				?>
 			<li><a href="#">My events</a></li>
 				<li><a href="create_event.php">Create event</a></li>
-				<li><a href="#">Search events</a></li>
 				<li><a href="logout.php">Logout</a></li>
 			<?php
 			} else {
@@ -36,6 +35,16 @@ require_once (INCLUDES_PATH . "/authentication.php");
 			?>
 		</ul>
 		</nav>
+		<?php
+		if (isUserLoggedIn ()) {
+			?>
+		<form id="search" action="search_event.php">
+			<input type="text" name="searchtext" placeholder="Search event" />
+			<input type="submit" />
+		</form>
+			<?php
+		}
+		?>
 	</header>
 <?php
 ?>
