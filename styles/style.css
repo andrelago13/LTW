@@ -76,7 +76,6 @@ form#login_form h1#title, form#register_form h1#title {
     text-transform: uppercase;
     margin-top: 0;
     margin-bottom: 20px;
-    padding: 0 auto;
     margin: 0 auto 1rem auto;
 }
 
