@@ -319,7 +319,7 @@ header#pagetop ul#menuoptions li {
 header#pagetop ul#menuoptions li a {
 	text-decoration: none;
 	color: white;
-	font-family: 'Raleway', sans-serif;
+	font-family: 'Raleway', Helvetica, sans-serif;
 }
 
 header#pagetop ul#menuoptions li:hover {

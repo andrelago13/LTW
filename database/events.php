@@ -74,6 +74,17 @@ function getEventsByOwner($idOwner, $amount = -1, $offset = 0) {
 	$stmt->execute ();
 	return $stmt->fetchAll ();
 }
+function searchEvents($searchQuery, $amount = -1, $offset = 0) {
+	global $db;
+	$query = "SELECT * FROM EventSearch WHERE name MATCH :query LIMIT :amount OFFSET :offset";
+	$stmt = $db->prepare ( $query );
+	$searchQuery2 = 'name:'.$searchQuery.' OR description:'.$searchQuery;
+	$stmt->bindParam ( ':query', $searchQuery2, PDO::PARAM_STR );
+	$stmt->bindParam ( ':amount', $amount, PDO::PARAM_INT );
+	$stmt->bindParam ( ':offset', $offset, PDO::PARAM_INT );
+	$stmt->execute ();
+	return $stmt->fetchAll ();
+}
 function getRegisteredEvents($idUser, $amount = -1, $offset = 0) {
 	global $db;
 	$query = "SELECT * FROM Event INNER JOIN EventRegistration ON Event.id = EventRegistration.idEvent
@@ -102,9 +113,9 @@ function getEventRegistrations($idEvent, $amount = -1, $offset = 0) {
 function getEventTypes() {
 	global $db;
 	$query = "SELECT * FROM EventType";
-	$stmt = $db->prepare($query);
-	$stmt->execute();
-	return $stmt->fetchAll();
+	$stmt = $db->prepare ( $query );
+	$stmt->execute ();
+	return $stmt->fetchAll ();
 }
 function registerInEvent($idUser, $idEvent) {
 	global $db;
@@ -134,18 +145,19 @@ function createEvent($type, $name, $description, $date, $public, $owner) {
 	$stmt->bindParam ( ':date', $date, PDO::PARAM_STR );
 	$stmt->bindParam ( ':public', $public, PDO::PARAM_BOOL );
 	$stmt->bindParam ( ':owner', $owner, PDO::PARAM_INT );
-	if (!$stmt->execute()) return false;
-	$idEvent = $db->lastInsertId('id');
-	registerInEvent($owner, $idEvent);
+	if (! $stmt->execute ())
+		return false;
+	$idEvent = $db->lastInsertId ( 'id' );
+	registerInEvent ( $owner, $idEvent );
 	return $idEvent;
 }
 function updateEventImage($idEvent, $imagePath) {
 	global $db;
 	$query = "UPDATE Event SET imagePath = :imagePath WHERE id = :event";
-	$stmt = $db->prepare($query);
-	$stmt->bindParam(':imagePath', $imagePath, PDO::PARAM_STR);
-	$stmt->bindParam(':event', $idEvent, PDO::PARAM_INT);
-	$stmt->execute();
-	return $stmt->rowCount() == 1;
+	$stmt = $db->prepare ( $query );
+	$stmt->bindParam ( ':imagePath', $imagePath, PDO::PARAM_STR );
+	$stmt->bindParam ( ':event', $idEvent, PDO::PARAM_INT );
+	$stmt->execute ();
+	return $stmt->rowCount () == 1;
 }
 ?>
