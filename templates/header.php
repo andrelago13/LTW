@@ -22,7 +22,7 @@ require_once (INCLUDES_PATH . "/authentication.php");
 			<?php
 			if (isUserLoggedIn ()) {
 				?>
-			<li><a href="#">My events</a></li>
+			<li><a href="my_events.php">My events</a></li>
 				<li><a href="create_event.php">Create event</a></li>
 				<li><a href="logout.php">Logout</a></li>
 			<?php

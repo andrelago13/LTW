@@ -45,4 +45,7 @@ function login($username, $password) {
 function isUserLoggedIn() {
 	return isset($_SESSION["userid"]);
 }
+function getUserID() {
+	return $_SESSION["userid"];
+}
 ?>
