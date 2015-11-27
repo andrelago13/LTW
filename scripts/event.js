@@ -1,5 +1,10 @@
 $(document).ready(function() {
 	eventBriefEllipsis();
+	$(".event #title + a.edit").click(function() {
+		$(this).hide();
+		editField($(this).prev(), "title");
+		return false;
+	})
 });
 
 function eventBriefEllipsis() {
@@ -29,5 +34,16 @@ function eventBriefEllipsis() {
 			$(this).html("less");
 		}
 		return false;
+	});
+}
+
+function editField(field, name) {
+	var value = field.html();
+
+	field.hide();
+	field.after('<input class="edit ' + name + '" name="' + name + '" type="text" value="' + value + '" />');
+	field.parent().on("keyup", "input.edit." + name, function (e) {
+		if (event.keyCode == 13 && !event.shiftKey)
+			alert("a");
 	});
 }
