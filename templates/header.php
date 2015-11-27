@@ -39,8 +39,8 @@ require_once (INCLUDES_PATH . "/authentication.php");
 		if (isUserLoggedIn ()) {
 			?>
 		<form id="search" action="search_events.php" method="get">
-			<input type="text" name="query" placeholder="Search event"<?php if (isset($_GET["query"])) echo ' value="' . $_GET['query'] . '"'; ?> /> <input
-				type="submit" value=">" />
+			<input type="text" name="query" placeholder="Search event"<?php if (isset($_GET["query"])) echo ' value="' . $_GET['query'] . '"'; ?> />
+			<button id="submit" type="submit">Go!</button>
 		</form>
 			<?php
 		}

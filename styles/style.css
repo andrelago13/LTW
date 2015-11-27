@@ -306,6 +306,7 @@ header#pagetop {
 
 header#pagetop nav {
 	padding: 0 0 0.3rem 0;
+	display: inline-block;
 }
 
 header#pagetop h1#title {
@@ -327,6 +328,7 @@ header#pagetop ul#menuoptions {
 	padding: 0;
 	list-style-type: none;
 	padding: 0 0 0.5rem 0;
+	display: inline-block;
 }
 
 header#pagetop ul#menuoptions li {
@@ -349,6 +351,46 @@ header#pagetop ul#menuoptions li a {
 
 header#pagetop ul#menuoptions li:hover {
 	background: #5F59FF;
+}
+
+header#pagetop form#search {
+	display: inline-block;
+    float: right;
+    margin: 0 1.3rem 0 0;
+}
+
+header#pagetop form#search input {
+	display: inline-block;
+		
+    box-sizing: border-box;
+    border-radius: 5px;
+    border-style: solid;
+    border-color: #ccc;
+    border-width: 1px;
+    font-size: 18px;
+    outline: none;
+    padding: 0 0 0 0.5rem;
+}
+
+header#pagetop form#search button#submit {
+    display: inline-block;
+    border-style: solid;
+    border-color: rgba(1, 1, 1, 0);
+    width: 3rem;
+    height: 3rem;	
+    
+    background: url("resources/images/search.png");
+    background-size: contain;
+    background-position: center center;
+    background-repeat: no-repeat;
+    
+    color: rgba(1, 1, 1, 0);
+    
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 14px;
+    outline: none;
+    cursor: pointer;
 }
 
 /*//////////////////////////////////////////////////////////////////////////////
