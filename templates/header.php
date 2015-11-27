@@ -1,6 +1,7 @@
 <?php
 require_once (__DIR__ . "/../config.php");
 require_once (INCLUDES_PATH . "/authentication.php");
+require_once (INCLUDES_PATH . "/menu.php");
 ?>
 
 <!DOCTYPE html>
@@ -20,26 +21,21 @@ require_once (INCLUDES_PATH . "/authentication.php");
 		<nav>
 			<ul id="menuoptions">
 			<?php
-			if (isUserLoggedIn ()) {
-				?>
-			<li><a href="#">My events</a></li>
-				<li><a href="create_event.php">Create event</a></li>
-				<li><a href="logout.php">Logout</a></li>
-			<?php
-			} else {
-				?>
-			<li><a href="login.php">Login</a></li>
-				<li><a href="register.php">Register</a></li>
-				<?php
+			$menuPages = getMenuPages();
+			foreach($menuPages as $url => $name) {
+				echo '<li';
+				if (basename($_SERVER['PHP_SELF']) === $url) echo ' class="active"';
+				echo '><a href="' . $url . '">' . $name . '</a></li>';
 			}
-			?>
+				?>
 		</ul>
 		</nav>
 		<?php
 		if (isUserLoggedIn ()) {
 			?>
 		<form id="search" action="search_events.php" method="get">
-			<input type="text" name="query" placeholder="Search event"<?php if (isset($_GET["query"])) echo ' value="' . $_GET['query'] . '"'; ?> />
+			<input type="text" name="query" placeholder="Search event"
+				<?php if (isset($_GET["query"])) echo ' value="' . $_GET['query'] . '"'; ?> />
 			<button id="submit" type="submit">Go!</button>
 		</form>
 			<?php
