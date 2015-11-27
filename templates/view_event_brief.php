@@ -13,9 +13,9 @@ function showEventBrief($idEvent) {
 	$event = getEvent ( $idEvent );
 	echo '<div class="event_brief" id="event' . $idEvent . '">';
 	
-	echo '<div class="name">';
-	echo '<h2>' . htmlspecialchars ( $event ["name"] ) . '</h1>';
-	echo '</div>';
+	echo '<div class="name"><a href="view_event.php?id=' . $idEvent . '">';
+	echo '<h2>' . htmlspecialchars ( $event ["name"] ) . '</h2>';
+	echo '</a></div>';
 	
 	echo '<img src="database/event_image.php?id=' . $idEvent . '" alt="' . htmlspecialchars ( $event ["name"] ) . '" width="64" height="64" />';
 	

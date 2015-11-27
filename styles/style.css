@@ -385,6 +385,12 @@ div.event_brief div.name{
 	margin: 1rem auto 1rem auto;
 }
 
+div.event_brief div.name a {
+	color: black;
+	font-family: "Montserrat Regular";
+	font-size: 20px;
+}
+
 div.event_brief img {
 	float: left;
 	vertical-align: top;
