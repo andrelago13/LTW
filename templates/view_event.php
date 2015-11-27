@@ -19,6 +19,7 @@ try {
 		$idEvent = $_GET ["id"];
 		$event = getEvent ( $idEvent );
 		echo '<div class="event" id="event"' . $idEvent . '">';
+		echo '<a href="" class="delete" id="delete_event"><img src="" alt="Delete Event" /></a>';
 		echo '<h1 id="title">' . htmlspecialchars ( $event ["name"] ) . '</h1>';
 		echo '<a href="" class="edit" id="edit_title"><img src="images/edit_field.png" alt="Edit" /></a>';
 		echo '<div class="container">';
