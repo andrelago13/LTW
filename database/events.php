@@ -176,4 +176,19 @@ function updateEventImage($idEvent, $imagePath) {
 	$stmt->execute ();
 	return $stmt->rowCount () == 1;
 }
+
+function updateEvent($name, $description, $date, $public) {
+	global $db;
+	$query = "UPDATE Event SET name = :name, description = :description, date = :date, public = :public";
+	$stmt = $db->prepare ( $query );
+	$stmt->bindParam ( ':name', $name, PDO::PARAM_STR );
+	$stmt->bindParam ( ':description', $description, PDO::PARAM_STR );
+	$stmt->bindParam ( ':date', $date, PDO::PARAM_STR );
+	$stmt->bindParam ( ':public', $public, PDO::PARAM_BOOL );
+	if (! $stmt->execute ())
+		return false;
+	$idEvent = $db->lastInsertId ( 'id' );
+	return $idEvent;
+}
+
 ?>
