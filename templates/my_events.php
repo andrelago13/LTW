@@ -18,3 +18,4 @@ try {
 }
 
 ?>
+<script src="scripts/event.js"></script>

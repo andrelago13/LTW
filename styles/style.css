@@ -1,20 +1,19 @@
 /*//////////////////////////////////////////////////////////////////////////////
  									FONTS
 //////////////////////////////////////////////////////////////////////////////*/
-
 @font-face {
-    font-family: 'Montserrat Bold';
-    src: url("resources/fonts/Montserrat-Bold.ttf"); /*URL to font*/
+	font-family: 'Montserrat Bold';
+	src: url("resources/fonts/Montserrat-Bold.ttf"); /*URL to font*/
 }
 
 @font-face {
-    font-family: 'Montserrat Regular';
-    src: url("resources/fonts/Montserrat-Regular.ttf"); /*URL to font*/
+	font-family: 'Montserrat Regular';
+	src: url("resources/fonts/Montserrat-Regular.ttf"); /*URL to font*/
 }
 
 @font-face {
-    font-family: 'SansPoster';
-    src: url("resources/fonts/SansPoster.ttf"); /*URL to font*/
+	font-family: 'SansPoster';
+	src: url("resources/fonts/SansPoster.ttf"); /*URL to font*/
 }
 
 /*//////////////////////////////////////////////////////////////////////////////
@@ -25,7 +24,7 @@ html {
 }
 
 body {
-	font-family: Helvetica, Arial, sans-serif; 
+	font-family: Helvetica, Arial, sans-serif;
 	margin: 1rem 4rem auto 4rem;
 	min-width: 900px;
 }
@@ -57,27 +56,26 @@ body {
 /*//////////////////////////////////////////////////////////////////////////////
  								LOGIN and REGISTER
 //////////////////////////////////////////////////////////////////////////////*/
-
 form#login_form, form#register_form {
-    width: 90%;
-    padding: 1.5rem 5% 1rem 5%;
-    background: #fff;
-    border-radius: 5px;
-    border-top: 5px solid #2720E6;
-    margin: 1rem auto;
+	width: 90%;
+	padding: 1.5rem 5% 1rem 5%;
+	background: #fff;
+	border-radius: 5px;
+	border-top: 5px solid #2720E6;
+	margin: 1rem auto;
 }
 
 form#login_form h1#title, form#register_form h1#title {
 	font-family: "Montserrat Regular";
 	width: 15%;
-    text-align: center;
-    color: #000;
-    font-size: 30px;
-    text-transform: uppercase;
-    margin-top: 0;
-    margin-bottom: 20px;
-    padding: 0 auto;
-    margin: 0 auto 1rem auto;
+	text-align: center;
+	color: #000;
+	font-size: 30px;
+	text-transform: uppercase;
+	margin-top: 0;
+	margin-bottom: 20px;
+	padding: 0 auto;
+	margin: 0 auto 1rem auto;
 }
 
 form#register_form div.form_row, form#login_form div.form_row {
@@ -85,175 +83,184 @@ form#register_form div.form_row, form#login_form div.form_row {
 	margin: 0 auto 0 auto;
 	padding: 0;
 	border-color: #ccc;
-    background: #fff url("resources/images/name.png") 20px top no-repeat;
-    background-size: 0px 0px;
-    background-position: center top;
+	background: #fff url("resources/images/name.png") 20px top no-repeat;
+	background-size: 0px 0px;
+	background-position: center top;
 }
 
-form#register_form div.form_row div.form_row_icon, form#login_form div.form_row div.form_row_icon {
+form#register_form div.form_row div.form_row_icon, form#login_form div.form_row div.form_row_icon
+	{
 	display: inline-block;
-	
 	background: inherit;
-    background-size: 16px 80px;
-    background-position: center top;
-	
+	background-size: 16px 80px;
+	background-position: center top;
 	width: 20%;
-    height: 42px;
-    box-sizing: border-box;
-    border-radius: 5px 0 0 5px;
-    border: 1px solid #ccc;
-    border-color: inherit;
-    border-width: 1px 0 1px 1px;
-    font-size: 14px;
-    outline: none;
-    color: rgba(1, 1, 1, 0);
-    
-    padding: 12px 10px 5px 0;
-    margin: 0 0 1rem 0;
+	height: 42px;
+	box-sizing: border-box;
+	border-radius: 5px 0 0 5px;
+	border: 1px solid #ccc;
+	border-color: inherit;
+	border-width: 1px 0 1px 1px;
+	font-size: 14px;
+	outline: none;
+	color: rgba(1, 1, 1, 0);
+	padding: 12px 10px 5px 0;
+	margin: 0 0 1rem 0;
 }
 
-form#register_form div.form_row:hover, form#login_form div.form_row:hover {
+form#register_form div.form_row:hover, form#login_form div.form_row:hover
+	{
 	border-color: #716def;
 }
 
-form#register_form div.form_row input, form#login_form div.form_row input, form#register_form div.form_row input, form#login_form div.form_row input.valid {
+form#register_form div.form_row input, form#login_form div.form_row input,
+	form#register_form div.form_row input, form#login_form div.form_row input.valid
+	{
 	display: inline-block;
-		
 	width: 70%;
-    height: 42px;
-    box-sizing: border-box;
-    border-radius: 0 5px 5px 0;
-    border-style: solid;
-    border-color: inherit;
-    border-width: 1px 1px 1px 0;
-    font-size: 14px;
-    outline: none;
-    
-    padding: 0 0 0 0.5rem;
-    margin: 0;
+	height: 42px;
+	box-sizing: border-box;
+	border-radius: 0 5px 5px 0;
+	border-style: solid;
+	border-color: inherit;
+	border-width: 1px 1px 1px 0;
+	font-size: 14px;
+	outline: none;
+	padding: 0 0 0 0.5rem;
+	margin: 0;
 }
 
-form#register_form div.form_row input:focus, form#login_form div.form_row input:focus {
-    color: blue;
+form#register_form div.form_row input:focus, form#login_form div.form_row input:focus
+	{
+	color: blue;
 }
 
 form#register_form div.form_row div.validity {
 	display: inline-block;
-	
 	background: url("resources/images/neutral.png");
-    background-size: contain;
-    background-position: center center;
-    background-repeat: no-repeat;
-	
+	background-size: contain;
+	background-position: center center;
+	background-repeat: no-repeat;
 	width: 8%;
-    height: 42px;
-    box-sizing: border-box;
-    border: 0 solid #ccc;
-    font-size: 14px;
-    outline: none;
-    color: rgba(1, 1, 1, 0);
-    
-    padding: 12px 10px 5px 0;
-    margin: 0 0 1rem 0.2rem;
+	height: 42px;
+	box-sizing: border-box;
+	border: 0 solid #ccc;
+	font-size: 14px;
+	outline: none;
+	color: rgba(1, 1, 1, 0);
+	padding: 12px 10px 5px 0;
+	margin: 0 0 1rem 0.2rem;
 }
 
-form#register_form div.form_row input.valid + div.validity {
+form#register_form div.form_row input.valid+div.validity {
 	background: url("resources/images/valid.png");
-    background-size: contain;
-    background-position: center center;
-    background-repeat: no-repeat;
+	background-size: contain;
+	background-position: center center;
+	background-repeat: no-repeat;
 }
 
-form#register_form div.form_row input.error + div.validity {
+form#register_form div.form_row input.error+div.validity {
 	background: url("resources/images/error.png");
-    background-size: contain;
-    background-position: center center;
-    background-repeat: no-repeat;
+	background-size: contain;
+	background-position: center center;
+	background-repeat: no-repeat;
 }
 
 /*	Name row	*/
 form#register_form div.form_row div.form_row_icon#reg_name_icon {
-    background: #fff url("resources/images/name.png") 20px bottom no-repeat;
-    background-size: 16px 80px;
-    background-position: center top;
+	background: #fff url("resources/images/name.png") 20px bottom no-repeat;
+	background-size: 16px 80px;
+	background-position: center top;
 }
 
 form#register_form div.form_row:hover div.form_row_icon#reg_name_icon {
-    background: #fff url("resources/images/name.png") 20px bottom no-repeat;
-    background-size: 16px 80px;
-    background-position: center bottom;	
+	background: #fff url("resources/images/name.png") 20px bottom no-repeat;
+	background-size: 16px 80px;
+	background-position: center bottom;
 }
 
 /*	Email row	*/
 form#register_form div.form_row div.form_row_icon#reg_email_icon {
-    background: #fff url("resources/images/email.png") 20px bottom no-repeat;
-    background-size: 16px 80px;
-    background-position: center top;
+	background: #fff url("resources/images/email.png") 20px bottom no-repeat;
+	background-size: 16px 80px;
+	background-position: center top;
 }
 
 form#register_form div.form_row:hover div.form_row_icon#reg_email_icon {
-    background: #fff url("resources/images/email.png") 20px bottom no-repeat;
-    background-size: 16px 80px;
-    background-position: center bottom;	
+	background: #fff url("resources/images/email.png") 20px bottom no-repeat;
+	background-size: 16px 80px;
+	background-position: center bottom;
 }
 
 /*	Username row	*/
-form#register_form div.form_row div.form_row_icon#reg_username_icon, form#login_form div.form_row div.form_row_icon#login_username_icon  {
-    background: #fff url("resources/images/username.png") 20px bottom no-repeat;
-    background-size: 16px 80px;
-    background-position: center top;
+form#register_form div.form_row div.form_row_icon#reg_username_icon,
+	form#login_form div.form_row div.form_row_icon#login_username_icon {
+	background: #fff url("resources/images/username.png") 20px bottom
+		no-repeat;
+	background-size: 16px 80px;
+	background-position: center top;
 }
 
-form#register_form div.form_row:hover div.form_row_icon#reg_username_icon, form#login_form div.form_row:hover div.form_row_icon#login_username_icon {
-    background: #fff url("resources/images/username.png") 20px bottom no-repeat;
-    background-size: 16px 80px;
-    background-position: center bottom;	
+form#register_form div.form_row:hover div.form_row_icon#reg_username_icon,
+	form#login_form div.form_row:hover div.form_row_icon#login_username_icon
+	{
+	background: #fff url("resources/images/username.png") 20px bottom
+		no-repeat;
+	background-size: 16px 80px;
+	background-position: center bottom;
 }
 
 /*	Password and confirm password rows	*/
-form#register_form div.form_row div.form_row_icon#reg_password_icon, form#register_form div.form_row div.form_row_icon#reg_password_conf_icon, form#login_form div.form_row div.form_row_icon#login_password_icon {
-    background: #fff url("resources/images/password.png") 20px bottom no-repeat;
-    background-size: 16px 80px;
-    background-position: center top;
+form#register_form div.form_row div.form_row_icon#reg_password_icon,
+	form#register_form div.form_row div.form_row_icon#reg_password_conf_icon,
+	form#login_form div.form_row div.form_row_icon#login_password_icon {
+	background: #fff url("resources/images/password.png") 20px bottom
+		no-repeat;
+	background-size: 16px 80px;
+	background-position: center top;
 }
 
-form#register_form div.form_row:hover div.form_row_icon#reg_password_icon, form#register_form div.form_row:hover div.form_row_icon#reg_password_conf_icon, form#login_form div.form_row:hover div.form_row_icon#login_password_icon {
-    background: #fff url("resources/images/password.png") 20px bottom no-repeat;
-    background-size: 16px 80px;
-    background-position: center bottom;	
+form#register_form div.form_row:hover div.form_row_icon#reg_password_icon,
+	form#register_form div.form_row:hover div.form_row_icon#reg_password_conf_icon,
+	form#login_form div.form_row:hover div.form_row_icon#login_password_icon
+	{
+	background: #fff url("resources/images/password.png") 20px bottom
+		no-repeat;
+	background-size: 16px 80px;
+	background-position: center bottom;
 }
 
 form#login_form button#submit, form#register_form button#submit {
-    width: 30%;
-    display: block;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    margin: 0 auto 20px auto;
-    height: 40px;
-    background: #2720E6;
-    box-sizing: border-box;
-    border-radius: 5px;
-    border: 1px solid #1713ae;
-    color: #fff;
-    font-weight: bold;
-    text-transform: uppercase;
-    font-size: 14px;
-    outline: none;
-    cursor: pointer;
+	width: 30%;
+	display: block;
+	border-radius: 5px;
+	border: 1px solid #ccc;
+	margin: 0 auto 20px auto;
+	height: 40px;
+	background: #2720E6;
+	box-sizing: border-box;
+	border-radius: 5px;
+	border: 1px solid #1713ae;
+	color: #fff;
+	font-weight: bold;
+	text-transform: uppercase;
+	font-size: 14px;
+	outline: none;
+	cursor: pointer;
 }
 
-form#login_form button#submit:hover, form#register_form button#submit:hover {
-    background: #716def;
+form#login_form button#submit:hover, form#register_form button#submit:hover
+	{
+	background: #716def;
 }
 
 input:-webkit-autofill {
-    -webkit-box-shadow: 0 0 0px 1000px #b9b9ff inset;
+	-webkit-box-shadow: 0 0 0px 1000px #b9b9ff inset;
 }
 
 /*//////////////////////////////////////////////////////////////////////////////
  									EVENT
 //////////////////////////////////////////////////////////////////////////////*/
-
 div.event {
 	border-radius: 14px;
 	background: white;
@@ -272,8 +279,8 @@ div.event h1#title {
 	width: auto;
 }
 
-div.event img#image{
-	float:left;
+div.event img#image {
+	float: left;
 	margin: 1rem 2rem 1rem 2rem;
 	width: 20rem;
 	height: 20rem;
@@ -284,33 +291,39 @@ div.event img#image{
 div.event p#description {
 	font-family: Arial, sans-serif;
 	font-size: 20px;
-    word-wrap: break-word;
-    margin: 2rem 0 2rem 2rem;
+	word-wrap: break-word;
+	margin: 2rem 0 2rem 2rem;
 }
 
 div.event time#date {
 	font-family: Arial, sans-serif;
 	font-size: 15px;
-    margin: 0 0 0 2rem;
+	margin: 0 0 0 2rem;
 }
 
-div.event_brief {
-	max-height: 5rem;
+.more_content span{
+	display: none;
 }
 
-div.event_brief p.description {
-	text-overflow: ellipsis; 
+.more_link {
+	text-decoration: none;
+	color: #DBDBDB;
+}
+
+div.event_brief img {
+	float: left;
+	margin-right: 0.5rem;
+	margin-bottom: 0.5rem;
 }
 
 /*//////////////////////////////////////////////////////////////////////////////
  									HEADER
 //////////////////////////////////////////////////////////////////////////////*/
-
 header#pagetop {
-    background: #fff;
-    border-radius: 5px;
-    border-top: 5px solid #2720E6;
-    margin: 1rem auto;
+	background: #fff;
+	border-radius: 5px;
+	border-top: 5px solid #2720E6;
+	margin: 1rem auto;
 }
 
 header#pagetop nav {
@@ -324,8 +337,7 @@ header#pagetop h1#title {
 	color: #2720E6;
 	display: block;
 	width: 40rem;
-	text-shadow: 8px 8px 8px rgba(0,0,0,.1);
-	
+	text-shadow: 8px 8px 8px rgba(0, 0, 0, .1);
 	margin: 5px auto;
 	text-align: center;
 	font: 700 50px "Montserrat Regular", "Arial Black", Gadget, sans-serif;
@@ -347,7 +359,11 @@ header#pagetop ul#menuoptions li {
 	border-width: 1px;
 	border-style: solid;
 	border-color: grey;
-	box-shadow: 8px 8px 6px rgba(0,0,0,.1);
+	box-shadow: 8px 8px 6px rgba(0, 0, 0, .1);
+}
+
+header#pagetop ul#menuoptions li.active {
+	background: #5F59FF;
 }
 
 header#pagetop ul#menuoptions li a {
@@ -363,19 +379,17 @@ header#pagetop ul#menuoptions li:hover {
 /*//////////////////////////////////////////////////////////////////////////////
  									FOOTER
 //////////////////////////////////////////////////////////////////////////////*/
-
 footer#footer {
 	margin: 0;
 	display: block;
 	width: auto;
 	padding: 0.5rem 1rem 0.5rem 1rem;
 	background-color: white;
-    background: #fff;
-    border-radius: 5px;
-    border-top: 5px solid #2720E6;
+	background: #fff;
+	border-radius: 5px;
+	border-top: 5px solid #2720E6;
 }
 
 footer#footer p {
 	font-family: Gadget, sans-serif;
 }
-
