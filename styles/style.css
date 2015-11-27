@@ -275,7 +275,17 @@ div.event h1#title {
 	font: 700 30px "Montserrat Regular", "Arial Black", Gadget, sans-serif;
 	text-align: left;
 	color: black;
-	width: auto;
+}
+
+div.event a.edit {
+	display: inline-block;
+	width: 2rem;
+	height: 2rem;
+}
+
+div.event a.edit img {
+	width: 2rem;
+	height: 2rem;
 }
 
 div.event img#image {

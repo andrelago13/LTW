@@ -20,9 +20,12 @@ try {
 		$event = getEvent ( $idEvent );
 		echo '<div class="event" id="event"' . $idEvent . '">';
 		echo '<h1 id="title">' . htmlspecialchars ( $event ["name"] ) . '</h1>';
+		echo '<a href="" class="edit"><img src="images/edit_field.png" alt="Edit" /></a>';
 		echo '<img id="image" src="database/event_image.php?id=' . $idEvent . '" alt="' . htmlspecialchars ( $event ["name"] ) . '" width="256" height="256" />';
 		echo '<p id="description">' . htmlspecialchars ( $event ["description"] ) . '</p>';
+		echo '<a href="" class="edit"><img src="images/edit_field.png" alt="Edit" /></a>';
 		echo '<datetime id="date">' . htmlspecialchars ( $event ["date"] ) . '</datetime>';
+		echo '<a href="" class="edit"><img src="images/edit_field.png" alt="Edit" /></a>';
 		echo '</div>';
 	}
 } catch ( Exception $e ) {
