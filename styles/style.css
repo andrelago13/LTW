@@ -269,6 +269,21 @@ div.event {
 	overflow: auto;
 }
 
+div.event a.delete#delete_event img {
+	width: 2.5rem;
+	height: 2.5rem;
+	float: right;
+	margin: 2rem 4rem 0 0;
+}
+
+div.event a.delete#delete_event img {
+	content: url("resources/images/trash_closed.png");
+}
+
+div.event a.delete#delete_event img:hover {
+	content: url("resources/images/trash_open.png");
+}
+
 div.event h1#title {
 	margin: 1rem 0 0 2rem;
 	padding: 0 1rem 0 0;
