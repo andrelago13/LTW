@@ -68,13 +68,13 @@ form#login_form, form#register_form {
 form#login_form h1#title, form#register_form h1#title {
 	font-family: "Montserrat Regular";
 	width: 15%;
-    text-align: center;
-    color: #000;
-    font-size: 30px;
-    text-transform: uppercase;
-    margin-top: 0;
-    margin-bottom: 20px;
-    margin: 0 auto 1rem auto;
+	text-align: center;
+	color: #000;
+	font-size: 30px;
+	text-transform: uppercase;
+	margin-top: 0;
+	margin-bottom: 20px;
+	margin: 0 auto 1rem auto;
 }
 
 form#register_form div.form_row, form#login_form div.form_row {
@@ -248,8 +248,7 @@ form#login_form button#submit, form#register_form button#submit {
 	cursor: pointer;
 }
 
-form#login_form button#submit:hover, form#register_form button#submit:hover
-	{
+form#login_form button#submit:hover, form#register_form button#submit:hover {
 	background: #716def;
 }
 
@@ -300,7 +299,7 @@ div.event time#date {
 	margin: 0 0 0 2rem;
 }
 
-.more_content span{
+.more_content span {
 	display: none;
 }
 
@@ -313,6 +312,23 @@ div.event_brief img {
 	float: left;
 	margin-right: 0.5rem;
 	margin-bottom: 0.5rem;
+}
+
+div.event_brief div.name > * {
+	display: inline;
+}
+
+div.event_brief div a.edit {
+	display: none;
+}
+
+div.event_brief div:hover a.edit {
+	display: inline;
+}
+
+div.event_brief div:hover a.edit img {
+	width: 2em;
+	height: 2em;
 }
 
 /*//////////////////////////////////////////////////////////////////////////////
@@ -365,10 +381,10 @@ header#pagetop ul#menuoptions li {
 
 header#pagetop ul#menuoptions li.active {
 	background: #5551ff;
-    text-decoration: underline;
-    font-weight: bold;
-   	pointer-events: none;
-   	cursor: default;
+	text-decoration: underline;
+	font-weight: bold;
+	pointer-events: none;
+	cursor: default;
 }
 
 header#pagetop ul#menuoptions li a {
@@ -383,42 +399,38 @@ header#pagetop ul#menuoptions li:hover {
 
 header#pagetop form#search {
 	display: inline-block;
-    float: right;
-    margin: 0 1.3rem 0 0;
+	float: right;
+	margin: 0 1.3rem 0 0;
 }
 
 header#pagetop form#search input {
 	display: inline-block;
-		
-    box-sizing: border-box;
-    border-radius: 5px;
-    border-style: solid;
-    border-color: #ccc;
-    border-width: 1px;
-    font-size: 18px;
-    outline: none;
-    padding: 0 0 0 0.5rem;
+	box-sizing: border-box;
+	border-radius: 5px;
+	border-style: solid;
+	border-color: #ccc;
+	border-width: 1px;
+	font-size: 18px;
+	outline: none;
+	padding: 0 0 0 0.5rem;
 }
 
 header#pagetop form#search button#submit {
-    display: inline-block;
-    border-style: solid;
-    border-color: rgba(1, 1, 1, 0);
-    width: 3rem;
-    height: 3rem;	
-    
-    background: url("resources/images/search.png");
-    background-size: contain;
-    background-position: center center;
-    background-repeat: no-repeat;
-    
-    color: rgba(1, 1, 1, 0);
-    
-    font-weight: bold;
-    text-transform: uppercase;
-    font-size: 14px;
-    outline: none;
-    cursor: pointer;
+	display: inline-block;
+	border-style: solid;
+	border-color: rgba(1, 1, 1, 0);
+	width: 3rem;
+	height: 3rem;
+	background: url("resources/images/search.png");
+	background-size: contain;
+	background-position: center center;
+	background-repeat: no-repeat;
+	color: rgba(1, 1, 1, 0);
+	font-weight: bold;
+	text-transform: uppercase;
+	font-size: 14px;
+	outline: none;
+	cursor: pointer;
 }
 
 /*//////////////////////////////////////////////////////////////////////////////

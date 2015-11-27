@@ -12,10 +12,22 @@ function showEventBrief($idEvent) {
 	
 	$event = getEvent ( $idEvent );
 	echo '<div class="event_brief" id="event' . $idEvent . '">';
-	echo '<h1 class="name">' . htmlspecialchars ( $event ["name"] ) . '</h1>';
+	
+	echo '<div class="name">';
+	echo '<h2>' . htmlspecialchars ( $event ["name"] ) . '</h1>';
+	echo '<a href="" class="edit"><img src="images/edit_field.png" alt="Edit" /></a>';
+	echo '</div>';
+	
 	echo '<img src="database/event_image.php?id=' . $idEvent . '" alt="' . htmlspecialchars ( $event ["name"] ) . '" width="64" height="64" />';
+	
+	echo '<div class="description">';
 	echo '<p class="description">' . htmlspecialchars ( $event ["description"] ) . '</p>';
+	echo '<a href="" class="edit"><img src="images/edit_field.png" alt="Edit" /></a>';
+	echo '</div>';
+	
 	echo '<datetime>' . htmlspecialchars ( $event ["date"] ) . '</datetime>';
+	
+	
 	echo '</div>';
 }
 
