@@ -32,3 +32,4 @@ try {
 	showError ( $e->getMessage () );
 }
 ?>
+<script src="scripts/event.js"></script>
