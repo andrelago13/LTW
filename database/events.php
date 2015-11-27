@@ -119,7 +119,7 @@ function getEventTypes() {
 }
 function registerInEvent($idUser, $idEvent) {
 	global $db;
-	
+
 	// Check if already registered
 	$query = "SELECT * FROM EventRegistration WHERE idEvent = :event AND idUser = :user";
 	$stmt = $db->prepare ( $query );
@@ -128,12 +128,28 @@ function registerInEvent($idUser, $idEvent) {
 	$stmt->execute ();
 	if ($stmt->fetch ())
 		throw new AlreadyRegisteredException ( "User is already registered in the event." );
-	
+
 	$query = "INSERT INTO EventRegistration (idEvent, idUser) VALUES (:event, :user)";
 	$stmt = $db->prepare ( $query );
 	$stmt->bindParam ( ':event', $idEvent, PDO::PARAM_INT );
 	$stmt->bindParam ( ':user', $idUser, PDO::PARAM_INT );
 	$stmt->execute ();
+}
+function unregisterFromEvent($idUser, $idEvent) {
+	global $db;
+
+	// Check if already registered
+	$query = "SELECT * FROM EventRegistration WHERE idEvent = :event AND idUser = :user";
+	$stmt = $db->prepare ( $query );
+	$stmt->bindParam ( ':event', $idEvent, PDO::PARAM_INT );
+	$stmt->bindParam ( ':user', $idUser, PDO::PARAM_INT );
+	$stmt->execute ();
+	if ($stmt->fetch ()) {
+		$query = "DELETE FROM EventRegistration  WHERE idUser = :user";
+		$stmt = $db->prepare ( $query );
+		$stmt->execute ();
+	} else
+		throw new AlreadyRegisteredException ( "User is not registered in Event." );
 }
 function createEvent($type, $name, $description, $date, $public, $owner) {
 	global $db;
