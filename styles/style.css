@@ -270,22 +270,39 @@ div.event {
 }
 
 div.event h1#title {
-	margin: 1rem 2rem 0 2rem;
-	padding: 0;
+	margin: 1rem 0 0 2rem;
+	padding: 0 1rem 0 0;
 	font: 700 30px "Montserrat Regular", "Arial Black", Gadget, sans-serif;
 	text-align: left;
 	color: black;
+	display: inline-block;
 }
 
-div.event a.edit {
+div.event div.container {
+	margin-bottom: 2rem;
+}
+
+div.event h1#title:hover + a.edit, div.event h1#title + a.edit:hover {
 	display: inline-block;
 	width: 2rem;
 	height: 2rem;
+	vertical-align: bottom;
+	position: relative;
+	top: -4px;
 }
 
-div.event a.edit img {
-	width: 2rem;
+div.event a.edit {
+	display: none;
+}
+
+div.event a.edit#edit_title img, div.event a.edit#edit_description img {
 	height: 2rem;
+	width: auto;
+}
+
+div.event a.edit#edit_date img {
+	height: 1.5rem;
+	width: auto;
 }
 
 div.event img#image {
@@ -300,13 +317,31 @@ div.event p#description {
 	font-family: "Montserrat Regular", Arial, sans-serif;
 	font-size: 20px;
 	word-wrap: break-word;
-	margin: 2rem 2rem 2rem 2rem;
+	margin: 2rem 2rem 0 2rem;
+}
+
+div.event div.container p#description:hover + a.edit, div.event div.container a.edit:hover {
+	display: inline-block;
+	horizontal-align: right;
+	padding: 0 0 0 2rem;
+	position: absolute;
+	right: 8rem;
 }
 
 div.event datetime#date {
-	font-family: "Montserrat Bold", Arial, sans-serif;
-	font-size: 15px;
-	margin: 0 0 0 4rem;
+	margin: 1rem 0 0 2rem;
+	padding: 0 1rem 0 0;
+	font: 700 15px "Montserrat Bold", "Arial Black", Gadget, sans-serif;
+	text-align: left;
+	color: black;
+	display: inline-block;
+}
+
+div.event datetime#date:hover + a.edit#edit_date, div.event a.edit#edit_date:hover {
+	display: inline-block;
+	vertical-align: bottom;
+	position: relative;
+	top: 4px;
 }
 
 /*//////////////////////////////////////////////////////////////////////////////
