@@ -264,13 +264,15 @@ div.event {
 	border-color: #ccc;
 	border-width: 2px;
 	border-style: solid;
-	padding: 0 0 20rem 0;
+	padding: 0 0 2rem 0;
+	margin: 0 0 1.3rem 0;
+	overflow: auto;
 }
 
 div.event h1#title {
 	margin: 1rem 2rem 0 2rem;
 	padding: 0;
-	font: 700 30px "Arial Black", Gadget, sans-serif;
+	font: 700 30px "Montserrat Regular", "Arial Black", Gadget, sans-serif;
 	text-align: left;
 	color: black;
 	width: auto;
@@ -282,20 +284,19 @@ div.event img#image {
 	width: 20rem;
 	height: 20rem;
 	border-radius: 8px;
-	background: black;
 }
 
 div.event p#description {
-	font-family: Arial, sans-serif;
+	font-family: "Montserrat Regular", Arial, sans-serif;
 	font-size: 20px;
 	word-wrap: break-word;
-	margin: 2rem 0 2rem 2rem;
+	margin: 2rem 2rem 2rem 2rem;
 }
 
-div.event time#date {
-	font-family: Arial, sans-serif;
+div.event datetime#date {
+	font-family: "Montserrat Bold", Arial, sans-serif;
 	font-size: 15px;
-	margin: 0 0 0 2rem;
+	margin: 0 0 0 4rem;
 }
 
 /*//////////////////////////////////////////////////////////////////////////////
