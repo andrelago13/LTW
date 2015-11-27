@@ -309,10 +309,43 @@ div.event time#date {
 	color: #DBDBDB;
 }
 
+/*//////////////////////////////////////////////////////////////////////////////
+ 								EVENT BRIEF
+//////////////////////////////////////////////////////////////////////////////*/
+
+/*
+	div box styling and title are below, in create event
+*/
+
+div.event_brief {
+	border-radius: 14px;
+	background: white;
+	border-color: #DBDBDB;
+	border-width: 2px;
+	border-style: solid;
+	margin-bottom: 1rem;
+	padding-bottom: 2.5rem;
+}
+
 div.event_brief img {
 	float: left;
-	margin-right: 0.5rem;
-	margin-bottom: 0.5rem;
+	vertical-align: top;
+	margin: 0 2rem 0 4rem;
+	border-radius: 5px;
+	height: 6rem;
+	width: auto;
+	max-width: 10rem;
+}
+
+div.event_brief p.description {
+	font-family: 'Montserrat Regular';
+	vertical-align: top;
+	margin: 0 2rem 2rem 2rem;
+}
+
+div.event_brief datetime {
+	font-family: 'Montserrat Bold';
+	margin: 0 0 1rem 4rem;
 }
 
 /*//////////////////////////////////////////////////////////////////////////////
@@ -329,9 +362,9 @@ form.create_event {
 	margin-bottom: 1rem;
 }
 
-form.create_event h1#title {
+form.create_event h1#title, div.event_brief h1.name {
 	font-family: "Montserrat Regular";
-	width: 30%;
+	width: 100%;
     text-align: center;
     color: #000;
     font-size: 30px;
