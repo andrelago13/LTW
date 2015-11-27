@@ -1,7 +1,7 @@
 <?php
 ?>
 <footer id="footer">
-	<div class="footer" id="footer">
+	<div class="footer">
 		<div class="w-container">
 			<div class="social-div in-footer">
 				<a href="https://github.com/andrelago13/LTW">GitHub</a>
