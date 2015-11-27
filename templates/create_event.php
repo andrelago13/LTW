@@ -13,19 +13,22 @@ if (! isUserLoggedIn ()) {
 	$eventTypes = getEventTypes ();
 	?>
 
-<form action="create_event.php" method="post"
+<form class="create_event" action="create_event.php" method="post"
 	enctype="multipart/form-data">
-<label for="type">Type:</label>
-<select id="type" name="type">
-<?php
-	foreach ( $eventTypes as $eventType ) {
-		echo '<option value="' . $eventType ["id"] . '"';
-		if (isset ( $_POST ["type"] ) && $_POST ["type"] == $eventType ["id"])
-			echo ' selected';
-		echo '>' . $eventType ["name"] . '</option>';
-	}
-	?>
-</select>
+<h1 id="title">Create Event</h1>
+<div class="type">
+	<label for="type">Type:</label>
+	<select id="type" name="type" value="Party">
+	<?php
+		foreach ( $eventTypes as $eventType ) {
+			echo '<option value="' . $eventType ["id"] . '"';
+			if (isset ( $_POST ["type"] ) && $_POST ["type"] == $eventType ["id"])
+				echo ' selected';
+			echo '>' . $eventType ["name"] . '</option>';
+		}
+		?>
+	</select>
+</div>
 <div class="name">
 	<label for="name">Name:</label> <input type="text" name="name"
 		id="name"
@@ -49,7 +52,7 @@ if (! isUserLoggedIn ()) {
 </div>
 
 <div class="image">
-	<label for="image"></label> <input type="file" name="image" id="image" />
+	<label for="image">Image:</label> <input type="file" name="image" id="image" />
 </div>
 <div class="submit_btn">
 	<button type="submit">Submit</button>

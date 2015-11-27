@@ -229,7 +229,7 @@ form#register_form div.form_row:hover div.form_row_icon#reg_password_icon,
 	background-position: center bottom;
 }
 
-form#login_form button#submit, form#register_form button#submit {
+form#login_form button#submit, form#register_form button#submit, form.create_event div.submit_btn button {
 	width: 30%;
 	display: block;
 	border-radius: 5px;
@@ -248,7 +248,7 @@ form#login_form button#submit, form#register_form button#submit {
 	cursor: pointer;
 }
 
-form#login_form button#submit:hover, form#register_form button#submit:hover
+form#login_form button#submit:hover, form#register_form button#submit:hover, form.create_event div.submit_btn button:hover
 	{
 	background: #716def;
 }
@@ -314,6 +314,77 @@ div.event_brief img {
 	margin-right: 0.5rem;
 	margin-bottom: 0.5rem;
 }
+
+/*//////////////////////////////////////////////////////////////////////////////
+ 								CREATE EVENT
+//////////////////////////////////////////////////////////////////////////////*/
+
+form.create_event {
+	border-radius: 14px;
+	background: white;
+	border-color: #DBDBDB;
+	border-width: 2px;
+	border-style: solid;
+	padding: 0 0 2rem 0;
+	margin-bottom: 1rem;
+}
+
+form.create_event h1#title {
+	font-family: "Montserrat Regular";
+	width: 30%;
+    text-align: center;
+    color: #000;
+    font-size: 30px;
+    text-transform: uppercase;
+    margin: 1.5rem auto 1rem auto;
+}
+
+form.create_event div {
+	width: 50%;
+	margin: auto;
+}
+
+form.create_event div.type select, form.create_event div input {
+	display: inline-block;
+	width: 40%;
+	height: 42px;
+	box-sizing: border-box;
+	border-radius: 5px;
+	border-style: solid;
+	border-color: #ccc;
+	border-width: 1px;
+	font-size: 14px;
+	outline: none;
+	margin-bottom: 0.5rem;
+}
+
+form.create_event div label {
+	display: inline-block;
+	width: 30%;
+	text-align: right;
+    vertical-align: middle;
+}
+
+form.create_event div.public input {
+	width: 1rem;
+	height: 30px;
+    vertical-align: middle;
+    margin: 0 0 0 0.5rem;
+    padding: 0;
+}
+
+form.create_event div.image input {
+	display: inline-block;
+	height: 42px;
+	margin-width: 0;
+	border-color: rgba(1, 1, 1, 0);
+	font-size: 14px;
+	margin-bottom: 0.5rem;
+}
+
+/*
+	Button styling next to login and register forms
+*/
 
 /*//////////////////////////////////////////////////////////////////////////////
  									HEADER
@@ -419,6 +490,13 @@ header#pagetop form#search button#submit {
     font-size: 14px;
     outline: none;
     cursor: pointer;
+}
+
+header#pagetop form#search button#submit:hover {
+    background: url("resources/images/search_hover.png");
+    background-size: contain;
+    background-position: center center;
+    background-repeat: no-repeat;
 }
 
 /*//////////////////////////////////////////////////////////////////////////////
