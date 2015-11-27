@@ -1,10 +1,6 @@
 $(document).ready(function() {
 	eventBriefEllipsis();
-	$(".event #title + a.edit").click(function() {
-		$(this).hide();
-		editField($(this).prev(), "title");
-		return false;
-	})
+	eventInlineEdit();
 });
 
 function eventBriefEllipsis() {
@@ -37,13 +33,50 @@ function eventBriefEllipsis() {
 	});
 }
 
-function editField(field, name) {
-	var value = field.html();
+function eventInlineEdit() {
+	var name = title;
+	$(".event #title + a.edit").click(function() {
+		$(this).toggle();
+		editTextField($(this).prev(), "title");
+		return false;
+	})
+	$(".event #description + a.edit").click(function() {
+		$(this).toggle();
+		editTextareaField($(this).prev(), "description");
+		return false;
+	})
+	$(".event #date + a.edit").click(function() {
+		$(this).toggle();
+		editTextField($(this).prev(), "date");
+		return false;
+	})
+}
 
+function editTextField(field, name) {
 	field.hide();
-	field.after('<input class="edit ' + name + '" name="' + name + '" type="text" value="' + value + '" />');
+	var newElement = $('<input class="edit ' + name + '" name="' + name + '" type="text" value="' + field.html() + '" />');
+	field.after(newElement);
 	field.parent().on("keyup", "input.edit." + name, function (e) {
+		if (event.keyCode == 13)
+		{
+			field.show();
+			newElement.remove();
+			field.next().toggle();
+		}
+	});
+}
+
+function editTextareaField(field, name) {
+	field.hide();
+	var newElement = $('<textarea class="edit ' + name + '" name="' + name + '" /></textarea>');
+	field.after(newElement);
+	newElement.val(field.html());
+	field.parent().on("keyup", "textarea.edit." + name, function (e) {
 		if (event.keyCode == 13 && !event.shiftKey)
-			alert("a");
+		{
+			field.show();
+			newElement.remove();
+			field.next().toggle();
+		}
 	});
 }
