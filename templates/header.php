@@ -35,9 +35,9 @@ require_once (INCLUDES_PATH . "/menu.php");
 		<?php
 		if (isUserLoggedIn ()) {
 			?>
-		<form id="search" action="search_events.php" method="get">
+		<form id="search" action="search_events.php" method="post">
 			<input type="text" name="query" placeholder="Search event"
-				<?php if (isset($_GET["query"])) echo ' value="' . $_GET['query'] . '"'; ?> />
+				<?php if (isset($_POST["query"])) echo ' value="' . $_POST['query'] . '"'; ?> />
 			<button id="submit" type="submit">Go!</button>
 		</form>
 			<?php

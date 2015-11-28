@@ -6,14 +6,14 @@ require_once (DATABASE_PATH . "/events.php");
 require_once (TEMPLATES_PATH . "/view_event_brief.php");
 
 try {
-	if (! isset ( $_GET ["query"] )) {
+	if (! isset ( $_POST ["query"] )) {
 		http_response_code ( 400 );
 		showError ( 'Query missing.' );
 	} else if (! isUserLoggedIn ()) {
 		http_response_code ( 403 );
 		showError ( 'You need to login to search for events.' );
 	} else {
-		$events = searchEvents ( $_GET ["query"], getUserID () );
+		$events = searchEvents ( $_POST ["query"], getUserID () );
 		$numEvents = count ( $events );
 		if ($numEvents === 0)
 			showError ( "No matching events found." );
