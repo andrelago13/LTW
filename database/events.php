@@ -74,12 +74,18 @@ function getEventsByOwner($idOwner, $amount = -1, $offset = 0) {
 	$stmt->execute ();
 	return $stmt->fetchAll ();
 }
-function searchEvents($searchQuery, $amount = -1, $offset = 0) {
+function searchEvents($searchQuery, $idUser, $amount = -1, $offset = 0) {
 	global $db;
-	$query = "SELECT * FROM EventSearch WHERE name MATCH :query LIMIT :amount OFFSET :offset";
+	$condition = "EventSearch.id = Event.id AND
+			(Event.public OR
+				Event.owner = :user OR
+				(SELECT count(*) FROM EventRegistration WHERE idEvent = Event.id AND idUser = :user) = 1)
+			AND EventSearch MATCH :query";
+	$query = "SELECT * FROM EventSearch, Event WHERE " . $condition . " LIMIT :amount OFFSET :offset";
 	$stmt = $db->prepare ( $query );
 	$searchQuery2 = 'name:' . $searchQuery . ' OR description:' . $searchQuery;
 	$stmt->bindParam ( ':query', $searchQuery2, PDO::PARAM_STR );
+	$stmt->bindParam ( ':user', $idUser, PDO::PARAM_INT );
 	$stmt->bindParam ( ':amount', $amount, PDO::PARAM_INT );
 	$stmt->bindParam ( ':offset', $offset, PDO::PARAM_INT );
 	$stmt->execute ();
