@@ -36,68 +36,84 @@ function eventBriefEllipsis() {
 function eventInlineEdit() {
 	var name = name;
 	$(".event #name + a.edit").click(function() {
-		$(this).toggle();
-		editTextField($(this).prev(), "name");
-		return false;
-	})
-	$(".event #description + a.edit").click(function() {
-		$(this).toggle();
-		editTextareaField($(this).prev(), "description");
-		return false;
-	})
-	$(".event #date + a.edit").click(function() {
-		$(this).toggle();
-		editTextField($(this).prev(), "date");
-		return false;
-	})
-}
-
-function editTextField(field, name) {
-	field.hide();
-	var newElement = $('<input class="edit ' + name + '" name="' + name + '" type="text" value="' + field.html() + '" />');
-	field.after(newElement);
-	field.parent().on("keyup", "input.edit." + name, function (e) {
-		validateField(newElement, function() {
-			return eventTestname(newElement.val()).length === 0;
+		editTextField($(this).prev(), "name", function(inputElement) {
+			return eventTestName(inputElement.val()).length === 0;
 		});
-		if (event.keyCode == 13)
-		{
-			var valid = newElement.hasClass('valid');
-			if (valid)
-				eventUpdateField(field);
-		}
+		return false;
+	});
+	$(".event #description + a.edit").click(function() {
+		editTextareaField($(this).prev(), "description", function(inputElement) {
+			return eventTestDescription(inputElement.val()).length === 0;
+		});
+		return false;
+	});
+	$(".event #date + a.edit").click(function() {
+		editTextField($(this).prev(), "date", function(inputElement) {
+			return eventTestDate(inputElement.val()).length === 0;
+		});
+		return false;
 	});
 }
 
-function editTextareaField(field, name) {
+function editField(field, name, inputHTML, inputSelector, condition, submitCondition) {
+	var inputElement = $(inputHTML);
+	inputElement.val(br2nl(decodeEntities(field.html())));
+	field.next().hide();
 	field.hide();
-	var newElement = $('<textarea class="edit ' + name + '" name="' + name + '" /></textarea>');
-	field.after(newElement);
-	newElement.val(field.html());
-	field.parent().on("keyup", "textarea.edit." + name, function (e) {
-		if (event.keyCode == 13 && !event.shiftKey)
+	field.after(inputElement);
+	var conditionFunc = function() {
+		return condition(inputElement);
+	};
+	validateField(inputElement, conditionFunc);
+	field.parent().on("keyup", inputSelector, function (e) {
+		validateField(inputElement, conditionFunc);
+	});
+	field.parent().on("keydown", inputSelector, function (e) {
+		if (submitCondition(e))
 		{
-			field.show();
-			newElement.remove();
-			field.next().toggle();
+			var valid = inputElement.hasClass('valid');
+			if (valid)
+				eventUpdateField(field, name, inputElement);
+			return false;
 		}
 	});
 }
 
-function eventUpdateField(field) {
-	var data = {
-			'id' : field.parent().attr('id').substr("event".length, 99999),
+function editTextField(field, name, condition) {
+	var inputHTML = '<input class="edit ' + name + '" name="' + name + '" type="text" />';
+	var inputSelector = "input.edit." + name;
+	var submitCondition = function(event) {
+		return event.keyCode == 13;
 	}
-	data[field.attr('id')] = field.next().val();
+	return editField(field, name, inputHTML, inputSelector, condition, submitCondition);
+}
+
+function editTextareaField(field, name, condition) {
+	var inputHTML = '<textarea class="edit ' + name + '" name="' + name + '" /></textarea>';
+	var inputSelector = "textarea.edit." + name;
+	var submitCondition = function(event) {
+		return event.keyCode == 13 && !event.shiftKey;
+	}
+	return editField(field, name, inputHTML, inputSelector, condition, submitCondition);
+}
+
+function eventUpdateField(field, name, inputElement) {
+	console.log(field.parent());
+	var data = {
+			'id' : field.closest('.event').attr('id').substr("event".length, 99999),
+	}
+	data[field.attr('id')] = inputElement.val();
 	$.ajax({
 		url : "edit_event.php",
 		type: "POST",
 		data : data,
 		success: function(data, textStatus, jqXHR)
 		{
-			field.html(field.next().val());
+			console.log(name);
+			var obj = JSON.parse(jqXHR.responseText);
+			field.html(nl2br(htmlspecialchars(obj[name])));
 			field.show();
-			field.next().remove();
+			inputElement.remove();
 			field.next().toggle();
 		},
 		error: function (jqXHR, textStatus, errorThrown)
@@ -110,7 +126,7 @@ function eventUpdateField(field) {
 /*
  * Returns an empty string if name is valid, error message otherwise
  */
-function eventTestname(name) {
+function eventTestName(name) {
 	if(typeof name == 'undefined')
 		return "No name was provided.";
 
@@ -123,4 +139,71 @@ function eventTestname(name) {
 	}
 
 	return '';
+}
+
+/*
+ * Returns an empty string if description is valid, error message otherwise
+ */
+function eventTestDescription(description) {
+	if(typeof description == 'undefined')
+		return "No description was provided.";
+
+	if(description.length > 10000) {
+		return "Description too large, maximum 10000 chars.";
+	}
+
+	return '';
+}
+
+/*
+ * Returns an empty string if date is valid, error message otherwise
+ */
+function eventTestDate(date) {
+	if(typeof date == 'undefined')
+		return "No date was provided.";
+
+	if(date.length != 15) {
+		return "Date must have format \"DD/MM/YYYY HH:MM\".";
+	}
+
+	var regex = /^\b(([0-3])([0-9]))\/(([0-1])([0-9]))\/(2([0-9])([0-9])([0-9])) (([0-2])([0-9])):(([0-6])([0-9]))\b$/;
+
+	if(!regex.test(date)) {
+		return "Invalid date, must have format \"DD/MM/YYYY HH:MM\".";
+	}
+
+	var day = parseInt("" + date[0] + date[1]);
+	var month = parseInt("" + date[3] + date[4]);
+	var year = parseInt("" + date[6] + date[7] + date[8] + date[9]);
+
+	var hour = parseInt("" + date[11] + date[12]);
+	var minutes = parseInt("" + date[14] + date[15]);
+
+	if(validDate(year, month, day, hour, minutes))
+		return '';
+
+	return "Invalid date, must have format \"DD/MM/YYYY HH:MM\".";
+}
+
+function validDate(year, month, day, hour, minutes) {
+	var normalYearMonths = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+	var leapYearMonths = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+
+	if(year < 2000 || month < 1 || month > 12 || day < 1 || day > 31 || hour < 0 || hour > 23 || minutes < 0 || minutes > 59)
+		return false;
+
+	if ( year%400 == 0) {
+		if(day > leapYearMonths[month-1])
+			return false;
+	} else if (year % 100 == 0) {
+		if(day > normalYearMonths[month-1])
+			return false;
+	} else if(year % 4 == 0) {
+		if(day > leapYearMonths[month-1])
+			return false;
+	} else {
+		if(day > normalYearMonths[month-1])
+			return false;
+	}
+	return true;
 }

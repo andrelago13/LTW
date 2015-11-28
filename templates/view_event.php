@@ -24,7 +24,7 @@ try {
 		echo '<a href="" class="edit" id="edit_name"><img src="images/edit_field.png" alt="Edit" /></a>';
 		echo '<div class="container">';
 		echo '<img id="image" src="database/event_image.php?id=' . $idEvent . '" alt="' . htmlspecialchars ( $event ["name"] ) . '" width="256" height="256" />';
-		echo '<p id="description">' . htmlspecialchars ( $event ["description"] ) . '</p>';
+		echo '<p id="description">' . preg_replace("/\n/", "<br />", htmlspecialchars ( $event ["description"] )) . '</p>';
 		echo '<a href="" class="edit" id="edit_description"><img src="images/edit_field.png" alt="Edit" /></a>';
 		echo '</div>';
 		echo '<datetime id="date">' . htmlspecialchars ( $event ["date"] ) . '</datetime>';

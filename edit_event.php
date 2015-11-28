@@ -1,5 +1,5 @@
 <?php
-define ( "NO_SESSION_REGENERATION", true);
+define ( "NO_SESSION_REGENERATION", true );
 require_once (__DIR__ . "/config.php");
 require_once (TEMPLATES_PATH . "/utils.php");
 require_once (INCLUDES_PATH . "/authentication.php");
@@ -33,13 +33,15 @@ try {
 				$event->setPublic ( $_POST ['public'] );
 			}
 			$event->update ();
-			echo "true";
+			
+			header ( 'Content-Type: application/json' );
+			echo json_encode ( $event->expose () );
 		}
 	}
-} catch (InvalidArgumentException $e) {
-	http_response_code(400);
-	echo $e->getMessage();
-} catch (Exception $e) {
-	http_response_code(500);
+} catch ( InvalidArgumentException $e ) {
+	http_response_code ( 400 );
+	echo $e->getMessage ();
+} catch ( Exception $e ) {
+	http_response_code ( 500 );
 }
 ?>
