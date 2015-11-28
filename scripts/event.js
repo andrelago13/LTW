@@ -98,7 +98,6 @@ function editTextareaField(field, name, condition) {
 }
 
 function eventUpdateField(field, name, inputElement) {
-	console.log(field.parent());
 	var data = {
 			'id' : field.closest('.event').attr('id').substr("event".length, 99999),
 	}
@@ -109,7 +108,6 @@ function eventUpdateField(field, name, inputElement) {
 		data : data,
 		success: function(data, textStatus, jqXHR)
 		{
-			console.log(name);
 			var obj = JSON.parse(jqXHR.responseText);
 			field.html(nl2br(htmlspecialchars(obj[name])));
 			field.show();
