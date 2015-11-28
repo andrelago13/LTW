@@ -400,6 +400,17 @@ div.event div.comment_area form.write_comment_form button {
 	cursor: pointer;
 }
 
+div.event div.comment_area div.comment_container comment {
+	display: block;
+	width: 80%;
+	margin: auto;
+	
+	border-width: 2px;
+	border-color: #ccc;
+	border-style: solid;
+	background: red;
+}
+
 
 /*//////////////////////////////////////////////////////////////////////////////
  								EVENT BRIEF
