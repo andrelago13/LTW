@@ -29,6 +29,14 @@ try {
 		echo '</div>';
 		echo '<datetime id="date">' . htmlspecialchars ( $event ["date"] ) . '</datetime>';
 		echo '<a href="" class="edit" id="edit_date"><img src="images/edit_field.png" alt="Edit" /></a>';
+	
+		echo '<div class="comment_area">';
+		echo '<form class="write_comment_form" id="write_comment" action="login.php" method="post">';
+		echo '<textarea name="text" id="text" required placeholder="Comment..." maxlength="500"></textarea>';
+		echo '<button id="submit" type="submit">Add comment</button>';
+		echo '</form>';
+		echo '</div>';
+		
 		echo '</div>';
 	}
 } catch ( Exception $e ) {
