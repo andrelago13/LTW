@@ -37,6 +37,17 @@ try {
 		echo '</form>';
 		
 		echo '<div class="comment_container">';
+		echo '<h2 id="title">Comments:</h2>';
+		echo '<div class="comment">';
+		echo '<h3 id="user">Cristiano Ronaldo</h3>';
+		echo '<p id="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec efficitur, libero ac faucibus tincidunt, urna urna tincidunt enim, sit amet congue nunc magna at est. Nam rhoncus dignissim orci eget fermentum. Proin ultrices dignissim vestibulum. Suspendisse porttitor pellentesque suscipit. Fusce sodales, nisl et pretium rutrum, urna nunc egestas nulla, vitae imperdiet erat diam sit amet metus. Suspendisse po</p>';
+		echo '<h4 id="time">2014/02/02 22:22</h4>';
+		echo '</div>';
+		echo '<div class="comment">';
+		echo '<h3 id="user">Cristiano Ronaldo</h3>';
+		echo '<p id="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec efficitur, libero ac faucibus tincidunt, urna urna tincidunt enim, sit amet congue nunc magna at est. Nam rhoncus dignissim orci eget fermentum. Proin ultrices dignissim vestibulum. Suspendisse porttitor pellentesque suscipit. Fusce sodales, nisl et pretium rutrum, urna nunc egestas nulla, vitae imperdiet erat diam sit amet metus. Suspendisse po</p>';
+		echo '<h4 id="time">2014/02/02 22:22</h4>';
+		echo '</div>';
 		echo '<div class="comment">';
 		echo '<h3 id="user">Cristiano Ronaldo</h3>';
 		echo '<p id="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec efficitur, libero ac faucibus tincidunt, urna urna tincidunt enim, sit amet congue nunc magna at est. Nam rhoncus dignissim orci eget fermentum. Proin ultrices dignissim vestibulum. Suspendisse porttitor pellentesque suscipit. Fusce sodales, nisl et pretium rutrum, urna nunc egestas nulla, vitae imperdiet erat diam sit amet metus. Suspendisse po</p>';

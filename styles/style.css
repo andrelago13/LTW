@@ -387,7 +387,7 @@ div.event div.comment_area form.write_comment_form button {
 	width: 30%;
 	display: block;
 	border-radius: 5px;
-	margin: 0.5rem auto 0 auto;
+	margin: 0.5rem auto 1rem auto;
 	height: 40px;
 	background: #2720E6;
 	box-sizing: border-box;
@@ -400,17 +400,36 @@ div.event div.comment_area form.write_comment_form button {
 	cursor: pointer;
 }
 
-div.event div.comment_area div.comment_container comment {
+div.event div.comment_area h2#title {
+	font-family: "Montserrat Bold";
+	margin-left: 4rem;
+	text-decoration: underline;
+}
+
+div.event div.comment_area div.comment_container div.comment {
 	display: block;
-	width: 80%;
-	margin: auto;
+	margin: auto auto 0.5rem auto;
 	
 	border-width: 2px;
 	border-color: #ccc;
 	border-style: solid;
-	background: red;
+	border-radius: 5px;
 }
 
+div.event div.comment_area div.comment_container div.comment h3#user {
+	margin: 1rem 0 1rem 2rem;
+	font-family: "Montserrat Regular";
+}
+
+div.event div.comment_area div.comment_container div.comment p#text {
+	margin: 0.5rem 1rem;
+	font-family: "Montserrat Regular";
+}
+
+div.event div.comment_area div.comment_container div.comment h4#time {
+	margin: 1rem 4rem;
+	font-family: "Montserrat Bold";
+}
 
 /*//////////////////////////////////////////////////////////////////////////////
  								EVENT BRIEF
