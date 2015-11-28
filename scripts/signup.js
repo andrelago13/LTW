@@ -59,7 +59,7 @@ function test_name(name) {
 		return "Name too large, maximum 100 chars.";
 	}
 
-	var regex = /^\b([A-Z]|[\u00C0-\u00DE])(([A-Z]|[\u00C0-\u00DE])|([a-z]|[\u00DF-\u00FF])|(([A-Z]|[\u00C0-\u00DE])|([a-z]|[\u00DF-\u00FF]))+\'(([A-Z]|[\u00C0-\u00DE])|([a-z]|[\u00DF-\u00FF]))+| )*\b$/; // FIXME isto não aceita acentos
+	var regex = /^\b([A-Z]|[\u00C0-\u00DE])(([A-Z]|[\u00C0-\u00DE])|([a-z]|[\u00DF-\u00FF])|(([A-Z]|[\u00C0-\u00DE])|([a-z]|[\u00DF-\u00FF]))+\'(([A-Z]|[\u00C0-\u00DE])|([a-z]|[\u00DF-\u00FF]))+| )*\b$/;
 	
 	if(!regex.test(name)) {
 		return "Invalid name";
