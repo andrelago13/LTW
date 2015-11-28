@@ -1,6 +1,44 @@
 <?php
 require_once (__DIR__ . "/../config.php");
 require_once (DATABASE_PATH . "/connection.php");
+class Event {
+	private $id;
+	private $name;
+	private $owner;
+	private $description;
+	private $date;
+	private $public;
+	public function setId($id) {
+		$this->id = $id;
+	}
+	public function setName($name) {
+		$this->name = $name;
+	}
+	public function setDescription($description) {
+		$this->description = $description;
+	}
+	public function setDate($date) {
+		$this->date = $date;
+	}
+	public function setPublic($public) {
+		$this->public = $public;
+	}
+	public static function find($id) {
+		$event_query = getEvent ( $id );
+		
+		$event = new Event ();
+		$event->setId ( $event_query ["id"] );
+		$event->setDate ( $event_query ["date"] );
+		$event->setDescription ( $event_query ["description"] );
+		$event->setName ( $event_query ["name"] );
+		$event->setPublic ( $event_query ["public"] );
+		
+		return $event;
+	}
+	public function update() {
+		updateEvent ( $this->name, $this->description, $this->date, $this->public );
+	}
+}
 class AlreadyRegisteredException extends Exception {
 }
 function isEventPublic($idEvent) {
@@ -78,7 +116,7 @@ function searchEvents($searchQuery, $amount = -1, $offset = 0) {
 	global $db;
 	$query = "SELECT * FROM EventSearch WHERE name MATCH :query LIMIT :amount OFFSET :offset";
 	$stmt = $db->prepare ( $query );
-	$searchQuery2 = 'name:'.$searchQuery.' OR description:'.$searchQuery;
+	$searchQuery2 = 'name:' . $searchQuery . ' OR description:' . $searchQuery;
 	$stmt->bindParam ( ':query', $searchQuery2, PDO::PARAM_STR );
 	$stmt->bindParam ( ':amount', $amount, PDO::PARAM_INT );
 	$stmt->bindParam ( ':offset', $offset, PDO::PARAM_INT );
@@ -119,7 +157,7 @@ function getEventTypes() {
 }
 function registerInEvent($idUser, $idEvent) {
 	global $db;
-
+	
 	// Check if already registered
 	$query = "SELECT * FROM EventRegistration WHERE idEvent = :event AND idUser = :user";
 	$stmt = $db->prepare ( $query );
@@ -128,7 +166,7 @@ function registerInEvent($idUser, $idEvent) {
 	$stmt->execute ();
 	if ($stmt->fetch ())
 		throw new AlreadyRegisteredException ( "User is already registered in the event." );
-
+	
 	$query = "INSERT INTO EventRegistration (idEvent, idUser) VALUES (:event, :user)";
 	$stmt = $db->prepare ( $query );
 	$stmt->bindParam ( ':event', $idEvent, PDO::PARAM_INT );
@@ -137,7 +175,7 @@ function registerInEvent($idUser, $idEvent) {
 }
 function unregisterFromEvent($idUser, $idEvent) {
 	global $db;
-
+	
 	// Check if already registered
 	$query = "SELECT * FROM EventRegistration WHERE idEvent = :event AND idUser = :user";
 	$stmt = $db->prepare ( $query );
@@ -176,7 +214,6 @@ function updateEventImage($idEvent, $imagePath) {
 	$stmt->execute ();
 	return $stmt->rowCount () == 1;
 }
-
 function updateEvent($name, $description, $date, $public) {
 	global $db;
 	$query = "UPDATE Event SET name = :name, description = :description, date = :date, public = :public";

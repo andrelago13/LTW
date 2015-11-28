@@ -284,7 +284,7 @@ div.event a.delete#delete_event img:hover {
 	content: url("resources/images/trash_open.png");
 }
 
-div.event h1#title {
+div.event h1#name {
 	margin: 1rem 0 0 2rem;
 	padding: 0 1rem 0 0;
 	font: 700 30px "Montserrat Regular", "Arial Black", Gadget, sans-serif;
@@ -297,7 +297,7 @@ div.event div.container {
 	margin-bottom: 2rem;
 }
 
-div.event h1#title:hover + a.edit, div.event h1#title + a.edit:hover {
+div.event h1#name:hover + a.edit, div.event h1#name + a.edit:hover {
 	display: inline-block;
 	width: 2rem;
 	height: 2rem;
@@ -310,7 +310,7 @@ div.event a.edit {
 	display: none;
 }
 
-div.event a.edit#edit_title img, div.event a.edit#edit_description img {
+div.event a.edit#edit_name img, div.event a.edit#edit_description img {
 	height: 2rem;
 	width: auto;
 }
@@ -502,7 +502,7 @@ form.create_event {
 	margin-bottom: 1rem;
 }
 
-form.create_event h1#title, div.event_brief h1.name {
+form.create_event h1#name, div.event_brief h1.name {
 	font-family: "Montserrat Regular";
 	width: 100%;
 	text-align: center;

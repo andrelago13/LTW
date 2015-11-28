@@ -15,7 +15,7 @@ if (! isUserLoggedIn ()) {
 
 <form class="create_event" action="create_event.php" method="post"
 	enctype="multipart/form-data">
-<h1 id="title">Create Event</h1>
+<h1 id="name">Create Event</h1>
 <div class="type">
 	<label for="type">Type:</label>
 	<select id="type" name="type" value="Party">

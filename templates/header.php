@@ -14,6 +14,7 @@ require_once (INCLUDES_PATH . "/menu.php");
 	rel='stylesheet' type='text/css'>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="scripts/main.js"></script>
 </head>
 <body>
 	<header id="pagetop">
@@ -21,13 +22,14 @@ require_once (INCLUDES_PATH . "/menu.php");
 		<nav>
 			<ul id="menuoptions">
 			<?php
-			$menuPages = getMenuPages();
-			foreach($menuPages as $url => $name) {
+			$menuPages = getMenuPages ();
+			foreach ( $menuPages as $url => $name ) {
 				echo '<li';
-				if (basename($_SERVER['PHP_SELF']) === $url) echo ' class="active"';
+				if (basename ( $_SERVER ['PHP_SELF'] ) === $url)
+					echo ' class="active"';
 				echo '><a href="' . $url . '">' . $name . '</a></li>';
 			}
-				?>
+			?>
 		</ul>
 		</nav>
 		<?php
