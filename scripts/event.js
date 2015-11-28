@@ -34,10 +34,10 @@ function eventBriefEllipsis() {
 }
 
 function eventInlineEdit() {
-	var name = title;
-	$(".event #title + a.edit").click(function() {
+	var name = name;
+	$(".event #name + a.edit").click(function() {
 		$(this).toggle();
-		editTextField($(this).prev(), "title");
+		editTextField($(this).prev(), "name");
 		return false;
 	})
 	$(".event #description + a.edit").click(function() {
@@ -57,11 +57,14 @@ function editTextField(field, name) {
 	var newElement = $('<input class="edit ' + name + '" name="' + name + '" type="text" value="' + field.html() + '" />');
 	field.after(newElement);
 	field.parent().on("keyup", "input.edit." + name, function (e) {
+		validateField(newElement, function() {
+			return eventTestname(newElement.val()).length === 0;
+		});
 		if (event.keyCode == 13)
 		{
-			field.show();
-			newElement.remove();
-			field.next().toggle();
+			var valid = newElement.hasClass('valid');
+			if (valid)
+				eventUpdateField(field);
 		}
 	});
 }
@@ -79,4 +82,45 @@ function editTextareaField(field, name) {
 			field.next().toggle();
 		}
 	});
+}
+
+function eventUpdateField(field) {
+	var data = {
+			'id' : field.parent().attr('id').substr("event".length, 99999),
+	}
+	data[field.attr('id')] = field.next().val();
+	$.ajax({
+		url : "edit_event.php",
+		type: "POST",
+		data : data,
+		success: function(data, textStatus, jqXHR)
+		{
+			field.html(field.next().val());
+			field.show();
+			field.next().remove();
+			field.next().toggle();
+		},
+		error: function (jqXHR, textStatus, errorThrown)
+		{
+			console.error("Error: " + jqXHR.responseText);
+		}
+	});
+}
+
+/*
+ * Returns an empty string if name is valid, error message otherwise
+ */
+function eventTestname(name) {
+	if(typeof name == 'undefined')
+		return "No name was provided.";
+
+	if(name.length > 100) {
+		return "name too large, maximum 100 chars.";
+	}
+
+	if(name.length == 0) {
+		return "name cannot be empty.";
+	}
+
+	return '';
 }
