@@ -39,15 +39,6 @@ function confirmPassword(passwordField, confirmPasswordField) {
 	return passwordField.val() === confirmPasswordField.val();
 }
 
-function validateField(field, condition) {
-	if (field.val().length === 0)
-		field.removeClass('valid error');
-	else if (condition()) // Valid
-		field.removeClass('error').addClass('valid');
-	else // Invalid
-		field.removeClass('valid').addClass('error');
-}
-
 /*
  * Returns an empty string if name is valid, error message otherwise
  */
