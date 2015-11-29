@@ -4,6 +4,7 @@ require_once (TEMPLATES_PATH . "/utils.php");
 require_once (INCLUDES_PATH . "/authentication.php");
 require_once (INCLUDES_PATH . "/events.php");
 require_once (DATABASE_PATH . "/events.php");
+require_once (INCLUDES_PATH . "/utils.php");
 
 try {
 	if (! isset ( $_GET ["id"] )) {
@@ -24,12 +25,17 @@ try {
 		echo '<a href="" class="edit" id="edit_name"><img src="images/edit_field.png" alt="Edit" /></a>';
 		echo '<div class="container">';
 		echo '<img id="image" src="database/event_image.php?id=' . $idEvent . '" alt="' . htmlspecialchars ( $event ["name"] ) . '" width="256" height="256" />';
-		echo '<p id="description">' . preg_replace("/\n/", "<br />", htmlspecialchars ( $event ["description"] )) . '</p>';
+		echo '<p id="description">' . preg_replace ( "/\n/", "<br />", htmlspecialchars ( $event ["description"] ) ) . '</p>';
 		echo '<a href="" class="edit" id="edit_description"><img src="images/edit_field.png" alt="Edit" /></a>';
 		echo '</div>';
 		echo '<datetime id="date">' . htmlspecialchars ( $event ["date"] ) . '</datetime>';
 		echo '<a href="" class="edit" id="edit_date"><img src="images/edit_field.png" alt="Edit" /></a>';
-	
+		?>
+<div class="fb-share-button"
+	data-href="<?php echo requestedURL(); ?>"
+	data-layout="button_count"></div>
+<?php
+		
 		echo '<div class="comment_area">';
 		echo '<form class="write_comment_form" id="write_comment" action="login.php" method="post">';
 		echo '<textarea name="text" id="text" required placeholder="Comment..." maxlength="500"></textarea>';

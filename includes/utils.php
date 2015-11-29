@@ -25,3 +25,7 @@ function uploadImage($file, $target_file) {
 		throw new RuntimeException ( "Sorry, there was an error uploading your file." );
 	}
 }
+
+function requestedURL() {
+	return "http" . (($_SERVER['SERVER_PORT'] == 443) ? "s://" : "://") . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+}

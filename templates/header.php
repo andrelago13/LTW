@@ -14,6 +14,13 @@ require_once (INCLUDES_PATH . "/menu.php");
 	rel='stylesheet' type='text/css'>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
 <script>var csrf_token = "<?php echo $_SESSION["csrf_token"]; ?>";</script>
 <script src="scripts/main.js"></script>
 </head>
