@@ -4,6 +4,7 @@ require_once (INCLUDES_PATH . "/authentication.php");
 function getMenuPages() {
 	$pages = array ();
 	if (isUserLoggedIn ()) {
+		$pages ["user_profile.php"] = "Profile";
 		$pages ["my_events.php"] = "My events";
 		$pages ["create_event.php"] = "Create event";
 		$pages ["logout.php"] = "Logout";

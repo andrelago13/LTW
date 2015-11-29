@@ -7,6 +7,49 @@ function validateField(field, condition) {
 		field.removeClass('valid').addClass('error');
 }
 
+function editField(field, name, inputHTML, inputSelector, condition, submitCondition) {
+	var inputElement = $(inputHTML);
+	inputElement.val(br2nl(decodeEntities(field.html())));
+	field.next().hide();
+	field.hide();
+	field.after(inputElement);
+	var conditionFunc = function() {
+		return condition(inputElement);
+	};
+	validateField(inputElement, conditionFunc);
+	field.parent().on("keyup", inputSelector, function (e) {
+		validateField(inputElement, conditionFunc);
+	});
+	field.parent().on("keydown", inputSelector, function (e) {
+		if (submitCondition(e))
+		{
+			var valid = inputElement.hasClass('valid');
+			if (valid)
+				eventUpdateField(field, name, inputElement);
+			return false;
+		}
+	});
+}
+
+
+function editTextField(field, name, condition) {
+	var inputHTML = '<input class="edit ' + name + '" name="' + name + '" type="text" />';
+	var inputSelector = "input.edit." + name;
+	var submitCondition = function(event) {
+		return event.keyCode == 13;
+	}
+	return editField(field, name, inputHTML, inputSelector, condition, submitCondition);
+}
+
+function editTextareaField(field, name, condition) {
+	var inputHTML = '<textarea class="edit ' + name + '" name="' + name + '" /></textarea>';
+	var inputSelector = "textarea.edit." + name;
+	var submitCondition = function(event) {
+		return event.keyCode == 13 && !event.shiftKey;
+	}
+	return editField(field, name, inputHTML, inputSelector, condition, submitCondition);
+}
+
 function nl2br (str, is_xhtml) {
 	return str.replace(/\n/g, "<br />");
 }

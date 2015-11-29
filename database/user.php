@@ -1,6 +1,14 @@
 <?php
 require_once (__DIR__ . "/../config.php");
 require_once (DATABASE_PATH . "/connection.php");
+function getUser($idUser) {
+	global $db;
+	$query = "SELECT * FROM User WHERE id = :user";
+	$stmt = $db->prepare ( $query );
+	$stmt->bindParam ( ':user', $idUser, PDO::PARAM_INT );
+	$stmt->execute ();
+	return $stmt->fetch ();
+}
 function getUserByUsername($username) {
 	global $db;
 	$query = "SELECT * FROM User WHERE username = :username";
