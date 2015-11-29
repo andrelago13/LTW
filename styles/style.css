@@ -308,7 +308,7 @@ div.event h1#name:hover + a.edit, div.event h1#name + a.edit:hover {
 }
 
 div.event a.edit {
-	display: none;
+	display: none !important;
 }
 
 div.event a.edit#edit_name img, div.event a.edit#edit_description img {
@@ -324,8 +324,8 @@ div.event a.edit#edit_date img {
 div.event img#image {
 	float: left;
 	margin: 1rem 2rem 1rem 2rem;
-	width: 20rem;
-	height: 20rem;
+	width: 30%;
+	height: 30%;
 	border-radius: 8px;
 }
 
@@ -337,7 +337,7 @@ div.event p#description {
 }
 
 div.event div.container p#description:hover + a.edit, div.event div.container a.edit:hover {
-	display: inline-block;
+	display: inline-block !important;
 	horizontal-align: right;
 	padding: 0 0 0 2rem;
 	position: absolute;
@@ -453,12 +453,12 @@ div.event input.edit.name {
 }
 
 div.event div.container textarea.edit.description {
-	background: red;
 	font-family: "Montserrat Regular", Arial, sans-serif;
 	font-size: 20px;
 	word-wrap: break-word;
 	margin: 2rem 2rem 2rem 2rem;
-	width: 100%;	
+	width: 50%;	
+	height: 20rem;
 }
 
 /*//////////////////////////////////////////////////////////////////////////////
