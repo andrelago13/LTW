@@ -19,4 +19,13 @@ function getComment($idComment) {
 	$stmt->execute ();
 	return $stmt->fetch ();
 }
+function addComment($idEvent, $idUser, $text) {
+	global $db;
+	$query = "INSERT INTO Comment (idEvent, author, text) VALUES (:event, :user, :text)";
+	$stmt = $db->prepare($query);
+	$stmt->bindParam ( ':event', $idEvent, PDO::PARAM_INT );
+	$stmt->bindParam ( ':user', $idUser, PDO::PARAM_INT );
+	$stmt->bindParam ( ':text', $text, PDO::PARAM_STR);
+	return $stmt->execute();
+}
 ?>

@@ -6,6 +6,8 @@ require_once (INCLUDES_PATH . "/events.php");
 require_once (DATABASE_PATH . "/events.php");
 require_once (INCLUDES_PATH . "/utils.php");
 
+require (INCLUDES_PATH . "/write_comment_action.php");
+
 try {
 	if (! isset ( $_GET ["id"] )) {
 		http_response_code ( 400 );
@@ -37,13 +39,14 @@ try {
 <?php
 		
 		echo '<div class="comment_area">';
-		echo '<form class="write_comment_form" id="write_comment" action="login.php" method="post">';
+		echo '<form class="write_comment_form" id="write_comment" action="view_event.php?id=' . $idEvent . '" method="post">';
+		echo '<input type="hidden" name="idEvent" value="' . $idEvent . '" />';
 		echo '<textarea name="text" id="text" required placeholder="Comment..." maxlength="500"></textarea>';
-		echo '<button id="submit" type="submit">Add comment</button>';
+		echo '<button id="submit" type="submit" name="submit_comment">Add comment</button>';
 		echo '</form>';
 		
 		echo '<div class="comment_container">';
-		echo '<h2 id="title">Comments:</h2>';
+		echo '<h2 id="title">Comments:</h2>';		
 		echo '<div class="comment">';
 		echo '<h3 id="user">Cristiano Ronaldo</h3>';
 		echo '<p id="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec efficitur, libero ac faucibus tincidunt, urna urna tincidunt enim, sit amet congue nunc magna at est. Nam rhoncus dignissim orci eget fermentum. Proin ultrices dignissim vestibulum. Suspendisse porttitor pellentesque suscipit. Fusce sodales, nisl et pretium rutrum, urna nunc egestas nulla, vitae imperdiet erat diam sit amet metus. Suspendisse po</p>';
