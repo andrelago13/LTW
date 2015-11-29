@@ -14,6 +14,7 @@ require_once (INCLUDES_PATH . "/menu.php");
 	rel='stylesheet' type='text/css'>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script>var csrf_token = "<?php echo $_SESSION["csrf_token"]; ?>";</script>
 <script src="scripts/main.js"></script>
 </head>
 <body>

@@ -15,6 +15,7 @@ if (! isUserLoggedIn ()) {
 
 <form class="create_event" action="create_event.php" method="post"
 	enctype="multipart/form-data">
+	<input name="csrf_token" type="hidden" value="<?php echo $_SESSION['csrf_token']; ?>" />
 	<h1 id="name">Create Event</h1>
 	<div class="type">
 		<label for="type">Type:</label> <select id="type" name="type"
@@ -57,7 +58,7 @@ if (! isUserLoggedIn ()) {
 			id="image" />
 	</div>
 	<div class="submit_btn">
-		<button type="submit">Submit</button>
+		<button type="submit" name="submit">Submit</button>
 	</div>
 </form>
 <?php } ?>

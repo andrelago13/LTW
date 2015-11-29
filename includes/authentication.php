@@ -37,15 +37,20 @@ function login($username, $password) {
 	if (! $user)
 		throw new InvalidArgumentException ( "Username not registered." );
 	
-	if (! password_verify ( $password, $user["hash"] ))
+	if (! password_verify ( $password, $user ["hash"] ))
 		throw new InvalidArgumentException ( "Password incorrect." );
 	
-	$_SESSION["userid"] = $user["id"];
+	$_SESSION ["userid"] = $user ["id"];
 }
 function isUserLoggedIn() {
-	return isset($_SESSION["userid"]);
+	return isset ( $_SESSION ["userid"] );
 }
 function getUserID() {
-	return $_SESSION["userid"];
+	return $_SESSION ["userid"];
+}
+function validateCSRFToken($csrf_token) {
+	if (! isset ( $_SESSION ["csrf_token"] ))
+		return false;
+	return $csrf_token === $_SESSION ["csrf_token"];
 }
 ?>
