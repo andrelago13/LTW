@@ -17,21 +17,33 @@ if (isset ( $idUser )) {
 	$user = getUser ( $idUser );
 	$canEdit = (isUserLoggedIn () && $idUser === getUserID ());
 	
-	echo '<div class="user_profile">';
+	echo '<div class="user_profile" id="user' . $user['id'] . '">';
 	echo '<h1 id="title">User Profile</h1>';
 	
-	echo '<p id="name"><strong>Name:</strong> ' . $user ["name"] . '</p>';
+	echo '<p>';
+	echo '<strong>Name:</strong>&nbsp';
+	echo '<span id="name">' . $user ["name"] . '</span>';
 	if ($canEdit)
 		echo '<a href="" class="edit" id="edit_name"><img src="images/edit_field.png" alt="Edit" /></a>';
+	echo '</p>';
 	
-	echo '<p id="username"><strong>Username:</strong> ' . $user ["username"] . '</p>';
+	echo '<p>';
+	echo '<strong>Username:</strong>&nbsp';
+	echo '<span id="username">' . $user ["username"] . '</span>';
 	if ($canEdit)
 		echo '<a href="" class="edit" id="edit_name"><img src="images/edit_field.png" alt="Edit" /></a>';
+	echo '</p>';
 	
-	echo '<p id="email"><strong>Email:</strong> <a href="mailto:' . $user["email"] . '">' . $user ["email"] . '</a></p>';
+	echo '<p>';
+	echo '<strong>Email:</strong>&nbsp';
+	echo '<spacn id="email">';
+	echo '<a href="mailto:' . $user ["email"] . '">' . $user ["email"] . '</a>';
 	if ($canEdit)
 		echo '<a href="" class="edit" id="edit_name"><img src="images/edit_field.png" alt="Edit" /></a>';
+	echo '</p>';
+	
 	echo '</div>';
 }
 ?>
+<script src="scripts/signup.js"></script>
 <script src="scripts/user.js"></script>

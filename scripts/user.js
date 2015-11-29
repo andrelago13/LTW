@@ -5,21 +5,21 @@ $(document).ready(function() {
 
 function userInlineEdit() {
 	var name = name;
-	$(".user_profile #name + a.edit").click(function() {
+	$(".user_profile p #name + a.edit").click(function() {
 		editTextField($(this).prev(), "name", function(inputElement) {
-			return eventTestName(inputElement.val()).length === 0;
+			return test_name(inputElement.val()).length === 0;
 		});
 		return false;
 	});
-	$(".event #description + a.edit").click(function() {
-		editTextareaField($(this).prev(), "description", function(inputElement) {
-			return eventTestDescription(inputElement.val()).length === 0;
+	$(".user_profile p #username + a.edit").click(function() {
+		editTextField($(this).prev(), "description", function(inputElement) {
+			return test_username(inputElement.val()).length === 0;
 		});
 		return false;
 	});
-	$(".event #date + a.edit").click(function() {
-		editTextField($(this).prev(), "date", function(inputElement) {
-			return eventTestDate(inputElement.val()).length === 0;
+	$(".user_profile p #email + a.edit").click(function() {
+		editTextField($(this).prev(), "description", function(inputElement) {
+			return test_email(inputElement.val()).length === 0;
 		});
 		return false;
 	});
@@ -27,15 +27,16 @@ function userInlineEdit() {
 
 function eventUpdateField(field, name, inputElement) {
 	var data = {
-			'id' : field.closest('.event').attr('id').substr("event".length, 99999),
+			'id' : field.closest('.user_profile').attr('id').substr("user".length, 99999),
 	}
 	data[field.attr('id')] = inputElement.val();
 	$.ajax({
-		url : "edit_event.php",
+		url : "edit_user.php",
 		type: "POST",
 		data : data,
 		success: function(data, textStatus, jqXHR)
 		{
+			console.log(jqXHR.responseText);
 			var obj = JSON.parse(jqXHR.responseText);
 			field.html(nl2br(htmlspecialchars(obj[name])));
 			field.show();

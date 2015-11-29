@@ -35,4 +35,14 @@ function createUser($name, $username, $email, $hash) {
 	$stmt->bindParam ( ':hash', $hash, PDO::PARAM_STR );
 	return $stmt->execute ();
 }
+function updateUser ( $idUser, $name, $username, $email ) {
+	global $db;
+	$query = "UPDATE User SET name = :name, username = :username, email = :email WHERE id = :user";
+	$stmt = $db->prepare ( $query );
+	$stmt->bindParam ( ':name', $name, PDO::PARAM_STR );
+	$stmt->bindParam ( ':username', $username, PDO::PARAM_STR );
+	$stmt->bindParam ( ':email', $email, PDO::PARAM_STR );
+	$stmt->bindParam ( ':user', $idUser, PDO::PARAM_INT );
+	return $stmt->execute ();
+}
 ?>
