@@ -26,6 +26,7 @@ function userInlineEdit() {
 function updateField(field, name, inputElement, inputSelector) {
 	var data = {
 			'id' : field.closest('.user_profile').attr('id').substr("user".length, 99999),
+			'csrf_token' : csrf_token
 	}
 	data[field.attr('id')] = inputElement.val();
 	$.ajax({

@@ -13,13 +13,16 @@ try {
 	} else if (! isUserLoggedIn ()) {
 		http_response_code ( 403 );
 		echo 'You need to login to edit your user info.';
+	} else if (! validateCSRFToken ( $_POST ["csrf_token"] )) {
+		http_response_code ( 403 );
+		echo 'Invalid CSRF token.';
 	} else {
 		$idUser = $_POST ["id"];
 		if (getUserID () !== $idUser) {
 			http_response_code ( 403 );
 			echo 'You can only edit your own user info.';
 		} else {
-			$user = User::find($idUser);
+			$user = User::find ( $idUser );
 			if (isset ( $_POST ['name'] )) {
 				$user->setName ( $_POST ['name'] );
 			}

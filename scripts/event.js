@@ -57,6 +57,7 @@ function eventInlineEdit() {
 function updateField(field, name, inputElement, inputSelector) {
 	var data = {
 			'id' : field.closest('.event').attr('id').substr("event".length, 99999),
+			'csrf_token' : csrf_token
 	}
 	data[field.attr('id')] = inputElement.val();
 	$.ajax({

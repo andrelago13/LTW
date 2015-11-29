@@ -1,0 +1,4 @@
+<FilesMatch "db\.db|db\.sql|sqlite3\.exe">
+Order Allow,Deny
+Deny from all
+</FilesMatch>
