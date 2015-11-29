@@ -41,6 +41,10 @@ class Event {
 	public function expose() {
 		return get_object_vars ( $this );
 	}
+
+	public function delete() {
+		deleteEvent($this->id);
+	}
 }
 function canSeeEvent($idUser, $idEvent) {
 	if (isEventPublic ( $idEvent ))
