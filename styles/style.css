@@ -299,7 +299,7 @@ div.event div.container {
 }
 
 div.event h1#name:hover + a.edit, div.event h1#name + a.edit:hover {
-	display: inline-block;
+	display: inline-block !important;
 	width: 2rem;
 	height: 2rem;
 	vertical-align: bottom;
@@ -317,6 +317,7 @@ div.event a.edit#edit_name img, div.event a.edit#edit_description img {
 }
 
 div.event a.edit#edit_date img {
+	margin-bottom: 2rem;
 	height: 1.5rem;
 	width: auto;
 }
@@ -345,7 +346,7 @@ div.event div.container p#description:hover + a.edit, div.event div.container a.
 }
 
 div.event datetime#date {
-	margin: 1rem 0 0 2rem;
+	margin: 1rem 0 2rem 5rem;
 	padding: 0 1rem 0 0;
 	font: 700 15px "Montserrat Bold", "Arial Black", Gadget, sans-serif;
 	text-align: left;
@@ -459,6 +460,15 @@ div.event div.container textarea.edit.description {
 	margin: 2rem 2rem 2rem 2rem;
 	width: 50%;	
 	height: 20rem;
+}
+
+div.event input.edit.date {
+	margin: 1rem 0 2rem 5rem;
+	padding: 0 1rem 0 0;
+	font: 700 15px "Montserrat Bold", "Arial Black", Gadget, sans-serif;
+	text-align: left;
+	color: black;
+	display: inline-block;
 }
 
 /*//////////////////////////////////////////////////////////////////////////////
