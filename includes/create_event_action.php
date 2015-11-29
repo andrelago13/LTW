@@ -14,12 +14,14 @@ if (! isUserLoggedIn ()) {
 			if (isset ( $extension )) {
 				$idEvent = createEvent ( $_POST ['type'], $_POST ['name'], $_POST ['description'], $_POST ['date'], isset ( $_POST ['public'] ), $_SESSION ['userid'] );
 				if ($idEvent) {
-					$target_dir = "images/events/";
-					$target_file = $target_dir . $idEvent . '.' . $extension;
 					try {
-						if (! updateEventImage ( $idEvent, $target_file ))
-							throw new RuntimeException ( "Could not set event image." );
-						uploadImage ( $_FILES ["image"], $target_file );
+						if (file_exists ( $_FILES ['image'] ['tmp_name'] ) && is_uploaded_file ( $_FILES ['image'] ['tmp_name'] )) { // Check if an image was been uploaded
+							$target_dir = "images/events/";
+							$target_file = $target_dir . $idEvent . '.' . $extension;
+							if (! updateEventImage ( $idEvent, $target_file ))
+								throw new RuntimeException ( "Could not set event image." );
+							uploadImage ( $_FILES ["image"], $target_file );
+						}
 						showSuccess ( "Event created." );
 					} catch ( RuntimeException $e ) {
 						showError ( $e->getMessage () );

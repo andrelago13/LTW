@@ -48,37 +48,13 @@ CREATE TABLE EventInvite
   PRIMARY KEY(idEvent, idInvited)
 );
 
-DROP TABLE IF EXISTS Thread;
-CREATE TABLE Thread
-(
-  id INTEGER PRIMARY KEY,
-  idEvent INTEGER REFERENCES Event(id),
-  name VARCHAR NOT NULL
-);
-
 DROP TABLE IF EXISTS Comment;
 CREATE TABLE Comment
 (
   id INTEGER PRIMARY KEY,
-  idThread INTEGER REFERENCES Thread(id),
+  idEvent INTEGER REFERENCES Thread(id),
   author INTEGER REFERENCES User(id),
   comment TEXT NOT NULL
-);
-
-DROP TABLE IF EXISTS Album;
-CREATE TABLE Album
-(
-  id INTEGER PRIMARY KEY,
-  idEvent INTEGER REFERENCES Event(id),
-  name VARCHAR NOT NULL
-);
-
-DROP TABLE IF EXISTS Photo;
-CREATE TABLE Photo
-(
-  id INTEGER PRIMARY KEY,
-  idAlbum INTEGER REFERENCES Album(id),
-  path VARCHAR NOT NULL
 );
 
 DROP TABLE IF EXISTS EventSearch;
