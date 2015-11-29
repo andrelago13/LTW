@@ -21,7 +21,10 @@ function editField(field, name, inputHTML, inputSelector, condition, submitCondi
 		validateField(inputElement, conditionFunc);
 	});
 	field.parent().on("keydown", inputSelector, function (e) {
-		if (submitCondition(e))
+		if (e.keyCode == 27) {
+			editFieldFinish(field, field.html(), inputElement, inputSelector);
+		}
+		else if (submitCondition(e))
 		{
 			var valid = inputElement.hasClass('valid');
 			if (valid)
@@ -47,6 +50,14 @@ function editTextareaField(field, name, condition) {
 		return event.keyCode == 13 && !event.shiftKey;
 	}
 	return editField(field, name, inputHTML, inputSelector, condition, submitCondition);
+}
+
+function editFieldFinish(field, html, inputElement, inputSelector) {
+	field.html(html);
+	field.show();
+	inputElement.parent().off("keyup keydown", inputSelector);
+	inputElement.remove();
+	field.next().toggle();
 }
 
 function nl2br (str, is_xhtml) {

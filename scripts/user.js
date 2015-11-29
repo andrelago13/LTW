@@ -36,11 +36,7 @@ function updateField(field, name, inputElement, inputSelector) {
 		success: function(data, textStatus, jqXHR)
 		{
 			var obj = JSON.parse(jqXHR.responseText);
-			field.html(nl2br(htmlspecialchars(obj[name])));
-			field.show();
-			inputElement.parent().off("keyup keydown", inputSelector);
-			inputElement.remove();
-			field.next().toggle();
+			editFieldFinish(field, nl2br(htmlspecialchars(obj[name])), inputElement, inputSelector);
 		},
 		error: function (jqXHR, textStatus, errorThrown)
 		{

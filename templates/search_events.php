@@ -13,12 +13,15 @@ try {
 		http_response_code ( 403 );
 		showError ( 'You need to login to search for events.' );
 	} else {
+		$time = microtime(true);
 		$events = searchEvents ( $_POST ["query"], getUserID () );
+		$time = (microtime(true) - $time);
+		$time = sprintf('%0.5f', $time);
 		$numEvents = count ( $events );
 		if ($numEvents === 0)
-			showError ( "No matching events found." );
+			showError ( "No matching events found. Search took " . $time . " seconds." );
 		else {
-			showSuccess ( "Found " . $numEvents . " entr" . ($numEvents == 1 ? "y" : "ies") . "." );
+			showSuccess ( "Found " . $numEvents . " entr" . ($numEvents == 1 ? "y" : "ies") . " in " . $time . " seconds." );
 			foreach ( $events as $event )
 				showEventBrief ( $event ["id"] );
 		}
