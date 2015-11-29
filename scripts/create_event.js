@@ -6,18 +6,18 @@ function test_date(date) {
 		return "No date was provided.";
 
 	if(date.length != 15) {
-		return "Date must have format \"DD/MM/YYYY HH:MM\".";
+		return "Date must have format \"YYYY/MM/DD HH:MM\".";
 	}
 
-	var regex = /^\b(([0-3])([0-9]))\/(([0-1])([0-9]))\/(2([0-9])([0-9])([0-9])) (([0-2])([0-9])):(([0-6])([0-9]))\b$/;
+	var regex = /^\b(2([0-9])([0-9])([0-9]))\/(([0-1])([0-9]))\/(([0-3])([0-9])) (([0-2])([0-9])):(([0-6])([0-9]))\b$/;
 	
 	if(!regex.test(date)) {
-		return "Invalid date, must have format \"DD/MM/YYYY HH:MM\".";
+		return "Invalid date, must have format \"YYYY/MM/DD HH:MM\".";
 	}
 	
-	var day = parseInt("" + date[0] + date[1]);
-	var month = parseInt("" + date[3] + date[4]);
-	var year = parseInt("" + date[6] + date[7] + date[8] + date[9]);
+	var year = parseInt("" + date[0] + date[1] + date[2] + date[3]);
+	var month = parseInt("" + date[5] + date[6]);
+	var day = parseInt("" + date[8] + date[9]);
 	
 	var hour = parseInt("" + date[11] + date[12]);
 	var minutes = parseInt("" + date[14] + date[15]);
@@ -25,7 +25,7 @@ function test_date(date) {
 	if(validDate(year, month, day, hour, minutes))
 		return '';
 
-	return "Invalid date, must have format \"DD/MM/YYYY HH:MM\".";
+	return "Invalid date, must have format \"YYYY/MM/DD HH:MM\".";
 }
 
 function validDate(year, month, day, hour, minutes) {
