@@ -354,7 +354,7 @@ div.event datetime#date {
 }
 
 div.event datetime#date:hover + a.edit#edit_date, div.event a.edit#edit_date:hover {
-	display: inline-block;
+	display: inline-block !important;
 	vertical-align: bottom;
 	position: relative;
 	top: 4px;
