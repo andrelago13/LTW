@@ -34,7 +34,6 @@ function eventBriefEllipsis() {
 }
 
 function eventInlineEdit() {
-	var name = name;
 	$(".event #name + a.edit").click(function() {
 		editTextField($(this).prev(), "name", function(inputElement) {
 			return eventTestName(inputElement.val()).length === 0;
@@ -55,7 +54,7 @@ function eventInlineEdit() {
 	});
 }
 
-function updateField(field, name, inputElement) {
+function updateField(field, name, inputElement, inputSelector) {
 	var data = {
 			'id' : field.closest('.event').attr('id').substr("event".length, 99999),
 	}
@@ -69,6 +68,7 @@ function updateField(field, name, inputElement) {
 			var obj = JSON.parse(jqXHR.responseText);
 			field.html(nl2br(htmlspecialchars(obj[name])));
 			field.show();
+			inputElement.parent().off("keyup keydown", inputSelector);
 			inputElement.remove();
 			field.next().toggle();
 		},

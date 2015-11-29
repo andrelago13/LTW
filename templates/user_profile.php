@@ -31,16 +31,16 @@ if (isset ( $idUser )) {
 	echo '<strong>Username:</strong>&nbsp';
 	echo '<span id="username">' . $user ["username"] . '</span>';
 	if ($canEdit)
-		echo '<a href="" class="edit" id="edit_name"><img src="images/edit_field.png" alt="Edit" /></a>';
+		echo '<a href="" class="edit" id="edit_username"><img src="images/edit_field.png" alt="Edit" /></a>';
 	echo '</p>';
 	
 	echo '<p>';
 	echo '<strong>Email:</strong>&nbsp';
 	echo '<span>';
-	echo '<a id="email" href="mailto:' . $user ["email"] . '">' . $user ["email"] . '</a></span>';
+	echo '<a id="email" href="mailto:' . $user ["email"] . '">' . $user ["email"] . '</a>';
 	if ($canEdit)
-		echo '<a href="" class="edit" id="edit_name"><img src="images/edit_field.png" alt="Edit" /></a>';
-	echo '</p>';
+		echo '<a href="" class="edit" id="edit_email"><img src="images/edit_field.png" alt="Edit" /></a>';
+	echo '</span></p>';
 	
 	echo '</div>';
 }

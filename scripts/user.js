@@ -3,7 +3,6 @@ $(document).ready(function() {
 });
 
 function userInlineEdit() {
-	var name = name;
 	$(".user_profile p #name + a.edit").click(function() {
 		editTextField($(this).prev(), "name", function(inputElement) {
 			return test_name(inputElement.val()).length === 0;
@@ -16,15 +15,15 @@ function userInlineEdit() {
 		});
 		return false;
 	});
-	$(".user_profile p span + a.edit").click(function() {
-		editTextField($(this).prev().find("a"), "email", function(inputElement) {
+	$(".user_profile p span a.edit").click(function() {
+		editTextField($(this).prev(), "email", function(inputElement) {
 			return test_email(inputElement.val()).length === 0;
 		});
 		return false;
 	});
 }
 
-function updateField(field, name, inputElement) {
+function updateField(field, name, inputElement, inputSelector) {
 	var data = {
 			'id' : field.closest('.user_profile').attr('id').substr("user".length, 99999),
 	}
@@ -38,6 +37,7 @@ function updateField(field, name, inputElement) {
 			var obj = JSON.parse(jqXHR.responseText);
 			field.html(nl2br(htmlspecialchars(obj[name])));
 			field.show();
+			inputElement.parent().off("keyup keydown", inputSelector);
 			inputElement.remove();
 			field.next().toggle();
 		},
@@ -61,7 +61,7 @@ function test_name(name) {
 	}
 
 	var regex = /^\b([A-Z]|[\u00C0-\u00DE])(([A-Z]|[\u00C0-\u00DE])|([a-z]|[\u00DF-\u00FF])|(([A-Z]|[\u00C0-\u00DE])|([a-z]|[\u00DF-\u00FF]))+\'(([A-Z]|[\u00C0-\u00DE])|([a-z]|[\u00DF-\u00FF]))+| )*\b$/;
-	
+
 	if(!regex.test(name)) {
 		return "Invalid name";
 	}
