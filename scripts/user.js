@@ -12,13 +12,13 @@ function userInlineEdit() {
 		return false;
 	});
 	$(".user_profile p #username + a.edit").click(function() {
-		editTextField($(this).prev(), "description", function(inputElement) {
+		editTextField($(this).prev(), "username", function(inputElement) {
 			return test_username(inputElement.val()).length === 0;
 		});
 		return false;
 	});
 	$(".user_profile p #email + a.edit").click(function() {
-		editTextField($(this).prev(), "description", function(inputElement) {
+		editTextField($(this).prev(), "email", function(inputElement) {
 			return test_email(inputElement.val()).length === 0;
 		});
 		return false;

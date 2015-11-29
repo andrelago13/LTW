@@ -33,7 +33,12 @@ class User {
 		updateUser ( $this->id, $this->name, $this->username, $this->email );
 	}
 	public function expose() {
-		return get_object_vars ( $this );
+		return array (
+				"id"  => $this->id,
+				"name" => $this->name,
+				"username" => $this->username,
+				"email" => $this->email
+		);
 	}
 }
 ?>
