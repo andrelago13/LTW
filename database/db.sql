@@ -54,7 +54,7 @@ CREATE TABLE Comment
   id INTEGER PRIMARY KEY,
   idEvent INTEGER REFERENCES Thread(id),
   author INTEGER REFERENCES User(id),
-  comment TEXT NOT NULL
+  text TEXT NOT NULL
 );
 
 DROP TABLE IF EXISTS EventSearch;
