@@ -25,12 +25,11 @@ function editField(field, name, inputHTML, inputSelector, condition, submitCondi
 		{
 			var valid = inputElement.hasClass('valid');
 			if (valid)
-				eventUpdateField(field, name, inputElement);
+				updateField(field, name, inputElement, inputSelector);
 			return false;
 		}
 	});
 }
-
 
 function editTextField(field, name, condition) {
 	var inputHTML = '<input class="edit ' + name + '" name="' + name + '" type="text" />';

@@ -2,36 +2,34 @@ $(document).ready(function() {
 	userInlineEdit();
 });
 
-
 function userInlineEdit() {
-	var name = name;
-	$(".user_profile #name + a.edit").click(function() {
+	$(".user_profile p #name + a.edit").click(function() {
 		editTextField($(this).prev(), "name", function(inputElement) {
-			return eventTestName(inputElement.val()).length === 0;
+			return test_name(inputElement.val()).length === 0;
 		});
 		return false;
 	});
-	$(".event #description + a.edit").click(function() {
-		editTextareaField($(this).prev(), "description", function(inputElement) {
-			return eventTestDescription(inputElement.val()).length === 0;
+	$(".user_profile p #username + a.edit").click(function() {
+		editTextField($(this).prev(), "username", function(inputElement) {
+			return test_username(inputElement.val()).length === 0;
 		});
 		return false;
 	});
-	$(".event #date + a.edit").click(function() {
-		editTextField($(this).prev(), "date", function(inputElement) {
-			return eventTestDate(inputElement.val()).length === 0;
+	$(".user_profile p span a.edit").click(function() {
+		editTextField($(this).prev(), "email", function(inputElement) {
+			return test_email(inputElement.val()).length === 0;
 		});
 		return false;
 	});
 }
 
-function eventUpdateField(field, name, inputElement) {
+function updateField(field, name, inputElement, inputSelector) {
 	var data = {
-			'id' : field.closest('.event').attr('id').substr("event".length, 99999),
+			'id' : field.closest('.user_profile').attr('id').substr("user".length, 99999),
 	}
 	data[field.attr('id')] = inputElement.val();
 	$.ajax({
-		url : "edit_event.php",
+		url : "edit_user.php",
 		type: "POST",
 		data : data,
 		success: function(data, textStatus, jqXHR)
@@ -39,6 +37,7 @@ function eventUpdateField(field, name, inputElement) {
 			var obj = JSON.parse(jqXHR.responseText);
 			field.html(nl2br(htmlspecialchars(obj[name])));
 			field.show();
+			inputElement.parent().off("keyup keydown", inputSelector);
 			inputElement.remove();
 			field.next().toggle();
 		},
@@ -49,87 +48,57 @@ function eventUpdateField(field, name, inputElement) {
 	});
 }
 
+
 /*
  * Returns an empty string if name is valid, error message otherwise
  */
-function eventTestName(name) {
+function test_name(name) {
 	if(typeof name == 'undefined')
 		return "No name was provided.";
 
 	if(name.length > 100) {
-		return "name too large, maximum 100 chars.";
+		return "Name too large, maximum 100 chars.";
 	}
 
-	if(name.length == 0) {
-		return "name cannot be empty.";
-	}
+	var regex = /^\b([A-Z]|[\u00C0-\u00DE])(([A-Z]|[\u00C0-\u00DE])|([a-z]|[\u00DF-\u00FF])|(([A-Z]|[\u00C0-\u00DE])|([a-z]|[\u00DF-\u00FF]))+\'(([A-Z]|[\u00C0-\u00DE])|([a-z]|[\u00DF-\u00FF]))+| )*\b$/;
 
-	return '';
-}
-
-/*
- * Returns an empty string if description is valid, error message otherwise
- */
-function eventTestDescription(description) {
-	if(typeof description == 'undefined')
-		return "No description was provided.";
-
-	if(description.length > 10000) {
-		return "Description too large, maximum 10000 chars.";
+	if(!regex.test(name)) {
+		return "Invalid name";
 	}
 
 	return '';
 }
 
 /*
- * Returns an empty string if date is valid, error message otherwise
+ * Returns an empty string if username is valid, error message otherwise
  */
-function eventTestDate(date) {
-	if(typeof date == 'undefined')
-		return "No date was provided.";
+function test_username(username) {
+	if(typeof username == 'undefined')
+		return "No username was provided.";
 
-	if(date.length != 15) {
-		return "Date must have format \"DD/MM/YYYY HH:MM\".";
+	var regex = /^([A-z0-9]|_|-|\.){3,30}$/;
+	if(!regex.test(username)) {
+		return "Invalid username.";
 	}
 
-	var regex = /^\b(([0-3])([0-9]))\/(([0-1])([0-9]))\/(2([0-9])([0-9])([0-9])) (([0-2])([0-9])):(([0-6])([0-9]))\b$/;
-
-	if(!regex.test(date)) {
-		return "Invalid date, must have format \"DD/MM/YYYY HH:MM\".";
-	}
-
-	var day = parseInt("" + date[0] + date[1]);
-	var month = parseInt("" + date[3] + date[4]);
-	var year = parseInt("" + date[6] + date[7] + date[8] + date[9]);
-
-	var hour = parseInt("" + date[11] + date[12]);
-	var minutes = parseInt("" + date[14] + date[15]);
-
-	if(validDate(year, month, day, hour, minutes))
-		return '';
-
-	return "Invalid date, must have format \"DD/MM/YYYY HH:MM\".";
+	return '';
 }
 
-function validDate(year, month, day, hour, minutes) {
-	var normalYearMonths = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
-	var leapYearMonths = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+/*
+ * Returns an empty string if email is valid, error message otherwise
+ */
+function test_email(email) {
+	if(typeof email == 'undefined')
+		return "No email was provided.";
 
-	if(year < 2000 || month < 1 || month > 12 || day < 1 || day > 31 || hour < 0 || hour > 23 || minutes < 0 || minutes > 59)
-		return false;
-
-	if ( year%400 == 0) {
-		if(day > leapYearMonths[month-1])
-			return false;
-	} else if (year % 100 == 0) {
-		if(day > normalYearMonths[month-1])
-			return false;
-	} else if(year % 4 == 0) {
-		if(day > leapYearMonths[month-1])
-			return false;
-	} else {
-		if(day > normalYearMonths[month-1])
-			return false;
+	if(email.length > 254) {
+		return "Email too large, maximum 254 chars.";
 	}
-	return true;
+
+	var regex = /^[A-z0-9._%+-]+@[A-z0-9.-]+\.[a-z]{2,}$/;
+	if(!regex.test(email)) {
+		return "Invalid email.";
+	}
+
+	return '';
 }

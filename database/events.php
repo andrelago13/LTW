@@ -196,4 +196,14 @@ function updateEvent($name, $description, $date, $public) {
 	return $idEvent;
 }
 
+function deleteEvent($idEvent) {
+    global $db;
+    $query = "DELETE FROM Event WHERE idEvent = :event ";
+    $stmt = $db->prepare ( $query );
+    $stmt->bindParam ( ':event', $idEvent, PDO::PARAM_INT );
+    if($stmt->execute ()) {
+        return $idEvent;
+    }
+    return false;
+}
 ?>
