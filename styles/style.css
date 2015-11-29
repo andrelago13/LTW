@@ -259,6 +259,7 @@ input:-webkit-autofill {
 /*//////////////////////////////////////////////////////////////////////////////
  									EVENT
 //////////////////////////////////////////////////////////////////////////////*/
+
 div.event {
 	background: white;
 	border-color: #ccc;
@@ -436,6 +437,28 @@ div.event div.comment_area div.comment_container div.comment p#text {
 div.event div.comment_area div.comment_container div.comment h4#time {
 	margin: 1rem 4rem;
 	font-family: "Montserrat Bold";
+}
+
+/*//////////////////////////////////////////////////////////////////////////////
+ 								EDIT EVENT
+//////////////////////////////////////////////////////////////////////////////*/
+
+div.event input.edit.name {
+	margin: 1rem 0 0 2rem;
+	padding: 0 1rem 0 0;
+	font: 700 30px "Montserrat Regular", "Arial Black", Gadget, sans-serif;
+	text-align: left;
+	color: black;
+	display: inline-block;
+}
+
+div.event div.container textarea.edit.description {
+	background: red;
+	font-family: "Montserrat Regular", Arial, sans-serif;
+	font-size: 20px;
+	word-wrap: break-word;
+	margin: 2rem 2rem 2rem 2rem;
+	width: 100%;	
 }
 
 /*//////////////////////////////////////////////////////////////////////////////
