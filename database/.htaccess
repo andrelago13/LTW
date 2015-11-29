@@ -1,4 +1,4 @@
-<FilesMatch "db\.db|db\.sql|sqlite3\.exe">
+<FilesMatch "db\.db|db\.sql">
 Order Allow,Deny
 Deny from all
 </FilesMatch>
