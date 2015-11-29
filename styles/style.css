@@ -519,6 +519,7 @@ div.event_brief div:hover a.edit img {
 /*//////////////////////////////////////////////////////////////////////////////
  								CREATE EVENT
 //////////////////////////////////////////////////////////////////////////////*/
+
 form.create_event {
 	background: white;
 	border-color: #ccc;
@@ -543,7 +544,7 @@ form.create_event div {
 	margin: auto;
 }
 
-form.create_event div.type select, form.create_event div input {
+form.create_event div.type select, form.create_event div input, form.create_event div textarea, form.create_event div.image input#image {
 	display: inline-block;
 	width: 40%;
 	height: 42px;
@@ -556,6 +557,15 @@ form.create_event div.type select, form.create_event div input {
 	outline: none;
 	margin-bottom: 0.5rem;
 	font-family: 'Montserrat Regular';
+	vertical-align: middle;
+}
+
+form.create_event div textarea {
+	height: 18rem;
+}
+
+form.create_event div.image input#image {
+	height: auto;
 }
 
 form.create_event div label {
