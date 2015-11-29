@@ -82,6 +82,15 @@ div.user_profile p, div.user_profile p input.edit {
 	font-size: 24px;
 }
 
+div.user_profile p input.edit.valid {
+	color: green;
+}
+
+div.user_profile p input.edit.error {
+	color: red;
+	text-decoration: underline;
+}
+
 div.user_profile p strong {
 	text-decoration: underline;
 }
@@ -524,6 +533,15 @@ div.event input.edit.date {
 	text-align: left;
 	color: black;
 	display: inline-block;
+}
+
+div.event input.edit.date.valid {
+	color: green;
+}
+
+div.event input.edit.date.error {
+	color: red;
+	text-decoration: underline;
 }
 
 /*//////////////////////////////////////////////////////////////////////////////
