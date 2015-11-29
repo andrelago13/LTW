@@ -36,8 +36,8 @@ if (isset ( $idUser )) {
 	
 	echo '<p>';
 	echo '<strong>Email:</strong>&nbsp';
-	echo '<spacn id="email">';
-	echo '<a href="mailto:' . $user ["email"] . '">' . $user ["email"] . '</a>';
+	echo '<span>';
+	echo '<a id="email" href="mailto:' . $user ["email"] . '">' . $user ["email"] . '</a></span>';
 	if ($canEdit)
 		echo '<a href="" class="edit" id="edit_name"><img src="images/edit_field.png" alt="Edit" /></a>';
 	echo '</p>';

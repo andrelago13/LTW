@@ -25,7 +25,7 @@ function editField(field, name, inputHTML, inputSelector, condition, submitCondi
 		{
 			var valid = inputElement.hasClass('valid');
 			if (valid)
-				eventUpdateField(field, name, inputElement);
+				updateField(field, name, inputElement);
 			return false;
 		}
 	});

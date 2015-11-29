@@ -55,7 +55,7 @@ function eventInlineEdit() {
 	});
 }
 
-function eventUpdateField(field, name, inputElement) {
+function updateField(field, name, inputElement) {
 	var data = {
 			'id' : field.closest('.event').attr('id').substr("event".length, 99999),
 	}
