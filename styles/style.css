@@ -535,11 +535,11 @@ div.event input.edit.date {
 	display: inline-block;
 }
 
-div.event input.edit.date.valid {
+div.event input.edit.valid, div.event div.container textarea.edit.description.valid  {
 	color: green;
 }
 
-div.event input.edit.date.error {
+div.event input.edit.error, div.event div.container textarea.edit.description.error {
 	color: red;
 	text-decoration: underline;
 }
