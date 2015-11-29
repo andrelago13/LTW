@@ -202,8 +202,8 @@ function deleteEvent($idEvent) {
     $stmt = $db->prepare ( $query );
     $stmt->bindParam ( ':event', $idEvent, PDO::PARAM_INT );
     if($stmt->execute ()) {
-        return true;
+        return $idEvent;
     }
-    return $idEvent;
+    return false;
 }
 ?>

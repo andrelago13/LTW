@@ -8,6 +8,10 @@ class Event {
 	private $description;
 	private $date;
 	private $public;
+
+    public function getOwner() {
+        return $this->ownwer;
+    }
 	public function setId($id) {
 		$this->id = $id;
 	}
@@ -23,6 +27,9 @@ class Event {
 	public function setPublic($public) {
 		$this->public = $public;
 	}
+	public function setOwner($owner) {
+		$this->owner = $owner;
+	}
 	public static function find($id) {
 		$event_query = getEvent ( $id );
 		
@@ -32,6 +39,7 @@ class Event {
 		$event->setDescription ( $event_query ["description"] );
 		$event->setName ( $event_query ["name"] );
 		$event->setPublic ( $event_query ["public"] );
+		$event->setOwner($event_query["owner"]);
 		
 		return $event;
 	}

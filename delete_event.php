@@ -20,7 +20,13 @@ try {
             echo 'You do not have access to edit this event.';
         } else {
             $event = Event::find ($event_id);
-            return true;
+            if(getUserID() ==$event->getOwner()) {
+                $event->delete();
+                return true;
+            } else {
+                http_response_code(403);
+                echo 'You do not have permission to delete this event.';
+            }
         }
     }
 } catch ( InvalidArgumentException $e ) {
