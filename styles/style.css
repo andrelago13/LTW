@@ -82,13 +82,20 @@ div.user_profile p, div.user_profile p input.edit {
 	font-size: 24px;
 }
 
+div.user_profile p input.edit {
+	width: 30rem;
+	display: inline-block;
+}
+
 div.user_profile p input.edit.valid {
 	color: green;
+	box-shadow: 0 0 20px green;
 }
 
 div.user_profile p input.edit.error {
 	color: red;
 	text-decoration: underline;
+	box-shadow: 0 0 20px red;
 }
 
 div.user_profile p strong {
@@ -110,7 +117,7 @@ div.user_profile a.edit {
 	display: none !important;
 }
 
-div.user_profile p:hover a.edit {
+div.user_profile p span:hover + a.edit, div.user_profile p a.edit:hover, div.user_profile p span a#email:hover + a.edit {
 	display: inline-block !important;
 }
 
@@ -537,11 +544,15 @@ div.event input.edit.date {
 
 div.event input.edit.valid, div.event div.container textarea.edit.description.valid  {
 	color: green;
+	border-color: green;
+	box-shadow: 0 0 10px green;
 }
 
 div.event input.edit.error, div.event div.container textarea.edit.description.error {
 	color: red;
 	text-decoration: underline;
+	border-color: red;
+	box-shadow: 0 0 10px red;
 }
 
 /*//////////////////////////////////////////////////////////////////////////////
