@@ -360,6 +360,45 @@ div.event a.delete#delete_event img:hover {
 	content: url("resources/images/trash_open.png");
 }
 
+div.event a.change_privacy {
+	width: 2.5rem;
+	height: 2.5rem;
+	float: right;
+	margin: 2rem 2rem 0 0;
+	cursor: pointer;
+}
+
+div.event a.change_privacy p.description {
+	display: none;
+}
+
+div.event a.change_privacy#change_privacy img:hover + p.description {
+	display: initial;
+	width: 10rem;
+	text-align: center;
+	font-family: "Montserrat Regular";
+	float: right;
+	margin: 0;
+	text-decoration: none;
+	position: relative;
+	left: 3.7rem;
+	color: grey;
+   	pointer-events: none;
+   	cursor: default;
+}
+
+div.event a.change_privacy.public#change_privacy img, div.event a.change_privacy.private#change_privacy img:hover {
+	content: url("resources/images/unlocked.png");
+	width: inherit;
+	height: inherit;
+}
+
+div.event a.change_privacy.public#change_privacy img:hover, div.event a.change_privacy.private#change_privacy img {
+	content: url("resources/images/locked.png");
+	width: inherit;
+	height: inherit;
+}
+
 div.event h1#name {
 	margin: 1rem 0 0 2rem;
 	padding: 0 1rem 0 0;
@@ -371,6 +410,7 @@ div.event h1#name {
 
 div.event div.container {
 	margin-bottom: 2rem;
+	margin-top: 1rem;
 }
 
 div.event h1#name:hover + a.edit, div.event h1#name + a.edit:hover {
@@ -409,7 +449,7 @@ div.event p#description {
 	font-family: "Montserrat Regular", Arial, sans-serif;
 	font-size: 20px;
 	word-wrap: break-word;
-	margin: 2rem 2rem 0 2rem;
+	margin: 3rem 2rem 0 2rem;
 }
 
 div.event div.container p#description:hover + a.edit, div.event div.container a.edit:hover {

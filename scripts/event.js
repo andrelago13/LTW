@@ -1,6 +1,7 @@
 $(document).ready(function() {
 	eventBriefEllipsis();
 	eventInlineEdit();
+	eventEnablePublicityChange();
 });
 
 function eventBriefEllipsis() {
@@ -161,3 +162,10 @@ function validDate(year, month, day, hour, minutes, seconds) {
 	 }
 	 return true;
 }
+
+function eventEnablePublicityChange() {
+	$("div.event a.change_privacy").click(function() {
+		//updateField(field, name, inputElement, inputSelector);
+	});
+}
+

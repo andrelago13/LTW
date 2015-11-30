@@ -21,6 +21,11 @@ try {
 		$event = getEvent ( $idEvent );
 		echo '<div class="event" id="event' . $idEvent . '">';
 		echo '<a href="delete_event.php?id=' . $idEvent . '" class="delete" id="delete_event"><img src="" alt="Delete Event" /></a>';
+		$public = $event ["public"];
+		if( $public )
+			echo '<a class="change_privacy public" id="change_privacy"><img src="" alt="Change Event Privacy" /><p class="description">Make me private</p></a>';
+		else
+			echo '<a class="change_privacy private" id="change_privacy"><img src="" alt="Change Event Privacy" /><p class="description">Make me public</p></a>';
 		echo '<h1 id="name">' . htmlspecialchars ( $event ["name"] ) . '</h1>';
 		echo '<a href="" class="edit" id="edit_name"><img src="images/edit_field.png" alt="Edit" /></a>';
 		echo '<div class="container">';
