@@ -54,7 +54,8 @@ CREATE TABLE Comment
   id INTEGER PRIMARY KEY,
   idEvent INTEGER REFERENCES Thread(id),
   author INTEGER REFERENCES User(id),
-  text TEXT NOT NULL
+  text TEXT NOT NULL,
+  date DATE NOT NULL DEFAULT (datetime('now','localtime'))
 );
 
 DROP TABLE IF EXISTS EventSearch;

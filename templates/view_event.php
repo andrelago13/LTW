@@ -54,7 +54,7 @@ try {
 			echo '<div class="comment">';
 			echo '<h3 id="user">' . htmlspecialchars($comment["name"]) . '</h3>';
 			echo '<p id="text">' . nl2br(htmlspecialchars($comment["text"])) . '</p>';
-			echo '<h4 id="time">2014/02/02 22:22</h4>';
+			echo '<h4 id="time">' . $comment["date"] . '</h4>';
 			echo '</div>';
 		}
 		
