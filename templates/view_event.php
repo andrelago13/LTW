@@ -22,17 +22,26 @@ try {
 	} else {
 		$idEvent = $_GET ["id"];
 		$event = getEvent ( $idEvent );
+		$canEdit = (isUserLoggedIn () && $event ["owner"] === getUserID ());
+		
 		echo '<div class="event" id="event' . $idEvent . '">';
-		echo '<a href="delete_event.php?id=' . $idEvent . '" class="delete" id="delete_event"><img src="" alt="Delete Event" /></a>';
+		if ($canEdit)
+			echo '<a href="delete_event.php?id=' . $idEvent . '" class="delete" id="delete_event"><img src="" alt="Delete Event" /></a>';
+		
 		echo '<h1 id="name">' . htmlspecialchars ( $event ["name"] ) . '</h1>';
-		echo '<a href="" class="edit" id="edit_name"><img src="images/edit_field.png" alt="Edit" /></a>';
+		if ($canEdit)
+			echo '<a href="" class="edit" id="edit_name"><img src="images/edit_field.png" alt="Edit" /></a>';
+		
 		echo '<div class="container">';
 		echo '<img id="image" src="database/event_image.php?id=' . $idEvent . '" alt="' . htmlspecialchars ( $event ["name"] ) . '" width="256" height="256" />';
 		echo '<p id="description">' . preg_replace ( "/\n/", "<br />", htmlspecialchars ( $event ["description"] ) ) . '</p>';
-		echo '<a href="" class="edit" id="edit_description"><img src="images/edit_field.png" alt="Edit" /></a>';
+		if ($canEdit)
+			echo '<a href="" class="edit" id="edit_description"><img src="images/edit_field.png" alt="Edit" /></a>';
 		echo '</div>';
+		
 		echo '<datetime id="date">' . htmlspecialchars ( $event ["date"] ) . '</datetime>';
-		echo '<a href="" class="edit" id="edit_date"><img src="images/edit_field.png" alt="Edit" /></a>';
+		if ($canEdit)
+			echo '<a href="" class="edit" id="edit_date"><img src="images/edit_field.png" alt="Edit" /></a>';
 		?>
 <div class="fb-share-button" data-href="<?php echo requestedURL(); ?>"
 	data-layout="button_count"></div>
@@ -48,13 +57,13 @@ try {
 		echo '<div class="comment_container">';
 		echo '<h2 id="title">Comments:</h2>';
 		
-		$comments = getComments($idEvent);
+		$comments = getComments ( $idEvent );
 		
 		foreach ( $comments as $comment ) {
 			echo '<div class="comment">';
-			echo '<h3 id="user">' . htmlspecialchars($comment["name"]) . '</h3>';
-			echo '<p id="text">' . nl2br(htmlspecialchars($comment["text"])) . '</p>';
-			echo '<h4 id="time">' . $comment["date"] . '</h4>';
+			echo '<h3 id="user">' . htmlspecialchars ( $comment ["name"] ) . '</h3>';
+			echo '<p id="text">' . nl2br ( htmlspecialchars ( $comment ["text"] ) ) . '</p>';
+			echo '<h4 id="time">' . $comment ["date"] . '</h4>';
 			echo '</div>';
 		}
 		
