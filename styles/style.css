@@ -53,7 +53,7 @@ body {
 	background-image: url('../images/success.png');
 }
 
-p.successmsg {
+p.successmsg, p.errormsg {
 	margin-bottom: 1rem;
 }
 
