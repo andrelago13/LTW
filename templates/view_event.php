@@ -28,6 +28,8 @@ try {
 			echo '<a class="change_privacy private" id="change_privacy"><img src="" alt="Change Event Privacy" /><p class="description">Make me public</p></a>';
 		echo '<h1 id="name">' . htmlspecialchars ( $event ["name"] ) . '</h1>';
 		echo '<a href="" class="edit" id="edit_name"><img src="images/edit_field.png" alt="Edit" /></a>';
+		$eventTypeName = getEventTypeName($event ["type"]);
+		echo '<h2 id="type">' . $eventTypeName . '</h2>';
 		echo '<div class="container">';
 		echo '<img id="image" src="database/event_image.php?id=' . $idEvent . '" alt="' . htmlspecialchars ( $event ["name"] ) . '" width="256" height="256" />';
 		echo '<p id="description">' . preg_replace ( "/\n/", "<br />", htmlspecialchars ( $event ["description"] ) ) . '</p>';

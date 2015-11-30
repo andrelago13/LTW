@@ -408,6 +408,14 @@ div.event h1#name {
 	display: inline-block;
 }
 
+div.event h2#type {
+	margin: 1rem 0 0 2rem;
+	padding: 0 1rem 0 0;
+	font: 700 20px "Montserrat Regular", "Arial Black", Gadget, sans-serif;
+	text-align: left;
+	color: #484848;
+}
+
 div.event div.container {
 	margin-bottom: 2rem;
 	margin-top: 1rem;

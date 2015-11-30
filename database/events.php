@@ -123,6 +123,17 @@ function getEventTypes() {
 	$stmt->execute ();
 	return $stmt->fetchAll ();
 }
+function getEventTypeName($idType) {
+	global $db;
+	$query = "SELECT name FROM EventType WHERE id=:id";
+	$stmt = $db->prepare ( $query );
+	$stmt->bindParam ( ':id', $idType, PDO::PARAM_INT );
+	$stmt->execute ();
+	$res = $stmt->fetchAll();
+	if(sizeof($res) == 0)
+		return "";
+	return $res[0]["name"];
+}
 function registerInEvent($idUser, $idEvent) {
 	global $db;
 	
