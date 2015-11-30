@@ -33,6 +33,11 @@ try {
 			else
 				echo '<a class="change_privacy private" id="change_privacy"><img src="" alt="Change Event Privacy" /><p class="description">Make me public</p></a>';
 		}
+		if(isUserRegisteredInEvent ( getUserID(), $idEvent )) {
+			echo '<div class="registered"></div>';
+		} else {
+			echo '<div class="not_registered"></div>';		
+		}
 		echo '<h1 id="name">' . htmlspecialchars ( $event ["name"] ) . '</h1>';
 		if ($canEdit)
 			echo '<a href="" class="edit" id="edit_name"><img src="images/edit_field.png" alt="Edit" /></a>';

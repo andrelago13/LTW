@@ -412,14 +412,40 @@ div.event {
 	overflow: auto;
 }
 
+div.event div.registered {
+	height: 2.5rem;
+	width: auto;
+	float: right;
+	margin: 2rem 2rem 0 0;
+	content: url("resources/images/unregister.png");	/*	to load the resource */
+	content: url("resources/images/registered.png");
+}
+
+div.event div.registered:hover {
+	content: url("resources/images/unregister.png");
+	cursor: pointer;
+}
+
+div.event div.not_registered {
+	height: 2.5rem;
+	width: auto;
+	float: right;
+	margin: 2rem 2rem 0 0;
+	content: url("resources/images/register.png");	/*	to load the resource */
+	content: url("resources/images/not_registered.png");
+}
+
+div.event div.not_registered:hover {
+	content: url("resources/images/register.png");
+	cursor: pointer;
+}
+
 div.event a.delete#delete_event img {
 	width: 2.5rem;
 	height: 2.5rem;
 	float: right;
 	margin: 2rem 4rem 0 0;
-}
-
-div.event a.delete#delete_event img {
+	content: url("resources/images/trash_open.png");	/*	to load the resource */
 	content: url("resources/images/trash_closed.png");
 }
 
