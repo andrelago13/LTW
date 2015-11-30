@@ -58,23 +58,27 @@ try {
 <?php
 		
 		echo '<div class="comment_area">';
-		echo '<form class="write_comment_form" id="write_comment" action="view_event.php?id=' . $idEvent . '" method="post">';
-		echo '<input type="hidden" name="idEvent" value="' . $idEvent . '" />';
-		echo '<textarea name="text" id="text" required placeholder="Comment..." maxlength="500"></textarea>';
-		echo '<button id="submit" type="submit" name="submit_comment">Add comment</button>';
-		echo '</form>';
+		if(isUserRegisteredInEvent ( getUserID(), $idEvent )) {
+			echo '<form class="write_comment_form" id="write_comment" action="view_event.php?id=' . $idEvent . '" method="post">';
+			echo '<input type="hidden" name="idEvent" value="' . $idEvent . '" />';
+			echo '<textarea name="text" id="text" required placeholder="Comment..." maxlength="500"></textarea>';
+			echo '<button id="submit" type="submit" name="submit_comment">Add comment</button>';
+			echo '</form>';
+		}
 		
 		echo '<div class="comment_container">';
 		echo '<h2 id="title">Comments:</h2>';
-		
 		$comments = getComments ( $idEvent );
-		
-		foreach ( $comments as $comment ) {
-			echo '<div class="comment">';
-			echo '<h3 id="user">' . htmlspecialchars ( $comment ["name"] ) . '</h3>';
-			echo '<p id="text">' . nl2br ( htmlspecialchars ( $comment ["text"] ) ) . '</p>';
-			echo '<h4 id="time">' . $comment ["date"] . '</h4>';
-			echo '</div>';
+		if(sizeof($comments) > 0) {
+			foreach ( $comments as $comment ) {
+				echo '<div class="comment">';
+				echo '<h3 id="user">' . htmlspecialchars ( $comment ["name"] ) . '</h3>';
+				echo '<p id="text">' . nl2br ( htmlspecialchars ( $comment ["text"] ) ) . '</p>';
+				echo '<h4 id="time">' . $comment ["date"] . '</h4>';
+				echo '</div>';
+			}
+		} else {
+			echo '<h4 class="no_comments">There are no comments yet on this event.</h4>';
 		}
 		
 		echo '</div>';
