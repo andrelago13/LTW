@@ -125,7 +125,74 @@ div.user_profile p span:hover + a.edit, div.user_profile p a.edit:hover, div.use
 	display: inline-block !important;
 }
 
+div.user_profile p#edit_password_label {
+	font-family: "Montserrat Bold";
+	font-size: 24px;
+	text-decoration: underline;
+}
 
+div.user_profile p#edit_password_label:hover {
+	color: grey;
+	cursor: pointer;
+}
+
+div.user_profile form.change_password input {
+	display: inline;
+	width: 30rem;
+	height: 42px;
+	box-sizing: border-box;
+	border-radius: 5px 5px 5px 5px;
+	border-style: solid;
+	border-color: #2720E6;
+	border-width: 1px;
+	font-size: 20px;
+	outline: none;
+	margin: 1rem 0 0 4rem;
+	padding-left: 2rem;
+}
+
+div.user_profile form.change_password div.validity {
+	display: inline;
+	background: url("resources/images/neutral.png");
+	background-size: contain;
+	background-position: center center;
+	background-repeat: no-repeat;
+	width: 4rem;
+	height: 42px;
+	box-sizing: border-box;
+	border: 0 solid #ccc;
+	font-size: 14px;
+	outline: none;
+	color: rgba(1, 1, 1, 0);
+	padding: 12px 10px 5px 0;
+	margin: 0 0 1rem 1rem;
+}
+
+div.user_profile form.change_password input.valid div.validity {
+	background: url("resources/images/valid.png");
+}
+
+div.user_profile form.change_password input.error div.validity {
+	background: url("resources/images/error.png");
+}
+
+div.user_profile form.change_password button {
+	width: 15rem;
+	display: block;
+	border-radius: 5px;
+	border: 1px solid #ccc;
+	margin: 1rem 0 0 11.5rem;
+	height: 40px;
+	background: #2720E6;
+	box-sizing: border-box;
+	border: 1px solid #1713ae;
+	color: #fff;
+	font-weight: bold;
+	text-transform: uppercase;
+	font-size: 14px;
+	outline: none;
+	cursor: pointer;
+}
 
 /*//////////////////////////////////////////////////////////////////////////////
  								LOGIN and REGISTER

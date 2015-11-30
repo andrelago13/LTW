@@ -42,6 +42,24 @@ if (isset ( $idUser )) {
 		echo '<a href="" class="edit" id="edit_email"><img src="images/edit_field.png" alt="Edit" /></a>';
 	echo '</span></p>';
 	
+	echo '<p id="edit_password_label">Change password</p>';
+	
+	echo '<form class="change_password">';
+	echo '<div class="form_line">';
+	echo '<input id="old_password" name="old_password" type="password" value="" placeholder="Current password" required/>';
+	echo '<div class="validity" id="validity">test</div>';
+	echo '</div>';
+	echo '<div class="form_line">';
+	echo '<input id="new_password" name="new_password" type="password" value="" placeholder="New password" required/>';
+	echo '<div class="validity" id="validity">test</div>';
+	echo '</div>';
+	echo '<div class="form_line">';
+	echo '<input id="new_password_confirm" name="new_password_confirm" type="password" value="" placeholder="Confirm new password" required/>';
+	echo '<div class="validity" id="validity">test</div>';
+	echo '</div>';
+	echo '<button id="submit" type="submit">Change password</button>';
+	echo '</form>';
+	
 	echo '</div>';
 }
 ?>
