@@ -3,7 +3,10 @@ require_once (__DIR__ . "/../config.php");
 require_once (DATABASE_PATH . "/connection.php");
 function getComments($idEvent, $amount = -1, $offset = 0) {
 	global $db;
-	$query = "SELECT * FROM Comment INNER JOIN Event ON Comment.idEvent = :event LIMIT :amount OFFSET :offset";
+	$query = "SELECT Comment.*, User.name
+			FROM Comment
+			INNER JOIN User ON Comment.author = User.id
+			INNER JOIN Event ON Comment.idEvent = :event LIMIT :amount OFFSET :offset";
 	$stmt = $db->prepare ( $query );
 	$stmt->bindParam ( ':event', $idEvent, PDO::PARAM_INT );
 	$stmt->bindParam ( ':amount', $amount, PDO::PARAM_INT );
@@ -13,7 +16,9 @@ function getComments($idEvent, $amount = -1, $offset = 0) {
 }
 function getComment($idComment) {
 	global $db;
-	$query = "SELECT * FROM Comment WHERE id = :comment";
+	$query = "SELECT Comment.*, User.*
+			FROM Comment, User
+			WHERE Comment.id = :comment AND Comment.author = User.id";
 	$stmt = $db->prepare ( $query );
 	$stmt->bindParam ( ':coment', $idComment, PDO::PARAM_INT );
 	$stmt->execute ();

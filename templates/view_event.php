@@ -5,6 +5,7 @@ require_once (INCLUDES_PATH . "/authentication.php");
 require_once (INCLUDES_PATH . "/events.php");
 require_once (DATABASE_PATH . "/events.php");
 require_once (INCLUDES_PATH . "/utils.php");
+require_once (DATABASE_PATH . "/comment.php");
 
 require (INCLUDES_PATH . "/write_comment_action.php");
 
@@ -33,8 +34,7 @@ try {
 		echo '<datetime id="date">' . htmlspecialchars ( $event ["date"] ) . '</datetime>';
 		echo '<a href="" class="edit" id="edit_date"><img src="images/edit_field.png" alt="Edit" /></a>';
 		?>
-<div class="fb-share-button"
-	data-href="<?php echo requestedURL(); ?>"
+<div class="fb-share-button" data-href="<?php echo requestedURL(); ?>"
 	data-layout="button_count"></div>
 <?php
 		
@@ -46,22 +46,18 @@ try {
 		echo '</form>';
 		
 		echo '<div class="comment_container">';
-		echo '<h2 id="title">Comments:</h2>';		
-		echo '<div class="comment">';
-		echo '<h3 id="user">Cristiano Ronaldo</h3>';
-		echo '<p id="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec efficitur, libero ac faucibus tincidunt, urna urna tincidunt enim, sit amet congue nunc magna at est. Nam rhoncus dignissim orci eget fermentum. Proin ultrices dignissim vestibulum. Suspendisse porttitor pellentesque suscipit. Fusce sodales, nisl et pretium rutrum, urna nunc egestas nulla, vitae imperdiet erat diam sit amet metus. Suspendisse po</p>';
-		echo '<h4 id="time">2014/02/02 22:22</h4>';
-		echo '</div>';
-		echo '<div class="comment">';
-		echo '<h3 id="user">Cristiano Ronaldo</h3>';
-		echo '<p id="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec efficitur, libero ac faucibus tincidunt, urna urna tincidunt enim, sit amet congue nunc magna at est. Nam rhoncus dignissim orci eget fermentum. Proin ultrices dignissim vestibulum. Suspendisse porttitor pellentesque suscipit. Fusce sodales, nisl et pretium rutrum, urna nunc egestas nulla, vitae imperdiet erat diam sit amet metus. Suspendisse po</p>';
-		echo '<h4 id="time">2014/02/02 22:22</h4>';
-		echo '</div>';
-		echo '<div class="comment">';
-		echo '<h3 id="user">Cristiano Ronaldo</h3>';
-		echo '<p id="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec efficitur, libero ac faucibus tincidunt, urna urna tincidunt enim, sit amet congue nunc magna at est. Nam rhoncus dignissim orci eget fermentum. Proin ultrices dignissim vestibulum. Suspendisse porttitor pellentesque suscipit. Fusce sodales, nisl et pretium rutrum, urna nunc egestas nulla, vitae imperdiet erat diam sit amet metus. Suspendisse po</p>';
-		echo '<h4 id="time">2014/02/02 22:22</h4>';
-		echo '</div>';
+		echo '<h2 id="title">Comments:</h2>';
+		
+		$comments = getComments($idEvent);
+		
+		foreach ( $comments as $comment ) {
+			echo '<div class="comment">';
+			echo '<h3 id="user">' . htmlspecialchars($comment["name"]) . '</h3>';
+			echo '<p id="text">' . nl2br(htmlspecialchars($comment["text"])) . '</p>';
+			echo '<h4 id="time">2014/02/02 22:22</h4>';
+			echo '</div>';
+		}
+		
 		echo '</div>';
 		echo '</div>';
 		echo '</div>';
