@@ -162,7 +162,7 @@ function unregisterFromEvent($idUser, $idEvent) {
 	$stmt->bindParam ( ':user', $idUser, PDO::PARAM_INT );
 	$stmt->execute ();
 	if ($stmt->fetch ()) {
-		$query = "DELETE FROM EventRegistration  WHERE idUser = :user";
+		$query = "DELETE FROM EventRegistration  WHERE idUser = :user AND idEvent = :event";
 		$stmt = $db->prepare ( $query );
 		$stmt->execute ();
 	} else
