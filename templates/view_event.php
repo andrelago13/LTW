@@ -69,6 +69,7 @@ try {
 		echo '<div class="comment_container">';
 		echo '<h2 id="title">Comments:</h2>';
 		$comments = getComments ( $idEvent );
+		echo sizeof($comments); 
 		if(sizeof($comments) > 0) {
 			foreach ( $comments as $comment ) {
 				echo '<div class="comment">';

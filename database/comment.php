@@ -20,7 +20,7 @@ function getComment($idComment) {
 			FROM Comment, User
 			WHERE Comment.id = :comment AND Comment.author = User.id";
 	$stmt = $db->prepare ( $query );
-	$stmt->bindParam ( ':coment', $idComment, PDO::PARAM_INT );
+	$stmt->bindParam ( ':comment', $idComment, PDO::PARAM_INT );
 	$stmt->execute ();
 	return $stmt->fetch ();
 }
