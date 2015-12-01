@@ -412,6 +412,26 @@ div.event {
 	overflow: auto;
 }
 
+div.event form.invite_user {
+	height: 1.5rem;
+	width: 12rem;
+	vertical-align: middle;
+	float: right;
+	margin: 2.4rem 2rem 0 0;
+}
+
+div.event form.invite_user input {
+	height: 1.5rem;
+	width: 12rem;
+	vertical-align: middle;
+	
+	padding-left: 1rem;
+	border-radius: 10px;
+	border-color: #ccc;
+	border-width: 2px;
+	font-family: "Montserrat Regular";
+}
+
 div.event div.registered {
 	height: 2.5rem;
 	width: auto;
