@@ -12,7 +12,7 @@ try {
         echo 'Missing event ID.';
     } else if (!isUserLoggedIn()) {
         http_response_code(403);
-        echo 'You need to login to edit this event.';
+        echo 'You need to login to unregister this event.';
     } else if (!validateCSRFToken($_POST ["csrf_token"])) {
         http_response_code(403);
         echo 'Invalid CSRF token.';
