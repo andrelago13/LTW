@@ -26,12 +26,12 @@ try {
 		
 		echo '<div class="event" id="event' . $idEvent . '">';
 		if ($canEdit) {
-			echo '<a href="delete_event.php?id=' . $idEvent . '&csrf_token=' . $_SESSION['csrf_token'] . '" class="delete" id="delete_event"><img src="" alt="Delete Event" /></a>';
+			echo '<a href="delete_event.php?id=' . $idEvent . '&amp;csrf_token=' . $_SESSION['csrf_token'] . '" class="delete" id="delete_event"><img src="#" alt="Delete Event" /></a>';
 			$public = $event ["public"];
 			if( $public )
-				echo '<a class="change_privacy public" id="change_privacy"><img src="" alt="Change Event Privacy" /><p class="description">Make me private</p></a>';
+				echo '<a class="change_privacy public" id="change_privacy"><img src="#" alt="Change Event Privacy" /><p class="description">Make me private</p></a>';
 			else
-				echo '<a class="change_privacy private" id="change_privacy"><img src="" alt="Change Event Privacy" /><p class="description">Make me public</p></a>';
+				echo '<a class="change_privacy private" id="change_privacy"><img src="#" alt="Change Event Privacy" /><p class="description">Make me public</p></a>';
 		}
 		if(isUserRegisteredInEvent ( getUserID(), $idEvent ) && !$canEdit) {
 			echo '<div class="registered"></div>';
@@ -39,22 +39,22 @@ try {
 			echo '<div class="not_registered"></div>';		
 		}
 		if($canEdit) {
-			echo '<form class="invite_user" action="" method="post">';
-			echo '<input type="text" value="" placeholder="Invite user" name="invited_user" ></input>';
+			echo '<form class="invite_user" action="#" method="post">';
+			echo '<input type="text" value="" placeholder="Invite user" name="invited_user" />';
 			echo '</form>';
 		}
-		echo '<h1 id="name">' . htmlspecialchars ( $event ["name"] ) . '</h1>';
+		echo '<h1 class="name">' . htmlspecialchars ( $event ["name"] ) . '</h1>';
 		if ($canEdit)
 			echo '<a href="" class="edit" id="edit_name"><img src="images/edit_field.png" alt="Edit" /></a>';
-		echo '<h2 id="type">' . getEventTypeName($event ["type"]) . '</h2>';
+		echo '<h2 class="type">' . getEventTypeName($event ["type"]) . '</h2>';
 		echo '<div class="container">';
-		echo '<img id="image" src="database/event_image.php?id=' . $idEvent . '" alt="' . htmlspecialchars ( $event ["name"] ) . '" width="256" height="256" />';
-		echo '<p id="description">' . preg_replace ( "/\n/", "<br />", htmlspecialchars ( $event ["description"] ) ) . '</p>';
+		echo '<img class="image" src="database/event_image.php?id=' . $idEvent . '" alt="' . htmlspecialchars ( $event ["name"] ) . '" width="256" height="256" />';
+		echo '<p class="description">' . preg_replace ( "/\n/", "<br />", htmlspecialchars ( $event ["description"] ) ) . '</p>';
 		if ($canEdit)
 			echo '<a href="" class="edit" id="edit_description"><img src="images/edit_field.png" alt="Edit" /></a>';
 		echo '</div>';
 		
-		echo '<datetime id="date">' . htmlspecialchars ( $event ["date"] ) . '</datetime>';
+		echo '<datetime-local class="date">' . htmlspecialchars ( $event ["date"] ) . '</datetime-local>';
 		if ($canEdit)
 			echo '<a href="" class="edit" id="edit_date"><img src="images/edit_field.png" alt="Edit" /></a>';
 		?>
@@ -66,21 +66,21 @@ try {
 		if(isUserRegisteredInEvent ( getUserID(), $idEvent )) {
 			echo '<form class="write_comment_form" id="write_comment" action="view_event.php?id=' . $idEvent . '" method="post">';
 			echo '<input type="hidden" name="idEvent" value="' . $idEvent . '" />';
-			echo '<textarea name="text" id="text" required placeholder="Comment..." maxlength="500"></textarea>';
-			echo '<button id="submit" type="submit" name="submit_comment">Add comment</button>';
+			echo '<textarea name="text" class="text" required placeholder="Comment..." maxlength="500"></textarea>';
+			echo '<button type="submit" name="submit_comment">Add comment</button>';
 			echo '</form>';
 		}
 		
 		echo '<div class="comment_container">';
-		echo '<h2 id="title">Comments:</h2>';
+		echo '<h2 class="title">Comments:</h2>';
 		$comments = getComments ( $idEvent );
 		echo sizeof($comments); 
 		if(sizeof($comments) > 0) {
 			foreach ( $comments as $comment ) {
 				echo '<div class="comment">';
-				echo '<h3 id="user">' . htmlspecialchars ( $comment ["name"] ) . '</h3>';
-				echo '<p id="text">' . nl2br ( htmlspecialchars ( $comment ["text"] ) ) . '</p>';
-				echo '<h4 id="time">' . $comment ["date"] . '</h4>';
+				echo '<h3 class="user">' . htmlspecialchars ( $comment ["name"] ) . '</h3>';
+				echo '<p class="text">' . nl2br ( htmlspecialchars ( $comment ["text"] ) ) . '</p>';
+				echo '<h4 class="time">' . $comment ["date"] . '</h4>';
 				echo '</div>';
 			}
 		} else {
