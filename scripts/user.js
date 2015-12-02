@@ -3,13 +3,13 @@ $(document).ready(function() {
 });
 
 function userInlineEdit() {
-	$(".user_profile p #name + a.edit").click(function() {
+	$(".user_profile p .name + a.edit").click(function() {
 		editTextField($(this).prev(), "name", function(inputElement) {
 			return test_name(inputElement.val()).length === 0;
 		});
 		return false;
 	});
-	$(".user_profile p #username + a.edit").click(function() {
+	$(".user_profile p .username + a.edit").click(function() {
 		editTextField($(this).prev(), "username", function(inputElement) {
 			return test_username(inputElement.val()).length === 0;
 		});

@@ -35,19 +35,19 @@ function eventBriefEllipsis() {
 }
 
 function eventInlineEdit() {
-	$(".event #name + a.edit").click(function() {
+	$(".event .name + a.edit").click(function() {
 		editTextField($(this).prev(), "name", function(inputElement) {
 			return eventTestName(inputElement.val()).length === 0;
 		});
 		return false;
 	});
-	$(".event #description + a.edit").click(function() {
+	$(".event .description + a.edit").click(function() {
 		editTextareaField($(this).prev(), "description", function(inputElement) {
 			return eventTestDescription(inputElement.val()).length === 0;
 		});
 		return false;
 	});
-	$(".event #date + a.edit").click(function() {
+	$(".event .date + a.edit").click(function() {
 		editTextField($(this).prev(), "date", function(inputElement) {
 			return eventTestDate(inputElement.val()).length === 0;
 		});
