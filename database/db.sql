@@ -90,8 +90,10 @@ INSERT INTO EventType (id, name) VALUES (2, 'Concert');
 INSERT INTO EventType (id, name) VALUES (3, 'Conference');
 
 INSERT INTO User (id, name, username, email, hash) VALUES (1, 'Gustavo Silva', 'gtugablue', 'silva95gustavo@gmail.com', '$2y$10$gu7d2oO1Gb/1IWu16bIZt.8Vaai./rYTbE6zkrArxqeYj8QBUPzEa');
+INSERT INTO User (id, name, username, email, hash) VALUES (2, 'André Lago', 'andrelago', 'aslmbc13@gmail.com', '$2y$10$gu7d2oO1Gb/1IWu16bIZt.8Vaai./rYTbE6zkrArxqeYj8QBUPzEa');
 
 INSERT INTO Event (type, name, description, date, public, owner)
 	VALUES (1, 'Churrasco do Reis', 'O Reis passou a todas as cadeiras, therefore churrasco!', '2015-12-12 19:00:00', 0, 1);
 
 INSERT INTO EventRegistration (idEvent, idUser) VALUES (1, 1);
+INSERT INTO EventRegistration (idEvent, idUser) VALUES (1, 2);

@@ -84,6 +84,13 @@ try {
 			foreach ( $comments as $comment ) {
 				echo '<div class="comment">';
 				echo '<h3 id="user">' . htmlspecialchars ( $comment ["name"] ) . '</h3>';
+				if($comment["user_id"] != getUserID()) {
+					if(isUserRegisteredInEvent ( $comment ["user_id"], $idEvent )) {
+						echo '<div class="registered"></div>';
+					} else {
+						echo '<div class="not_registered"></div>';
+					}
+				}
 				echo '<p id="text">' . nl2br ( htmlspecialchars ( $comment ["text"] ) ) . '</p>';
 				echo '<h4 id="time">' . $comment ["date"] . '</h4>';
 				echo '</div>';
