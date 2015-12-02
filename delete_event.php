@@ -7,17 +7,17 @@ require_once (INCLUDES_PATH . "/events.php");
 require_once (DATABASE_PATH . "/events.php");
 
 try {
-    if (!isset ($_POST ["id"])) {
+    if (!isset ($_GET ["id"])) {
         http_response_code(400);
         echo 'Missing event ID.';
     } else if (!isUserLoggedIn()) {
         http_response_code(403);
         echo 'You need to login to edit this event.';
-    } else if (! validateCSRFToken ( $_POST ["csrf_token"] )) {
+    } else if (! validateCSRFToken ( $_GET ["csrf_token"] )) {
 		http_response_code ( 403 );
 		echo 'Invalid CSRF token.';
 	}else {
-        $event_id = $_POST ["id"];
+        $event_id = $_GET ["id"];
         if (!canSeeEvent(getUserID(), $event_id)) {
             http_response_code(403);
             echo 'You do not have access to edit this event.';
