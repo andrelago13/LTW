@@ -64,6 +64,13 @@ function getEvent($idEvent) {
 	$stmt->execute ();
 	return $stmt->fetch ();
 }
+
+function getPublicFutureEvents() {
+	global $db;
+	$stmt = $db->prepare ( 'SELECT * FROM Event ORDER BY date WHERE public = 1 AND date >= CURRENT_TIMESTAMP');
+	$stmt->execute ();
+	return $stmt->fetchAll ();
+}
 function getEventsByOwner($idOwner, $amount = -1, $offset = 0) {
 	global $db;
 	$query = "SELECT * FROM Event WHERE owner = :owner ORDER BY date DESC LIMIT :amount OFFSET :offset";
