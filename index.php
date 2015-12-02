@@ -4,8 +4,10 @@ require_once (TEMPLATES_PATH . "/utils.php");
 require_once (INCLUDES_PATH . "/authentication.php");
 
 if(isUserLoggedIn()) {
-	require_once(__DIR__ . "/my_events.php");
+	header("Location: my_events.php");
+	die();
 } else {
-	require_once ("login.php");
+	header("Location: login.php");
+	die();
 }
 ?>
