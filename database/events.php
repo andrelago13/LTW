@@ -232,4 +232,14 @@ function deleteEvent($idEvent) {
     }
     return false;
 }
+
+function getInvitedEvents($idUser) {
+    global $db;
+    $stmt = $db->prepare ( 'SELECT * FROM Event INNER JOIN EventInvite ON Event.id = EventInvite.idEvent
+WHERE EventInvite.idInvited = :user  AND Event.date >= CURRENT_TIMESTAMP ORDER BY date');
+    $stmt->bindParam ( ':user', $idUser, PDO::PARAM_INT );
+    $stmt->execute ();
+    return $stmt->fetchAll ();
+}
+
 ?>
