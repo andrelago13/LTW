@@ -65,11 +65,19 @@ function getEvent($idEvent) {
 	return $stmt->fetch ();
 }
 
-function getPublicFutureEvents() {
+function getFuturePublicEvents() {
 	global $db;
 	$stmt = $db->prepare ( 'SELECT * FROM Event ORDER BY date WHERE public = 1 AND date >= CURRENT_TIMESTAMP');
 	$stmt->execute ();
 	return $stmt->fetchAll ();
+}
+function getFutureRegisteredEvents($idUser) {
+    global $db;
+    $stmt = $db->prepare ( 'SELECT * FROM Event INNER JOIN EventRegistration ON Event.id = EventRegistration.idEvent
+WHERE EventRegistration.idUser = :user  AND Event.date >= CURRENT_TIMESTAMP ORDER BY date');
+    $stmt->bindParam ( ':user', $idUser, PDO::PARAM_INT );
+    $stmt->execute ();
+    return $stmt->fetchAll ();
 }
 function getEventsByOwner($idOwner, $amount = -1, $offset = 0) {
 	global $db;
