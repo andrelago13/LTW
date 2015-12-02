@@ -937,6 +937,7 @@ header#pagetop ul#menuoptions li {
 	border-width: 1px;
 	border-style: solid;
 	border-color: grey;
+	box-shadow: 8px 8px 6px rgba(0, 0, 0, .1);
 }
 
 header#pagetop ul#menuoptions li.active {
@@ -1014,6 +1015,7 @@ footer#footer {
 	border-style: solid;
 	border-width: 0 2px 2px 2px;
 	border-radius: 0 0 5px 5px;
+	box-shadow: 0 -5px 0 #2720E6;
 }
 
 footer#footer p {
