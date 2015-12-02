@@ -33,10 +33,16 @@ try {
 			else
 				echo '<a class="change_privacy private" id="change_privacy"><img src="" alt="Change Event Privacy" /><p class="description">Make me public</p></a>';
 		}
-		if(isUserRegisteredInEvent ( getUserID(), $idEvent ) && !$canEdit) {
-			echo '<div class="registered"></div>';
+		if(isUserRegisteredInEvent ( getUserID(), $idEvent )) {
+			echo '<div class="registered';
+			if($canEdit) {
+				echo ' owner"';
+			} else {
+				echo ' not_owner"';
+			}
+			echo '></div>';
 		} else {
-			echo '<div class="not_registered"></div>';		
+			echo '<div class="not_registered"></div>';	
 		}
 		if($canEdit) {
 			echo '<form class="invite_user" action="" method="post">';
@@ -74,7 +80,6 @@ try {
 		echo '<div class="comment_container">';
 		echo '<h2 id="title">Comments:</h2>';
 		$comments = getComments ( $idEvent );
-		echo sizeof($comments); 
 		if(sizeof($comments) > 0) {
 			foreach ( $comments as $comment ) {
 				echo '<div class="comment">';

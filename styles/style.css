@@ -414,7 +414,7 @@ div.event {
 
 div.event form.invite_user {
 	height: 1.5rem;
-	width: 12rem;
+	width: 14rem;
 	vertical-align: middle;
 	float: right;
 	margin: 2.4rem 2rem 0 0;
@@ -422,10 +422,11 @@ div.event form.invite_user {
 
 div.event form.invite_user input {
 	height: 1.5rem;
-	width: 12rem;
+	width: 13rem;
 	vertical-align: middle;
 	
-	padding-left: 1rem;
+	margin: 0;
+	padding: 0 0 0 1rem;
 	border-radius: 10px;
 	border-color: #ccc;
 	border-width: 2px;
@@ -441,7 +442,7 @@ div.event div.registered {
 	content: url("resources/images/registered.png");
 }
 
-div.event div.registered:hover {
+div.event div.registered.now_owner:hover {
 	content: url("resources/images/unregister.png");
 	cursor: pointer;
 }
