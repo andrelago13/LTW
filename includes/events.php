@@ -9,27 +9,15 @@ class Event {
 	private $date;
 	private $public;
 
-    public function getOwner() {
-        return $this->ownwer;
-    }
-	public function setId($id) {
-		$this->id = $id;
-	}
-	public function setName($name) {
-		$this->name = $name;
-	}
-	public function setDescription($description) {
-		$this->description = $description;
-	}
-	public function setDate($date) {
-		$this->date = $date;
-	}
-	public function setPublic($public) {
-		$this->public = $public;
-	}
-	public function setOwner($owner) {
-		$this->owner = $owner;
-	}
+    public function getOwner() {return $this->owner;}
+
+	public function setId($id) {$this->id = $id;}
+	public function setName($name) {$this->name = $name;}
+	public function setDescription($description) {$this->description = $description;}
+	public function setDate($date) {$this->date = $date;}
+	public function setPublic($public) {$this->public = $public;}
+	public function setOwner($owner) {$this->owner = $owner;}
+
 	public static function find($id) {
 		$event_query = getEvent ( $id );
 		
@@ -49,7 +37,6 @@ class Event {
 	public function expose() {
 		return get_object_vars ( $this );
 	}
-
 	public function delete() {
 		deleteEvent($this->id);
 	}
