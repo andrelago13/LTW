@@ -513,7 +513,7 @@ div.event a.change_privacy.public#change_privacy img:hover, div.event a.change_p
 	height: inherit;
 }
 
-div.event h1#name {
+div.event h1.name {
 	margin: 1rem 0 0 2rem;
 	padding: 0 1rem 0 0;
 	font: 700 30px "Montserrat Regular", "Arial Black", Gadget, sans-serif;
@@ -522,7 +522,7 @@ div.event h1#name {
 	display: inline-block;
 }
 
-div.event h2#type {
+div.event h2.type {
 	margin: 1rem 0 0 2rem;
 	padding: 0 1rem 0 0;
 	font: 700 20px "Montserrat Regular", "Arial Black", Gadget, sans-serif;
@@ -535,7 +535,7 @@ div.event div.container {
 	margin-top: 1rem;
 }
 
-div.event h1#name:hover + a.edit, div.event h1#name + a.edit:hover {
+div.event h1.name:hover + a.edit, div.event h1.name + a.edit:hover {
 	display: inline-block !important;
 	width: 2rem;
 	height: 2rem;
@@ -559,7 +559,7 @@ div.event a.edit#edit_date img {
 	width: auto;
 }
 
-div.event img#image {
+div.event img.image {
 	float: left;
 	margin: 1rem 2rem 1rem 2rem;
 	width: 30%;
@@ -567,14 +567,14 @@ div.event img#image {
 	border-radius: 8px;
 }
 
-div.event p#description {
+div.event p.description {
 	font-family: "Montserrat Regular", Arial, sans-serif;
 	font-size: 20px;
 	word-wrap: break-word;
 	margin: 3rem 2rem 0 2rem;
 }
 
-div.event div.container p#description:hover + a.edit, div.event div.container a.edit:hover {
+div.event div.container p.description:hover + a.edit, div.event div.container a.edit:hover {
 	display: inline-block !important;
 	horizontal-align: right;
 	padding: 0 0 0 2rem;
@@ -582,7 +582,7 @@ div.event div.container p#description:hover + a.edit, div.event div.container a.
 	right: 8rem;
 }
 
-div.event datetime#date {
+div.event datetime-local.date {
 	margin: 1rem 0 2rem 5rem;
 	padding: 0 1rem 0 0;
 	font: 700 15px "Montserrat Bold", "Arial Black", Gadget, sans-serif;
@@ -591,7 +591,7 @@ div.event datetime#date {
 	display: inline-block;
 }
 
-div.event datetime#date:hover + a.edit#edit_date, div.event a.edit#edit_date:hover {
+div.event datetime-local.date:hover + a.edit#edit_date, div.event a.edit#edit_date:hover {
 	display: inline-block !important;
 	vertical-align: bottom;
 	margin-right: 1rem;
@@ -640,7 +640,7 @@ div.event div.comment_area form.write_comment_form button {
 	cursor: pointer;
 }
 
-div.event div.comment_area h2#title {
+div.event div.comment_area h2.title {
 	font-family: "Montserrat Bold";
 	margin-left: 4rem;
 	text-decoration: underline;
@@ -672,17 +672,17 @@ div.event div.comment_area div.comment_container div.comment:last-child {
 	border-radius: 0 0 14px 14px !important;
 }
 
-div.event div.comment_area div.comment_container div.comment h3#user {
+div.event div.comment_area div.comment_container div.comment h3.user {
 	margin: 1rem 0 1rem 2rem;
 	font-family: "Montserrat Regular";
 }
 
-div.event div.comment_area div.comment_container div.comment p#text {
+div.event div.comment_area div.comment_container div.comment p.text {
 	margin: 0.5rem 1rem;
 	font-family: "Montserrat Regular";
 }
 
-div.event div.comment_area div.comment_container div.comment h4#time {
+div.event div.comment_area div.comment_container div.comment h4.time {
 	margin: 1rem 4rem;
 	font-family: "Montserrat Bold";
 }
