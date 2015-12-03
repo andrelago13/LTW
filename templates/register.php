@@ -1,10 +1,11 @@
 <?php
 require_once (__DIR__ . "/../config.php");
-
 require_once (INCLUDES_PATH . "/authentication.php");
+
+require (INCLUDES_PATH . "/register_action.php");
 ?>
 
-<form class="register_form" id="register_form" action="login.php" method="post" autocomplete="off" />
+<form class="register_form" id="register_form" action="register.php" method="post" autocomplete="off" />
 	<h1 id="title">Register</h1>
 	
 	<div class="form_row" id="reg_name_row">
@@ -32,7 +33,7 @@ require_once (INCLUDES_PATH . "/authentication.php");
 		--><input id="reg_confirm_password" name="confirm_password" type="password" placeholder="Confirm password" required/><!--
 		--><div class="validity" id="validity">test</div>
 	</div>
-	<button id="submit" type="submit">Submit</button>
+	<button id="submit" type="submit" name="submit">Submit</button>
 </form>
 
 <script src="scripts/signup.js"></script>
