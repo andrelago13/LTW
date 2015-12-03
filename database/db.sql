@@ -82,7 +82,7 @@ CREATE TRIGGER EventDelete
 	AFTER DELETE ON Event
 	FOR EACH ROW
 	BEGIN
-		DELETE FROM EventSearch WHERE id = DELETED.id;
+		DELETE FROM EventSearch WHERE id = OLD.id;
 	END;
 
 INSERT INTO EventType (id, name) VALUES (1, 'Party');

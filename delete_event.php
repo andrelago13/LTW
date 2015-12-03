@@ -25,7 +25,7 @@ try {
             $event = Event::find ($event_id);
             if(getUserID() ==$event->getOwner()) {
                 $event->delete();
-                return true;
+                header("Location: my_events.php");
             } else {
                 http_response_code(403);
                 echo 'You do not have permission to delete this event.';
@@ -36,5 +36,6 @@ try {
     http_response_code ( 400 );
     echo $e->getMessage ();
 } catch ( Exception $e ) {
+	echo $e->getMessage();
     http_response_code ( 500 );
 }

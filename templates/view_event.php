@@ -26,7 +26,7 @@ try {
 		
 		echo '<div class="event" id="event' . $idEvent . '">';
 		if ($canEdit) {
-			echo '<a href="delete_event.php?id=' . $idEvent . '&amp;csrf_token=' . $_SESSION['csrf_token'] . '" class="delete" id="delete_event"><img src="#" alt="Delete Event" /></a>';
+			echo '<a href="delete_event.php?id=' . $idEvent . '&amp;csrf_token=' . $_SESSION['csrf_token'] . '" class="delete" id="delete_event" onclick="return confirm(\'Are you sure you want to delete this event?\');"><img src="#" alt="Delete Event" /></a>';
 			$public = $event ["public"];
 			if( $public )
 				echo '<a class="change_privacy public" id="change_privacy"><img src="#" alt="Change Event Privacy" /><p class="description">Make me private</p></a>';
