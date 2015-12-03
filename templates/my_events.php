@@ -8,7 +8,7 @@ require_once (TEMPLATES_PATH . "/no_events.php");
 
 try {
 	if (isUserLoggedIn ()) {
-		$events = getEventsByOwner ( getUserID () );
+		$events = getFutureEventsByOwner ( getUserID () );
 		if(sizeof($events) > 0) {
 			foreach ( $events as $event ) {
 				showEventBrief ( $event ["id"] );

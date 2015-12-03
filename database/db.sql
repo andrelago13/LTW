@@ -96,4 +96,4 @@ INSERT INTO Event (type, name, description, date, public, owner)
 	VALUES (1, 'Churrasco do Reis', 'O Reis passou a todas as cadeiras, therefore churrasco!', '2015-12-12 19:00:00', 0, 1);
 
 INSERT INTO EventRegistration (idEvent, idUser) VALUES (1, 1);
-INSERT INTO EventRegistration (idEvent, idUser) VALUES (1, 2);
+INSERT INTO EventInvite (idEvent, idInvited, idInviter) VALUES (1, 2, 1);
