@@ -901,6 +901,8 @@ header#pagetop {
 	border-style: solid;
 	border-top: 5px solid #2720E6;
 	margin: 1rem auto;
+	overflow: auto;
+	overflow-y: hidden;
 }
 
 header#pagetop nav {
