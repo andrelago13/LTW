@@ -11,11 +11,20 @@ function showEventBrief($idEvent) {
 		throw new RuntimeException ( "You do not have access to this event." );
 	
 	$event = getEvent ( $idEvent );
+	$canEdit = (isUserLoggedIn () && $event ["owner"] === getUserID ());
 	echo '<div class="event_brief" id="event' . $idEvent . '">';
 	
 	echo '<div class="name"><a href="view_event.php?id=' . $idEvent . '">';
 	echo '<h2>' . htmlspecialchars ( $event ["name"] ) . '</h2>';
 	echo '</a></div>';
+	
+	if($canEdit) {
+		echo '<div class="owner"></div>';
+	} else if(isUserRegisteredInEvent ( getUserID(), $idEvent )) {
+		echo '<div class="registered"></div>';
+	} else {
+		echo '<div class="not_registered"></div>';
+	}
 	
 	echo '<img src="database/event_image.php?id=' . $idEvent . '" alt="' . htmlspecialchars ( $event ["name"] ) . '" width="64" height="64" />';
 	

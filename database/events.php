@@ -79,7 +79,6 @@ WHERE EventRegistration.idUser = :user  AND Event.date >= CURRENT_TIMESTAMP ORDE
     $stmt->execute ();
     return $stmt->fetchAll ();
 }
-
 function getUserEventHistory($idUser) {
     global $db;
     $stmt = $db->prepare ( 'SELECT * FROM Event INNER JOIN EventRegistration ON Event.id = EventRegistration.idEvent ORDER BY date
@@ -88,7 +87,16 @@ WHERE EventRegistration.idUser = :user  AND Event.date < CURRENT_TIMESTAMP');
     $stmt->execute ();
     return $stmt->fetchAll ();
 }
-
+function getFutureEventsByOwner($idOwner, $amount = -1, $offset = 0) {
+	global $db;
+	$query = "SELECT * FROM Event WHERE owner = :owner AND date >= CURRENT_TIMESTAMP ORDER BY date DESC LIMIT :amount OFFSET :offset";
+	$stmt = $db->prepare ( $query );
+	$stmt->bindParam ( ':owner', $idOwner, PDO::PARAM_INT );
+	$stmt->bindParam ( ':amount', $amount, PDO::PARAM_INT );
+	$stmt->bindParam ( ':offset', $offset, PDO::PARAM_INT );
+	$stmt->execute ();
+	return $stmt->fetchAll ();
+}
 function getEventsByOwner($idOwner, $amount = -1, $offset = 0) {
 	global $db;
 	$query = "SELECT * FROM Event WHERE owner = :owner ORDER BY date DESC LIMIT :amount OFFSET :offset";
