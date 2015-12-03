@@ -38,9 +38,8 @@ if (! isUserLoggedIn ()) {
 	</div>
 	<div class="description">
 		<label for="description">Description:</label>
-		<textarea name="description" id="description"/>
-			<?php if (isset($_POST["description"])) echo $_POST["description"];?>
-		</textarea>
+		<textarea name="description" id="description"/><?php
+			if (isset($_POST["description"])) echo $_POST["description"];?></textarea>
 	</div>
 	<div class="date">
 		<label for="date">Date:</label> <input type="datetime" name="date"

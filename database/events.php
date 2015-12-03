@@ -212,7 +212,7 @@ function createEvent($type, $name, $description, $date, $public, $owner) {
 	$stmt->bindParam ( ':public', $public, PDO::PARAM_BOOL );
 	$stmt->bindParam ( ':owner', $owner, PDO::PARAM_INT );
 	if (! $stmt->execute ())
-		return false;
+		return -1;
 	$idEvent = $db->lastInsertId ( 'id' );
 	registerInEvent ( $owner, $idEvent );
 	return $idEvent;

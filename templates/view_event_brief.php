@@ -4,7 +4,7 @@ require_once (TEMPLATES_PATH . "/utils.php");
 require_once (INCLUDES_PATH . "/authentication.php");
 require_once (INCLUDES_PATH . "/events.php");
 require_once (DATABASE_PATH . "/events.php");
-function showEventBrief($idEvent) {
+function showEventBrief($idEvent, $showRelationship = true) {
 	if (! isUserLoggedIn ())
 		throw new RuntimeException ( "You need to be logged in." );
 	if (! canSeeEvent ( $_SESSION ["userid"], $idEvent ))
@@ -18,12 +18,14 @@ function showEventBrief($idEvent) {
 	echo '<h2>' . htmlspecialchars ( $event ["name"] ) . '</h2>';
 	echo '</a></div>';
 	
-	if($canEdit) {
-		echo '<div class="owner"></div>';
-	} else if(isUserRegisteredInEvent ( getUserID(), $idEvent )) {
-		echo '<div class="registered"></div>';
-	} else {
-		echo '<div class="not_registered"></div>';
+	if($showRelationship) {
+		if($canEdit) {
+			echo '<div class="owner"></div>';
+		} else if(isUserRegisteredInEvent ( getUserID(), $idEvent )) {
+			echo '<div class="registered"></div>';
+		} else {
+			echo '<div class="not_registered"></div>';
+		}
 	}
 	
 	echo '<img src="database/event_image.php?id=' . $idEvent . '" alt="' . htmlspecialchars ( $event ["name"] ) . '" width="64" height="64" />';

@@ -11,7 +11,7 @@ try {
 		$events = getFutureEventsByOwner ( getUserID () );
 		if(sizeof($events) > 0) {
 			foreach ( $events as $event ) {
-				showEventBrief ( $event ["id"] );
+				showEventBrief ( $event ["id"], false);
 			}	
 		} else {
 			showNoEvents();
