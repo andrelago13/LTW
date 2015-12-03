@@ -81,8 +81,8 @@ WHERE EventRegistration.idUser = :user  AND Event.date >= CURRENT_TIMESTAMP ORDE
 }
 function getUserEventHistory($idUser) {
     global $db;
-    $stmt = $db->prepare ( 'SELECT * FROM Event INNER JOIN EventRegistration ON Event.id = EventRegistration.idEvent ORDER BY date
-WHERE EventRegistration.idUser = :user  AND Event.date < CURRENT_TIMESTAMP');
+    $stmt = $db->prepare ( 'SELECT * FROM Event INNER JOIN EventRegistration ON Event.id = EventRegistration.idEvent
+WHERE EventRegistration.idUser = :user  AND Event.date < CURRENT_TIMESTAMP ORDER BY date');
     $stmt->bindParam ( ':user', $idUser, PDO::PARAM_INT );
     $stmt->execute ();
     return $stmt->fetchAll ();
