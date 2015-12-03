@@ -1,5 +1,6 @@
 $(document).ready(function() {
 	userInlineEdit();
+	$("#edit_password_label").click(function() { $("div.user_profile form.change_password").toggle(); });
 });
 
 function userInlineEdit() {

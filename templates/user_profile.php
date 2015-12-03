@@ -37,7 +37,7 @@ if (isset ( $idUser )) {
 	echo '<p class="email">';
 	echo '<strong>Email:</strong>&nbsp';
 	echo '<span>';
-	echo '<a id="email" href="mailto:' . $user ["email"] . '">' . $user ["email"] . '</a>';
+	echo '<a id="email" href="mailto:' . $user ["email"] . '" target="_blank">' . $user ["email"] . '</a>';
 	if ($canEdit)
 		echo '<a href="" class="edit" id="edit_email"><img src="images/edit_field.png" alt="Edit" /></a>';
 	echo '</span></p>';
