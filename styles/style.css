@@ -735,6 +735,13 @@ div.event input.edit.error, div.event div.container textarea.edit.description.er
  								EVENT BRIEF
 //////////////////////////////////////////////////////////////////////////////*/
 
+div.event_brief h2.no_events {
+	text-align: center;
+	width: auto;
+	font-family: "Montserrat Regular";
+	font-size: 30px;
+}
+
 div.event_brief {
 	background: white;
 	border-color: #ccc;

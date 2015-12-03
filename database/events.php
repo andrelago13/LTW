@@ -67,7 +67,7 @@ function getEvent($idEvent) {
 
 function getFuturePublicEvents() {
 	global $db;
-	$stmt = $db->prepare ( 'SELECT * FROM Event ORDER BY date WHERE public = 1 AND date >= CURRENT_TIMESTAMP');
+	$stmt = $db->prepare ( 'SELECT * FROM Event WHERE public = 1 AND date >= CURRENT_TIMESTAMP ORDER BY date');
 	$stmt->execute ();
 	return $stmt->fetchAll ();
 }
