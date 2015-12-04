@@ -45,4 +45,16 @@ function updateUser ( $idUser, $name, $username, $email ) {
 	$stmt->bindParam ( ':user', $idUser, PDO::PARAM_INT );
 	return $stmt->execute ();
 }
+
+function getUserIDFromUsername($username) {
+	global $db;
+	$stmt = $db->prepare('SELECT User.id FROM User WHERE username = :username');
+	$stmt->bindParam(':username', $username, PDO::PARAM_STR);
+	$stmt->execute();
+	$ret = $stmt->fetchAll();
+	
+	if(sizeof($ret)!= 1)
+		throw new InvalidUsername ( "Username provided does not exist or is invalid." );
+	return $ret[0];
+}
 ?>

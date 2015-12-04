@@ -8,6 +8,7 @@ require_once (INCLUDES_PATH . "/utils.php");
 require_once (DATABASE_PATH . "/comment.php");
 
 require (INCLUDES_PATH . "/write_comment_action.php");
+require (INCLUDES_PATH . "/invite_user_action.php");
 
 try {
 	if (! isset ( $_GET ["id"] )) {
@@ -38,7 +39,7 @@ try {
 			echo '<input type="hidden" name="csrf_token" value="' . $_SESSION['csrf_token'] . '" />';
 			echo '<input type="hidden" name="idEvent" value="' . $idEvent . '" />';
 			echo '<input type="text" value="" placeholder="Invite user" name="invited_username" required/>';
-			echo '<input class="submit" type="submit"/>';
+			echo '<input class="submit" type="submit"onclick="return confirm(\'Are you sure you want to invite that user?\');"/>';
 			echo '</form>';
 		} else if(isUserRegisteredInEvent ( getUserID(), $idEvent )) {
 			echo '<a href="user_registration.php?idEvent=' . $idEvent . '&amp;action=0&amp;csrf_token=' . rawurlencode($_SESSION['csrf_token']) . '"><div class="registration registered"></div></a>';

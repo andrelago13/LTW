@@ -82,6 +82,8 @@ CREATE TRIGGER EventDelete
 	AFTER DELETE ON Event
 	FOR EACH ROW
 	BEGIN
+		DELETE FROM EventRegistration WHERE idEvent = OLD.id;
+		DELETE FROM EventInvite WHERE idEvent = OLD.id;
 		DELETE FROM EventSearch WHERE id = OLD.id;
 	END;
 
