@@ -7,12 +7,12 @@ require_once (INCLUDES_PATH . "/events.php");
 require_once (DATABASE_PATH . "/events.php");
 
 try {
-    if (!isset ($_GET ["idEvent"])) {
+    if (!isset ($_GET ["invited_username"])) {
         http_response_code(400);
-        echo 'Missing event ID.';
-    }  else if (!isset ($_GET ["action"])) {
+        echo 'Missing invitee username.';
+    }  else if (!isset ($_GET ["idEvent"])) {
         http_response_code(400);
-        echo 'Missing action value.';
+        echo 'Missing event ID';
     } else if (!isUserLoggedIn()) {
         http_response_code(403);
         echo 'You need to login to edit this event.';
@@ -20,20 +20,38 @@ try {
 		http_response_code ( 403 );
 		echo 'Invalid CSRF token.';
 	}else {
-        $event_id = $_GET ["idEvent"];
+        $invited_un = $_GET ["invited_username"];
         $user_id = getUserID();
-        $register = $_GET ["action"];
+        $event_id = $_GET["idEvent"];
+        $invited_id;
+        
+        try {
+        	$invited_id = getUserIDFromUsername($invited_un);
+        } catch (InvalidUsername $e) {
+        	http_response_code ( 400 );
+    		echo $e->getMessage ();
+    		return;
+        }
         
         if (!canSeeEvent($user_id, $event_id)) {
             http_response_code(403);
             echo 'You do not have access to this event.';
         } else {
-            if($register) {
-            	registerInEvent($user_id, $event_id);
+            $event = Event::find ($event_id);
+            if($user_id == $event->getOwner()) {
+            
+            	try {
+            		inviteUserToEvent($user_id, $invited_id, $event_id);
+            	} catch (AlreadyInvitedException $e) {
+            		http_response_code ( 400 );
+    				echo $e->getMessage ();
+            	}
+            
+            	header("Location: view_event.php?id=" . $event_id);
             } else {
-            	unregisterFromEvent($user_id, $event_id);
+                http_response_code(403);
+                echo 'You do not have permission to delete this event.';
             }
-            header("Location: my_events.php");
         }
     }
 } catch ( InvalidArgumentException $e ) {
@@ -41,4 +59,5 @@ try {
     echo $e->getMessage ();
 } catch ( Exception $e ) {
     http_response_code ( 500 );
+    echo $e->getMessage();
 }

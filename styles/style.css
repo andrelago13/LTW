@@ -437,6 +437,10 @@ div.event form.invite_user input {
 	font-family: "Montserrat Regular";
 }
 
+div.event form.invite_user input.submit {
+	visibility: hidden;
+}
+
 div.event div.registration.owner {
 	height: 2.5rem;
 	width: auto;

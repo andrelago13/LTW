@@ -3,6 +3,11 @@ require_once (__DIR__ . "/../config.php");
 require_once (DATABASE_PATH . "/connection.php");
 class AlreadyRegisteredException extends Exception {
 }
+class AlreadyInvitedException extends Exception {
+}
+class InvalidUsername extends Exception {
+}
+
 function isEventPublic($idEvent) {
 	global $db;
 	$stmt = $db->prepare ( 'SELECT public FROM Event WHERE id = :event' );
@@ -36,6 +41,17 @@ function isUserInvitedToEvent($idUser, $idEvent) {
 		return true;
 	else
 		return false;
+}
+function inviteUserToEvent($idInviter, $idUser, $idEvent) {
+	if(isUserInvitedToEvent($idUser, $idEvent))
+		throw new AlreadyInvitedException ( "User is already invited to the event." );
+	
+	global $db;
+	$stmt = $db->prepare('INSERT INTO EventInvite(idEvent, idInvited, idInviter) VALUES (:idevent, :invitee, :inviter)');
+	$stmt->bindParam(':invitee', $idUser, PDO::PARAM_INT);
+	$stmt->bindParam(':inviter', $idInviter, PDO::PARAM_INT);
+	$stmt->bindParam(':idevent', $idEvent, PDO::PARAM_INT);
+	return $stmt->execute();
 }
 function isUserEventOwner($idUser, $idEvent) {
 	global $db;
@@ -167,6 +183,7 @@ function getEventTypeName($idType) {
 		return "";
 	return $res[0]["name"];
 }
+
 function registerInEvent($idUser, $idEvent) {
 	global $db;
 	
@@ -258,6 +275,18 @@ WHERE EventInvite.idInvited = :user  AND Event.date >= CURRENT_TIMESTAMP ORDER B
     $stmt->bindParam ( ':user', $idUser, PDO::PARAM_INT );
     $stmt->execute ();
     return $stmt->fetchAll ();
+}
+
+function getUserIDFromUsername($username) {
+	global $db;
+	$stmt = $db->prepare('SELECT User.id FROM User WHERE username = :username');
+	$stmt->bindParam(':username', $username, PDO::PARAM_STR);
+	$stmt->execute();
+	$ret = $stmt->fetchAll();
+	
+	if(sizeof($ret)!= 1)
+		throw new InvalidUsername ( "Username provided does not exist or is invalid." );
+	return $ret[0];
 }
 
 ?>
