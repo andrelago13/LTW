@@ -13,7 +13,7 @@ try {
     } else if (!isUserLoggedIn()) {
         http_response_code(403);
         echo 'You need to login to edit this event.';
-    } else if (! validateCSRFToken ( $_GET ["csrf_token"] )) {
+    } else if (! validateCSRFToken ( rawurldecode($_GET ["csrf_token"]) )) {
 		http_response_code ( 403 );
 		echo 'Invalid CSRF token.';
 	}else {

@@ -16,7 +16,7 @@ try {
     } else if (!isUserLoggedIn()) {
         http_response_code(403);
         echo 'You need to login to edit this event.';
-    } else if (! validateCSRFToken ( $_GET ["csrf_token"] )) {
+    } else if (! validateCSRFToken ( rawurldecode($_GET ["csrf_token"]) )) {
     	echo $_SESSION['csrf_token'];
     	echo $_GET["csrf_token"];
 		http_response_code ( 403 );
@@ -26,7 +26,7 @@ try {
         $user_id = getUserID();
         $register = $_GET ["action"];
         
-        if (!canSeeEvent(user_id, $event_id)) {
+        if (!canSeeEvent($user_id, $event_id)) {
             http_response_code(403);
             echo 'You do not have access to this event.';
         } else {
@@ -36,6 +36,7 @@ try {
             } else {
             	unregisterFromEvent($user_id, $event_id);
             }
+            header("Location: my_events.php");
         }
     }
 } catch ( InvalidArgumentException $e ) {
