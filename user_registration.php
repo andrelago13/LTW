@@ -33,7 +33,7 @@ try {
             } else {
             	unregisterFromEvent($user_id, $event_id);
             }
-            header("Location: my_events.php");
+            header("Location: view_event.php?id=" . $event_id);
         }
     }
 } catch ( InvalidArgumentException $e ) {

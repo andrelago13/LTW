@@ -212,8 +212,10 @@ function unregisterFromEvent($idUser, $idEvent) {
 	$stmt->bindParam ( ':user', $idUser, PDO::PARAM_INT );
 	$stmt->execute ();
 	if ($stmt->fetch ()) {
-		$query = "DELETE FROM EventRegistration  WHERE idUser = :user AND idEvent = :event";
+		$query = "DELETE FROM EventRegistration WHERE idUser = :user AND idEvent = :event";
 		$stmt = $db->prepare ( $query );
+		$stmt->bindParam ( ':user', $idUser, PDO::PARAM_INT );
+		$stmt->bindParam ( ':event', $idEvent, PDO::PARAM_INT );
 		$stmt->execute ();
 	} else
 		throw new AlreadyRegisteredException ( "User is not registered in Event." );
