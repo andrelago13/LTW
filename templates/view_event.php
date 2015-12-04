@@ -32,23 +32,17 @@ try {
 				echo '<a class="change_privacy public" id="change_privacy"><img src="#" alt="Change Event Privacy" /><p class="description">Make me private</p></a>';
 			else
 				echo '<a class="change_privacy private" id="change_privacy"><img src="#" alt="Change Event Privacy" /><p class="description">Make me public</p></a>';
-		}
-		if(isUserRegisteredInEvent ( getUserID(), $idEvent )) {
-			echo '<div class="registered';
-			if($canEdit) {
-				echo ' owner"';
-			} else {
-				echo ' not_owner"';
-			}
-			echo '></div>';
-		} else {
-			echo '<div class="not_registered"></div>';	
-		}
-		if($canEdit) {
+			echo '<div class="registration owner"></div>';
+			
 			echo '<form class="invite_user" action="#" method="post">';
 			echo '<input type="text" value="" placeholder="Invite user" name="invited_user" />';
 			echo '</form>';
+		} else if(isUserRegisteredInEvent ( getUserID(), $idEvent )) {
+			echo '<a href="user_registration.php?idEvent=' . $idEvent . '&amp;action=0&amp;csrf_token=' . $_SESSION['csrf_token'] . '"><div class="registration registered"></div></a>';
+		} else {
+			echo '<a href="user_registration.php?idEvent=' . $idEvent . '&amp;action=1&amp;csrf_token=' . $_SESSION['csrf_token'] . '"><div class="registration not_registered"></div></a>';
 		}
+		
 		echo '<h1 class="name">' . htmlspecialchars ( $event ["name"] ) . '</h1>';
 		if ($canEdit)
 			echo '<a href="" class="edit" id="edit_name"><img src="images/edit_field.png" alt="Edit" /></a>';

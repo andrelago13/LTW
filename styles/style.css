@@ -437,7 +437,15 @@ div.event form.invite_user input {
 	font-family: "Montserrat Regular";
 }
 
-div.event div.registered {
+div.event div.registration.owner {
+	height: 2.5rem;
+	width: auto;
+	float: right;
+	margin: 2rem 2rem 0 0;
+	content: url("resources/images/owner.png");
+}
+
+div.event div.registration.registered {
 	height: 2.5rem;
 	width: auto;
 	float: right;
@@ -446,12 +454,12 @@ div.event div.registered {
 	content: url("resources/images/registered.png");
 }
 
-div.event div.registered.now_owner:hover {
+div.event div.registration.registered:hover {
 	content: url("resources/images/unregister.png");
 	cursor: pointer;
 }
 
-div.event div.not_registered {
+div.event div.registration.not_registered {
 	height: 2.5rem;
 	width: auto;
 	float: right;
@@ -460,7 +468,7 @@ div.event div.not_registered {
 	content: url("resources/images/not_registered.png");
 }
 
-div.event div.not_registered:hover {
+div.event div.registration.not_registered:hover {
 	content: url("resources/images/register.png");
 	cursor: pointer;
 }
