@@ -54,7 +54,6 @@ try {
 			echo '<a href="" class="edit" id="edit_name"><img src="images/edit_field.png" alt="Edit" /></a>';
 		echo '<h2 class="type">' . getEventTypeName($event ["type"]) . '</h2>';
 		$num_registered = count(getEventRegistrations($idEvent));
-		print_r(getEventRegistrations($idEvent));
 		echo '<h2 class="num_registered">' . $num_registered . ' registered user' . ($num_registered == 1 ? '' : 's') . '</h3>';
 		echo '<div class="container">';
 		echo '<img class="image" src="database/event_image.php?id=' . $idEvent . '" alt="' . htmlspecialchars ( $event ["name"] ) . '" width="256" height="256" />';

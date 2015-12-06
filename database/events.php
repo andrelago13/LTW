@@ -155,16 +155,11 @@ function getRegisteredEvents($idUser, $amount = -1, $offset = 0) {
 function getEventRegistrations($idEvent, $amount = -1, $offset = 0) {
 	global $db;
 	$query = "SELECT * FROM EventRegistration
-			INNER JOIN Event ON EventRegistration.idEvent = Event.id
-			INNER JOIN User ON EventRegistration.idUser = User.id
-			WHERE idEvent = :event
-			ORDER BY User.name ASC LIMIT :amount OFFSET :offset";
+			WHERE idEvent = :event";
 	$stmt = $db->prepare ( $query );
 	$stmt->bindParam ( ':event', $idUser, PDO::PARAM_INT );
-	$stmt->bindParam ( ':amount', $amount, PDO::PARAM_INT );
-	$stmt->bindParam ( ':offset', $offset, PDO::PARAM_INT );
 	$stmt->execute ();
-	return $stmt->fetchAll ();
+	return $stmt->fetch ();
 }
 function getEventTypes() {
 	global $db;
