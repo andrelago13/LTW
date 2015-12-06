@@ -589,14 +589,49 @@ div.event img.image {
 	border-radius: 8px;
 }
 
+div.event img.image:hover + a.edit.visible, div.event img.image:hover + a.edit.visible img, div.event img.image + a.edit.visible:hover, div.event img.image + a.edit.visible img:hover {
+	display: block !important;
+	float: left;
+	width: 2rem;
+	height: 2rem;
+	margin: 0;
+	padding: 0;
+	position: relative;
+	right: 2rem;
+	top: 0.5rem;
+	cursor: pointer;
+}
+
+div.event div.container form.new_image_form.invisible {
+	display: none;
+}
+
+div.event div.container form.new_image_form.visible {
+	display: block !important;
+	float: left;
+	width: 30%;
+	position: relative;
+	right: 20.8rem;
+	top: 1rem;
+}
+
+div.event div.container form.new_image_form input.new_image_file {
+	width: 80%;
+}
+
+div.event div.container form.new_image_form input.submit {
+	width: 20%;
+}
+
 div.event p.description {
 	font-family: "Montserrat Regular", Arial, sans-serif;
 	font-size: 20px;
 	word-wrap: break-word;
 	margin: 3rem 2rem 0 2rem;
+	padding-top: 2rem;
 }
 
-div.event div.container p.description:hover + a.edit, div.event div.container a.edit:hover {
+div.event div.container p.description:hover + a.edit#edit_description, div.event div.container a.edit#edit_description:hover {
 	display: inline-block !important;
 	horizontal-align: right;
 	padding: 0 0 0 2rem;

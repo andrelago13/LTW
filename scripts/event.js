@@ -52,6 +52,10 @@ function eventInlineEdit() {
 		});
 		return false;
 	});
+	$("div.event img.image + a.edit").click(function() {
+		$("div.event img.image + a.edit").removeClass("visible");
+		$("div.event div.container form.new_image_form.invisible").removeClass("invisible").addClass("visible");
+	});
 }
 
 function updateField(field, name, inputElement, inputSelector) {
