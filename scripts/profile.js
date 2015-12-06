@@ -1,7 +1,7 @@
 $(document).ready(function() {
 	var oldPasswordField = $('form.change_password input#old_password');
-	var newPpasswordField = $('form.change_password input#old_password');
-	var confirmPasswordField = $('form.change_password input#old_password');
+	var newPasswordField = $('form.change_password input#new_password');
+	var confirmPasswordField = $('form.change_password input#new_password_confirm');
 	
 	oldPasswordField.keyup(function() {
 		validateField(oldPasswordField, function() {
@@ -11,8 +11,20 @@ $(document).ready(function() {
 			return confirmPassword(oldPasswordField, confirmPasswordField);
 		});*/
 	});
-});
-
-function confirmPassword(passwordField, confirmPasswordField) {
 	
-}
+	newPasswordField.keyup(function() {
+		validateField(newPasswordField, function() {
+			return newPasswordField.val().length >= 6 && newPasswordField.val().length <= 512;
+		});
+		validateField(confirmPasswordField, function() {
+			return confirmPasswordField.val() === newPasswordField.val();
+		});
+	});
+	
+	confirmPasswordField.keyup(function() {
+		validateField(confirmPasswordField, function() {
+			return confirmPasswordField.val() === newPasswordField.val();
+		});
+		
+	});
+});
