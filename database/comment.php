@@ -46,7 +46,7 @@ function getCommentReplies($idComment) {
 	global $db;
 	$query = "SELECT DISTINCT Reply.*, User.*
 			FROM Reply, Comment, User
-			WHERE Reply.idComment = Comment.id AND Reply.author = User.id";
+			WHERE Reply.idComment = Comment.id AND Comment.id = :comment AND Reply.author = User.id";
 	$stmt = $db->prepare ( $query );
 	$stmt->bindParam ( ':comment', $idComment, PDO::PARAM_INT );
 	$stmt->execute ();
