@@ -448,7 +448,6 @@ div.event form.invite_user input.submit {
 }
 
 div.event div.registration.owner {
-	height: 2.5rem;
 	width: 158px;
 	height: 40px;
 	float: right;
@@ -459,8 +458,7 @@ div.event div.registration.owner {
 }
 
 div.event div.registration.registered {
-	height: 2.5rem;
-	width: 40px;
+	width: 158px;
 	height: 40px;
 	float: right;
 	margin: 2rem 2rem 0 0;
@@ -472,11 +470,13 @@ div.event div.registration.registered {
 div.event div.registration.registered:hover {
 	background: url("resources/images/unregister.png");
 	cursor: pointer;
+	background-size: cover;
+    background-repeat: no-repeat;
 }
 
 div.event div.registration.not_registered {
-	height: 2.5rem;
-	width: auto;
+	width: 158px;
+	height: 40px;
 	float: right;
 	margin: 2rem 2rem 0 0;
 	background: url("resources/images/register.png");	/*	to load the resource */
@@ -488,6 +488,8 @@ div.event div.registration.not_registered {
 div.event div.registration.not_registered:hover {
 	background: url("resources/images/register.png");
 	cursor: pointer;
+	background-size: cover;
+    background-repeat: no-repeat;
 }
 
 div.event a.delete#delete_event div {
