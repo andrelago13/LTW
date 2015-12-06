@@ -631,7 +631,7 @@ div.event div.container form.new_image_form input.submit {
 	width: 20%;
 }
 
-div.event p.description {
+div.event div.container p.description {
 	font-family: "Montserrat Regular", Arial, sans-serif;
 	font-size: 20px;
 	word-wrap: break-word;
