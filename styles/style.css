@@ -553,8 +553,12 @@ div.event h2.type {
 }
 
 div.event div.container {
+	margin: 2rem;
 	margin-bottom: 2rem;
 	margin-top: 1rem;
+	border-top-style: solid;
+	border-top-width: 2px;
+	border-top-color: #E6E6E6;
 }
 
 div.event h1.name:hover + a.edit, div.event h1.name + a.edit:hover {
@@ -583,7 +587,7 @@ div.event a.edit#edit_date img {
 
 div.event img.image {
 	float: left;
-	margin: 1rem 2rem 1rem 2rem;
+	margin: 1rem 2rem 1rem 0;
 	width: 30%;
 	height: 30%;
 	border-radius: 8px;
@@ -631,7 +635,7 @@ div.event p.description {
 	font-family: "Montserrat Regular", Arial, sans-serif;
 	font-size: 20px;
 	word-wrap: break-word;
-	margin: 3rem 2rem 0 2rem;
+	margin: 3rem 0 0 2rem;
 	padding-top: 2rem;
 }
 
