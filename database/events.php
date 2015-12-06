@@ -128,7 +128,8 @@ function searchEvents($searchQuery, $idUser, $amount = -1, $offset = 0) {
 	$condition = "EventSearch.id = Event.id AND
 			(Event.public OR
 				Event.owner = :user OR
-				(SELECT count(*) FROM EventRegistration WHERE idEvent = Event.id AND idUser = :user) = 1)
+				(SELECT count(*) FROM EventInvite WHERE idEvent = Event.id AND idInvited = :user) >= 1 OR
+				(SELECT count(*) FROM EventRegistration WHERE idEvent = Event.id AND idUser = :user) >= 1)
 			AND EventSearch MATCH :query";
 	$query = "SELECT * FROM EventSearch, Event WHERE " . $condition . " LIMIT :amount OFFSET :offset";
 	$stmt = $db->prepare ( $query );
