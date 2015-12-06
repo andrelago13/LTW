@@ -490,7 +490,7 @@ div.event div.registration.not_registered:hover {
 	cursor: pointer;
 }
 
-div.event a.delete#delete_event img {
+div.event a.delete#delete_event div {
 	width: 2.5rem;
 	height: 2.5rem;
 	float: right;
@@ -499,10 +499,19 @@ div.event a.delete#delete_event img {
 	background: url("resources/images/trash_closed.png");
 	background-size: cover;
     background-repeat: no-repeat;
+    
+	background-size: 40px 40px;
+    background-repeat: no-repeat;
+	width: 40px;
+	height: 40px;
 }
 
-div.event a.delete#delete_event img:hover {
+div.event a.delete#delete_event div:hover {
 	background: url("resources/images/trash_open.png");
+	background-size: 40px 40px;
+    background-repeat: no-repeat;
+	width: 40px;
+	height: 40px;
 }
 
 div.event a.change_privacy {
@@ -517,7 +526,7 @@ div.event a.change_privacy p.description {
 	display: none;
 }
 
-div.event a.change_privacy#change_privacy img:hover + p.description {
+div.event a.change_privacy#change_privacy div:hover + p.description {
 	display: initial;
 	width: 10rem;
 	text-align: center;
@@ -532,18 +541,20 @@ div.event a.change_privacy#change_privacy img:hover + p.description {
    	cursor: default;
 }
 
-div.event a.change_privacy.public#change_privacy img, div.event a.change_privacy.private#change_privacy img:hover {
+div.event a.change_privacy.public#change_privacy div, div.event a.change_privacy.private#change_privacy div:hover {
 	background: url("resources/images/unlocked.png");
-	width: inherit;
-	height: inherit;
+	background-size: 40px 40px;
+    background-repeat: no-repeat;
+	width: 40px;
+	height: 40px;
 }
 
-div.event a.change_privacy.public#change_privacy img:hover, div.event a.change_privacy.private#change_privacy img {
+div.event a.change_privacy.public#change_privacy div:hover, div.event a.change_privacy.private#change_privacy div {
 	background: url("resources/images/locked.png");
-	width: inherit;
-	height: inherit;
-	background-size: cover;
+	background-size: 40px 40px;
     background-repeat: no-repeat;
+	width: 40px;
+	height: 40px;
 }
 
 div.event h1.name {
