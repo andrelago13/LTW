@@ -8,6 +8,7 @@ require_once (INCLUDES_PATH . "/utils.php");
 require_once (DATABASE_PATH . "/comment.php");
 
 require (INCLUDES_PATH . "/write_comment_action.php");
+require (INCLUDES_PATH . "/write_reply_action.php");
 require (INCLUDES_PATH . "/invite_user_action.php");
 require (INCLUDES_PATH . "/edit_event_image_action.php");
 
