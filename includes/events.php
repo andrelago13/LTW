@@ -57,7 +57,8 @@ class Event {
 	public function delete() {
 		$error = false;
 		$error |= deleteEvent ( $this->id );
-		$error |= unlink($this->imagePath);
+		if (!@is_null($this->imagePath))
+			$error |= unlink($this->imagePath);
 		return $error;
 	}
 }
