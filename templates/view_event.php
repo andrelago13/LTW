@@ -101,6 +101,16 @@ try {
 				echo '<p class="text">' . nl2br ( htmlspecialchars ( $comment ["text"] ) ) . '</p>';
 				echo '<h4 class="time">' . $comment ["date"] . '</h4>';
 				echo '</div>';
+				
+				$replies = getCommentReplies($comment['id']);
+				
+				foreach($replies as $reply) {
+					echo '<div class="reply">';
+						echo '<h3 class="user">' . htmlspecialchars($reply['name']) . '</h3>';
+						echo '<p class="text">' . nl2br(htmlspecialchars($reply['text'])) . '</p>';
+						echo '<h4 class="time">' . $reply["date"] . '</h4>';
+					echo '</div>';
+				}
 			}
 		} else {
 			echo '<h4 class="no_comments">There are no comments yet on this event.</h4>';
