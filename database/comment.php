@@ -37,7 +37,7 @@ function addCommentReply($idComment, $idUser, $text) {
 	global $db;
 	$query = "INSERT INTO Reply (idComment, author, text) VALUES (:comment, :user, :text)";
 	$stmt = $db->prepare($query);
-	$stmt->bindParam ( ':event', $idComment, PDO::PARAM_INT );
+	$stmt->bindParam ( ':comment', $idComment, PDO::PARAM_INT );
 	$stmt->bindParam ( ':user', $idUser, PDO::PARAM_INT );
 	$stmt->bindParam ( ':text', $text, PDO::PARAM_STR);
 	return $stmt->execute();

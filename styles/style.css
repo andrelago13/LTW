@@ -718,7 +718,7 @@ div.event div.comment_area div.comment_container div.comment {
 
 div.event div.comment_area div.comment_container div.reply {
 	display: block;
-	margin: 0 0 0.5rem auto;
+	margin: 0 0 0 auto;
 	
 	border-width: 2px;
 	border-color: white #ccc #ccc #ccc;

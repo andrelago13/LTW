@@ -2,7 +2,6 @@
 require_once (__DIR__ . "/../config.php");
 require_once (INCLUDES_PATH . "/authentication.php");
 require_once (TEMPLATES_PATH . "/utils.php");
-require_once (DATABASE_PATH . "/reply.php");
 require_once (INCLUDES_PATH . "/comment.php");
 
 if (isset ( $_POST ['submit_reply'] )) {
