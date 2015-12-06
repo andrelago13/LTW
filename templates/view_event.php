@@ -41,7 +41,7 @@ try {
 			echo '<input type="hidden" name="csrf_token" value="' . $_SESSION['csrf_token'] . '" />';
 			echo '<input type="hidden" name="idEvent" value="' . $idEvent . '" />';
 			echo '<input type="text" value="" placeholder="Invite user" name="invited_username" required/>';
-			echo '<input class="submit" type="submit"onclick="return confirm(\'Are you sure you want to invite that user?\');"/>';
+			echo '<input class="submit" type="submit" onclick="return confirm(\'Are you sure you want to invite that user?\');"/>';
 			echo '</form>';
 		} else if(isUserRegisteredInEvent ( getUserID(), $idEvent )) {
 			echo '<a href="user_registration.php?idEvent=' . $idEvent . '&amp;action=0&amp;csrf_token=' . rawurlencode($_SESSION['csrf_token']) . '"><div class="registration registered"></div></a>';
