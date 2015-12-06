@@ -9,6 +9,7 @@ class Event {
 	private $date;
 	private $public;
 	private $imagePath;
+	
 	public function getOwner() {
 		return $this->owner;
 	}
@@ -54,8 +55,10 @@ class Event {
 		return get_object_vars ( $this );
 	}
 	public function delete() {
-		deleteEvent ( $this->id );
-		unlink($imagePath);
+		$error = false;
+		$error |= deleteEvent ( $this->id );
+		$error |= unlink($this->imagePath);
+		return $error;
 	}
 }
 function canSeeEvent($idUser, $idEvent) {
