@@ -2,7 +2,9 @@
 require_once (__DIR__ . "/../config.php");
 require_once (DATABASE_PATH . "/connection.php");
 require_once (DATABASE_PATH . "/user.php");
-require_once (LIBRARIES_PATH . "/phpPasswordHashingLib/passwordLib.php");
+if (version_compare ( phpversion (), "5.5.0", "<" )) {
+	require_once (LIBRARIES_PATH . "/phpPasswordHashingLib/passwordLib.php");
+}
 function createAccount($name, $username, $email, $password) {
 	if (strlen ( $name ) > 100)
 		throw new InvalidArgumentException ( "Name too large, maximum 100 chars." );
