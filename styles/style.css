@@ -168,12 +168,18 @@ div.user_profile form.change_password div.validity {
 	margin: 0 0 1rem 1rem;
 }
 
-div.user_profile form.change_password input.valid div.validity {
+div.user_profile form.change_password input.valid + div.validity {
 	background: url("resources/images/valid.png");
+	background-size: contain;
+	background-position: center center;
+	background-repeat: no-repeat;
 }
 
-div.user_profile form.change_password input.error div.validity {
+div.user_profile form.change_password input.error + div.validity {
 	background: url("resources/images/error.png");
+	background-size: contain;
+	background-position: center center;
+	background-repeat: no-repeat;
 }
 
 div.user_profile form.change_password button {
