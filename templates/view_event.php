@@ -100,6 +100,14 @@ try {
 				}
 				echo '<p class="text">' . nl2br ( htmlspecialchars ( $comment ["text"] ) ) . '</p>';
 				echo '<h4 class="time">' . $comment ["date"] . '</h4>';
+				
+				echo '<form action="view_event.php?id=' . $idEvent . '" method="post" class="reply_form">';
+					echo '<input type="text" hidden name="idEvent" value="' . $idEvent . '"/>';
+					echo '<input type="text" hidden name="idComment" value="' . $comment["id"] . '"></input>';
+					echo '<input required class="reply_text" type="textarea" wrap="hard" maxlength="500" name="reply" value="" placeholder="Write your reply here"/>';
+					echo '<input hidden class="submit" type="submit"/>';
+				echo '</form>';
+				
 				echo '</div>';
 				
 				$replies = getCommentReplies($comment['id']);
