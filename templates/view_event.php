@@ -27,12 +27,12 @@ try {
 		
 		echo '<div class="event" id="event' . $idEvent . '">';
 		if ($canEdit) {
-			echo '<a href="delete_event.php?id=' . $idEvent . '&amp;csrf_token=' . rawurlencode($_SESSION['csrf_token']) . '" class="delete" id="delete_event" onclick="return confirm(\'Are you sure you want to delete this event?\');"><img src="#" alt="Delete Event" /></a>';
+			echo '<a href="delete_event.php?id=' . $idEvent . '&amp;csrf_token=' . rawurlencode($_SESSION['csrf_token']) . '" class="delete" id="delete_event" onclick="return confirm(\'Are you sure you want to delete this event?\');"><img src="//:0" alt="Delete Event" /></a>';
 			$public = $event ["public"];
 			if( $public )
-				echo '<a href="change_event_privacy.php?id=' . $idEvent . '&action=0&csrf_token=' . rawurlencode($_SESSION['csrf_token']) . '" class="change_privacy public" id="change_privacy"><img src="#" alt="Change Event Privacy" /><p class="description">Make me private</p></a>';
+				echo '<a href="change_event_privacy.php?id=' . $idEvent . '&action=0&csrf_token=' . rawurlencode($_SESSION['csrf_token']) . '" class="change_privacy public" id="change_privacy"><img src="//:0" alt="Change Event Privacy" /><p class="description">Make me private</p></a>';
 			else
-				echo '<a href="change_event_privacy.php?id=' . $idEvent . '&action=1&csrf_token=' . rawurlencode($_SESSION['csrf_token']) . '" class="change_privacy private" id="change_privacy"><img src="#" alt="Change Event Privacy" /><p class="description">Make me public</p></a>';
+				echo '<a href="change_event_privacy.php?id=' . $idEvent . '&action=1&csrf_token=' . rawurlencode($_SESSION['csrf_token']) . '" class="change_privacy private" id="change_privacy"><img src="//:0" alt="Change Event Privacy" /><p class="description">Make me public</p></a>';
 			echo '<div class="registration owner"></div>';
 			
 			echo '<form class="invite_user" action="invite_user.php" method="get">';
