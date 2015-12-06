@@ -55,7 +55,7 @@ class Event {
 	}
 	public function delete() {
 		deleteEvent ( $this->id );
-		unlink($event_
+		unlink($imagePath);
 	}
 }
 function canSeeEvent($idUser, $idEvent) {
