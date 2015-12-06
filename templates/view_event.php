@@ -8,6 +8,7 @@ require_once (INCLUDES_PATH . "/utils.php");
 require_once (DATABASE_PATH . "/comment.php");
 
 require (INCLUDES_PATH . "/write_comment_action.php");
+require (INCLUDES_PATH . "/write_reply_action.php");
 require (INCLUDES_PATH . "/invite_user_action.php");
 require (INCLUDES_PATH . "/edit_event_image_action.php");
 
@@ -100,7 +101,25 @@ try {
 				}
 				echo '<p class="text">' . nl2br ( htmlspecialchars ( $comment ["text"] ) ) . '</p>';
 				echo '<h4 class="time">' . $comment ["date"] . '</h4>';
+				
+				echo '<form action="view_event.php?id=' . $idEvent . '" method="post" class="reply_form">';
+					echo '<input type="text" hidden name="idEvent" value="' . $idEvent . '"/>';
+					echo '<input type="text" hidden name="idComment" value="' . $comment["id"] . '"></input>';
+					echo '<input required class="reply_text" type="textarea" wrap="hard" maxlength="500" name="text" value="" placeholder="Write your reply here"/>';
+					echo '<input name="submit_reply" hidden class="submit" type="submit"/>';
+				echo '</form>';
+				
 				echo '</div>';
+				
+				$replies = getCommentReplies($comment['id']);
+				
+				foreach($replies as $reply) {
+					echo '<div class="reply">';
+						echo '<h3 class="user">' . htmlspecialchars($reply['name']) . '</h3>';
+						echo '<p class="text">' . nl2br(htmlspecialchars($reply['text'])) . '</p>';
+						echo '<h4 class="time">' . $reply["date"] . '</h4>';
+					echo '</div>';
+				}
 			}
 		} else {
 			echo '<h4 class="no_comments">There are no comments yet on this event.</h4>';

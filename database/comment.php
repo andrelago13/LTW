@@ -33,4 +33,23 @@ function addComment($idEvent, $idUser, $text) {
 	$stmt->bindParam ( ':text', $text, PDO::PARAM_STR);
 	return $stmt->execute();
 }
+function addCommentReply($idComment, $idUser, $text) {
+	global $db;
+	$query = "INSERT INTO Reply (idComment, author, text) VALUES (:comment, :user, :text)";
+	$stmt = $db->prepare($query);
+	$stmt->bindParam ( ':comment', $idComment, PDO::PARAM_INT );
+	$stmt->bindParam ( ':user', $idUser, PDO::PARAM_INT );
+	$stmt->bindParam ( ':text', $text, PDO::PARAM_STR);
+	return $stmt->execute();
+}
+function getCommentReplies($idComment) {
+	global $db;
+	$query = "SELECT DISTINCT Reply.*, User.*
+			FROM Reply, Comment, User
+			WHERE Reply.idComment = Comment.id AND Comment.id = :comment AND Reply.author = User.id";
+	$stmt = $db->prepare ( $query );
+	$stmt->bindParam ( ':comment', $idComment, PDO::PARAM_INT );
+	$stmt->execute ();
+	return $stmt->fetchAll ();
+}
 ?>

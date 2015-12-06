@@ -57,6 +57,16 @@ CREATE TABLE Comment
   date DATE NOT NULL DEFAULT (datetime('now','localtime'))
 );
 
+DROP TABLE IF EXISTS Reply;
+CREATE TABLE Reply
+(
+  id INTEGER PRIMARY KEY,
+  idComment INTEGER REFERENCES Comment(id),
+  author INTEGER REFERENCES User(id),
+  text TEXT NOT NULL,
+  date DATE NOT NULL DEFAULT (datetime('now','localtime'))
+);
+
 DROP TABLE IF EXISTS EventSearch;
 CREATE VIRTUAL TABLE EventSearch USING fts4(id, name, description);
 

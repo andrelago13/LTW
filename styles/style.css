@@ -713,11 +713,23 @@ div.event div.comment_area h2.title {
 
 div.event div.comment_area div.comment_container div.comment {
 	display: block;
-	margin: auto auto 0.5rem auto;
+	margin: 0.5rem auto auto auto;
 	
 	border-width: 2px;
 	border-color: #ccc;
 	border-style: solid;
+}
+
+div.event div.comment_area div.comment_container div.reply {
+	display: block;
+	margin: 0 0 0 auto;
+	
+	border-width: 2px;
+	border-color: white #ccc #ccc #ccc;
+	border-style: solid;
+	
+	width: 90%;
+   vertical-align: top;
 }
 
 div.event div.comment_area div.comment_container h4.no_comments {
@@ -737,19 +749,37 @@ div.event div.comment_area div.comment_container div.comment:last-child {
 	border-radius: 0 0 14px 14px !important;
 }
 
-div.event div.comment_area div.comment_container div.comment h3.user {
+div.event div.comment_area div.comment_container div.comment h3.user, div.event div.comment_area div.comment_container div.reply h3.user {
 	margin: 1rem 0 1rem 2rem;
 	font-family: "Montserrat Regular";
 }
 
-div.event div.comment_area div.comment_container div.comment p.text {
+div.event div.comment_area div.comment_container div.comment p.text, div.event div.comment_area div.comment_container div.reply p.text {
 	margin: 0.5rem 1rem;
 	font-family: "Montserrat Regular";
 }
 
-div.event div.comment_area div.comment_container div.comment h4.time {
+div.event div.comment_area div.comment_container div.comment h4.time, div.event div.comment_area div.comment_container div.reply h4.time {
 	margin: 1rem 4rem;
 	font-family: "Montserrat Bold";
+}
+
+
+div.event div.comment_area div.comment form.reply_form input.reply_text {
+    vertical-align: top;
+	display: block;	
+	width: 90%;
+	margin: auto auto 1rem auto;
+	height: 2rem;
+	border-radius: 10px;
+	border-color: #ccc;
+	border-width: 2px;
+	font-family: "Montserrat Regular";
+    word-break: break-all;
+    word-wrap: break-word;
+  	overflow: auto;
+  	padding-left: 1rem;
+  	padding-right: 1rem;
 }
 
 /*//////////////////////////////////////////////////////////////////////////////
