@@ -47,18 +47,18 @@ try {
 			echo '<a href="user_registration.php?idEvent=' . $idEvent . '&amp;action=1&amp;csrf_token=' . rawurlencode($_SESSION['csrf_token']) . '"><div class="registration not_registered"></div></a>';
 		}
 		
-		echo '<h1 class="name">' . htmlspecialchars ( $event ["name"] ) . '</h1>';
+		echo '<h1 name="name" class="name">' . htmlspecialchars ( $event ["name"] ) . '</h1>';
 		if ($canEdit)
 			echo '<a href="" class="edit" id="edit_name"><img src="images/edit_field.png" alt="Edit" /></a>';
 		echo '<h2 class="type">' . getEventTypeName($event ["type"]) . '</h2>';
 		echo '<div class="container">';
 		echo '<img class="image" src="database/event_image.php?id=' . $idEvent . '" alt="' . htmlspecialchars ( $event ["name"] ) . '" width="256" height="256" />';
-		echo '<p class="description">' . preg_replace ( "/\n/", "<br />", htmlspecialchars ( $event ["description"] ) ) . '</p>';
+		echo '<p name="description" class="description">' . preg_replace ( "/\n/", "<br />", htmlspecialchars ( $event ["description"] ) ) . '</p>';
 		if ($canEdit)
 			echo '<a href="" class="edit" id="edit_description"><img src="images/edit_field.png" alt="Edit" /></a>';
 		echo '</div>';
 		
-		echo '<datetime-local class="date">' . htmlspecialchars ( $event ["date"] ) . '</datetime-local>';
+		echo '<datetime-local name="date" class="date">' . htmlspecialchars ( $event ["date"] ) . '</datetime-local>';
 		if ($canEdit)
 			echo '<a href="" class="edit" id="edit_date"><img src="images/edit_field.png" alt="Edit" /></a>';
 		?>

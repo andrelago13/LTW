@@ -59,7 +59,7 @@ function updateField(field, name, inputElement, inputSelector) {
 			'id' : field.closest('.event').attr('id').substr("event".length, 99999),
 			'csrf_token' : csrf_token
 	}
-	data[field.attr('id')] = inputElement.val();
+	data[field.attr('name')] = inputElement.val();
 	$.ajax({
 		url : "edit_event.php",
 		type: "POST",

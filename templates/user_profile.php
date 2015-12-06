@@ -22,14 +22,14 @@ if (isset ( $idUser )) {
 	
 	echo '<p class="name">';
 	echo '<strong>Name:</strong>&nbsp';
-	echo '<span id="name">' . $user ["name"] . '</span>';
+	echo '<span name="name" id="name">' . $user ["name"] . '</span>';
 	if ($canEdit)
 		echo '<a href="" class="edit" id="edit_name"><img src="images/edit_field.png" alt="Edit" /></a>';
 	echo '</p>';
 	
 	echo '<p class="username">';
 	echo '<strong>Username:</strong>&nbsp';
-	echo '<span id="username">' . $user ["username"] . '</span>';
+	echo '<span name="username" id="username">' . $user ["username"] . '</span>';
 	if ($canEdit)
 		echo '<a href="" class="edit" id="edit_username"><img src="images/edit_field.png" alt="Edit" /></a>';
 	echo '</p>';
@@ -37,7 +37,7 @@ if (isset ( $idUser )) {
 	echo '<p class="email">';
 	echo '<strong>Email:</strong>&nbsp';
 	echo '<span>';
-	echo '<a id="email" href="mailto:' . $user ["email"] . '" target="_blank">' . $user ["email"] . '</a>';
+	echo '<a name="email" id="email" href="mailto:' . $user ["email"] . '" target="_blank">' . $user ["email"] . '</a>';
 	if ($canEdit)
 		echo '<a href="" class="edit" id="edit_email"><img src="images/edit_field.png" alt="Edit" /></a>';
 	echo '</span></p>';
