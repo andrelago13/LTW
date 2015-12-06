@@ -569,6 +569,17 @@ div.event h1.name {
 }
 
 div.event h2.type {
+	position: static;
+	margin: 1rem 0 0 2rem;
+	padding: 0 1rem 0 0;
+	font: 700 20px "Montserrat Regular", "Arial Black", Gadget, sans-serif;
+	text-align: left;
+	color: #484848;
+}
+
+div.event h2.num_registered {
+	position: relative;
+	display: inline;
 	margin: 1rem 0 0 2rem;
 	padding: 0 1rem 0 0;
 	font: 700 20px "Montserrat Regular", "Arial Black", Gadget, sans-serif;

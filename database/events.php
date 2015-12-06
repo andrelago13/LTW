@@ -157,7 +157,7 @@ function getEventRegistrations($idEvent, $amount = -1, $offset = 0) {
 	$query = "SELECT * FROM EventRegistration
 			INNER JOIN Event ON EventRegistration.idEvent = Event.id
 			INNER JOIN User ON EventRegistration.idUser = User.id
-			WHERE Event.id = :event
+			WHERE idEvent = :event
 			ORDER BY User.name ASC LIMIT :amount OFFSET :offset";
 	$stmt = $db->prepare ( $query );
 	$stmt->bindParam ( ':event', $idUser, PDO::PARAM_INT );
