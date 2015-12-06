@@ -602,6 +602,10 @@ div.event img.image:hover + a.edit.visible, div.event img.image:hover + a.edit.v
 	cursor: pointer;
 }
 
+div.event div.container {
+	position: relative;
+}
+
 div.event div.container form.new_image_form.invisible {
 	display: none;
 }
@@ -610,9 +614,9 @@ div.event div.container form.new_image_form.visible {
 	display: block !important;
 	float: left;
 	width: 30%;
-	position: relative;
-	right: 20.8rem;
+	position: absolute;
 	top: 1rem;
+	left: 2rem;
 }
 
 div.event div.container form.new_image_form input.new_image_file {
