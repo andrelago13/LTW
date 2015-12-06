@@ -56,7 +56,7 @@ try {
 		echo '<img class="image" src="database/event_image.php?id=' . $idEvent . '" alt="' . htmlspecialchars ( $event ["name"] ) . '" width="256" height="256" />';
 		if ($canEdit) {
 			echo '<a class="edit visible" id="edit_image"><img src="images/edit_field.png" alt="Edit" /></a>';
-			echo '<form class="new_image_form invisible" action="#" method="post" enctype="multipart/form-data">';
+			echo '<form class="new_image_form invisible" action="view_event.php?id=' . $_GET['id'] . '" method="post" enctype="multipart/form-data">';
 				echo '<input name="edit_event_image" value="' . $idEvent . '" hidden/>';
 				echo '<input type="file" class="new_image_file" name="file" required/>';
 				echo '<input class="submit" type="submit"/>';

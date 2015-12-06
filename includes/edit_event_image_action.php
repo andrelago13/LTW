@@ -19,11 +19,10 @@ if (! isUserLoggedIn ()) {
 					$target_dir = "images/events/";
 					$extension = pathinfo ( $_FILES ["file"] ["name"], PATHINFO_EXTENSION );
 					$target_file = $target_dir . $eventID . '.' . $extension;
-					echo $target_file;
 					if (! updateEventImage ( $eventID, $target_file )) {
 						throw new RuntimeException ( "Could not set event image." );
-						uploadImage ( $_FILES ["file"], $target_file );
 					}
+					uploadImage ( $_FILES ["file"], $target_file );
 					showSuccess("Image successfully changed");
 				}
 			} catch (RuntimeException $e) {
