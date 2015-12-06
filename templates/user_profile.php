@@ -4,6 +4,8 @@ require_once (INCLUDES_PATH . "/authentication.php");
 require_once (TEMPLATES_PATH . "/utils.php");
 require_once (DATABASE_PATH . "/user.php");
 
+require (INCLUDES_PATH . "/user_profile_action.php");
+
 $canEdit = false;
 if (isset ( $_GET ["id"] )) {
 	$idUser = $_GET ["id"];
@@ -44,7 +46,7 @@ if (isset ( $idUser )) {
 	
 	echo '<p id="edit_password_label">Change password</p>';
 	
-	echo '<form class="change_password">';
+	echo '<form class="change_password" action="user_profile.php" method="post">';
 	echo '<div class="form_line">';
 	echo '<input id="old_password" name="old_password" type="password" value="" placeholder="Current password" required/>';
 	echo '<div class="validity" id="validity">test</div>';
@@ -57,11 +59,11 @@ if (isset ( $idUser )) {
 	echo '<input id="new_password_confirm" name="new_password_confirm" type="password" value="" placeholder="Confirm new password" required/>';
 	echo '<div class="validity" id="validity">test</div>';
 	echo '</div>';
-	echo '<button id="submit" type="submit">Change password</button>';
+	echo '<button id="submit" type="submit" name="submit">Change password</button>';
 	echo '</form>';
 	
 	echo '</div>';
 }
 ?>
-<script src="scripts/signup.js"></script>
 <script src="scripts/user.js"></script>
+<script src="scripts/profile.js"></script>

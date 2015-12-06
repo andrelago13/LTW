@@ -1,6 +1,8 @@
 <?php
 require_once (__DIR__ . "/../config.php");
 require_once (DATABASE_PATH . "/connection.php");
+class InvalidPassword extends Exception {
+}
 function getUser($idUser) {
 	global $db;
 	$query = "SELECT * FROM User WHERE id = :user";
@@ -56,5 +58,31 @@ function getUserIDFromUsername($username) {
 	if(sizeof($ret)!= 1)
 		throw new InvalidUsername ( "Username provided does not exist or is invalid." );
 	return $ret[0];
+}
+
+function updateUserPassword($userID, $old_password, $new_password) {
+	global $db;
+	
+	$query = "SELECT hash FROM User WHERE id = :id";
+	$stmt = $db->prepare($query);
+	$stmt->bindParam(":id", $userID, PDO::PARAM_INT);
+	$stmt->execute();
+	$ret = $stmt->fetchAll();
+	
+	if(sizeof($ret) != 1) throw new Exception("Invalid user id provided");
+	
+	if(! password_verify($old_password, $ret[0]["hash"])) throw new Exception ("Current password provided is invalid");
+	
+	$len = strlen($new_password);
+	if($len < 6 || $len > 512) {
+		throw new InvalidPassword("Password length must be between 6 and 512 characters");
+	}
+	
+	$query = "UPDATE User SET hash = :hash WHERE id = :id";
+	$stmt = $db->prepare($query);
+	$stmt->bindParam(":id", $userID, PDO::PARAM_INT);
+	$new_hash = password_hash($new_password, PASSWORD_DEFAULT);
+	$stmt->bindParam(":hash", $new_hash, PDO::PARAM_STR);
+	return $stmt->execute();
 }
 ?>
