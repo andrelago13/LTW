@@ -9,6 +9,7 @@ require_once (DATABASE_PATH . "/comment.php");
 
 require (INCLUDES_PATH . "/write_comment_action.php");
 require (INCLUDES_PATH . "/invite_user_action.php");
+require (INCLUDES_PATH . "/edit_event_image_action.php");
 
 try {
 	if (! isset ( $_GET ["id"] )) {
@@ -53,6 +54,14 @@ try {
 		echo '<h2 class="type">' . getEventTypeName($event ["type"]) . '</h2>';
 		echo '<div class="container">';
 		echo '<img class="image" src="database/event_image.php?id=' . $idEvent . '" alt="' . htmlspecialchars ( $event ["name"] ) . '" width="256" height="256" />';
+		if ($canEdit) {
+			echo '<a class="edit visible" id="edit_image"><img src="images/edit_field.png" alt="Edit" /></a>';
+			echo '<form class="new_image_form invisible" action="#" method="post" enctype="multipart/form-data">';
+				echo '<input name="edit_event_image" value="' . $idEvent . '" hidden/>';
+				echo '<input type="file" class="new_image_file" name="file" required/>';
+				echo '<input class="submit" type="submit"/>';
+			echo '</form>';
+		}
 		echo '<p name="description" class="description">' . preg_replace ( "/\n/", "<br />", htmlspecialchars ( $event ["description"] ) ) . '</p>';
 		if ($canEdit)
 			echo '<a href="" class="edit" id="edit_description"><img src="images/edit_field.png" alt="Edit" /></a>';

@@ -99,7 +99,7 @@ INSERT INTO User (id, name, username, email, hash) VALUES (6, 'Ana Reis', 'anaar
 
 INSERT INTO Event (type, name, description, date, public, owner) 
 	VALUES (1, 'Churrasco do Reis', 'O Reis passou a todas as cadeiras, therefore churrasco!', '2015-12-12 19:00:00', 0, 1);
-INSERT INTO Event (type, name, description, date, public, owner) 
+INSERT INTO Event (type, name, description, date, public, owner)
 	VALUES (1, 'Birthday of Rui', 'Surprise party!', '2015-12-20 19:00:00', 0, 5);
 INSERT INTO Event (type, name, description, date, public, owner) 
 	VALUES (2, 'Guns N Roses reunion', 'Guns N Roses are back with the original line-up! Are you ready?', '2015-10-11 21:00:00', 0, 4);
