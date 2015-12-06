@@ -449,23 +449,28 @@ div.event form.invite_user input.submit {
 
 div.event div.registration.owner {
 	height: 2.5rem;
-	width: auto;
+	width: 158px;
+	height: 40px;
 	float: right;
 	margin: 2rem 2rem 0 0;
-	content: url("resources/images/owner.png");
+	background: url("resources/images/owner.png");
+	background-size: cover;
+    background-repeat: no-repeat;
 }
 
 div.event div.registration.registered {
 	height: 2.5rem;
-	width: auto;
+	width: 40px;
+	height: 40px;
 	float: right;
 	margin: 2rem 2rem 0 0;
-	content: url("resources/images/unregister.png");	/*	to load the resource */
-	content: url("resources/images/registered.png");
+	background: url("resources/images/registered.png");
+	background-size: cover;
+    background-repeat: no-repeat;
 }
 
 div.event div.registration.registered:hover {
-	content: url("resources/images/unregister.png");
+	background: url("resources/images/unregister.png");
 	cursor: pointer;
 }
 
@@ -474,12 +479,14 @@ div.event div.registration.not_registered {
 	width: auto;
 	float: right;
 	margin: 2rem 2rem 0 0;
-	content: url("resources/images/register.png");	/*	to load the resource */
-	content: url("resources/images/not_registered.png");
+	background: url("resources/images/register.png");	/*	to load the resource */
+	background: url("resources/images/not_registered.png");
+	background-size: cover;
+    background-repeat: no-repeat;
 }
 
 div.event div.registration.not_registered:hover {
-	content: url("resources/images/register.png");
+	background: url("resources/images/register.png");
 	cursor: pointer;
 }
 
@@ -488,12 +495,14 @@ div.event a.delete#delete_event img {
 	height: 2.5rem;
 	float: right;
 	margin: 2rem 4rem 0 0;
-	content: url("resources/images/trash_open.png");	/*	to load the resource */
-	content: url("resources/images/trash_closed.png");
+	background: url("resources/images/trash_open.png");	/*	to load the resource */
+	background: url("resources/images/trash_closed.png");
+	background-size: cover;
+    background-repeat: no-repeat;
 }
 
 div.event a.delete#delete_event img:hover {
-	content: url("resources/images/trash_open.png");
+	background: url("resources/images/trash_open.png");
 }
 
 div.event a.change_privacy {
@@ -524,15 +533,17 @@ div.event a.change_privacy#change_privacy img:hover + p.description {
 }
 
 div.event a.change_privacy.public#change_privacy img, div.event a.change_privacy.private#change_privacy img:hover {
-	content: url("resources/images/unlocked.png");
+	background: url("resources/images/unlocked.png");
 	width: inherit;
 	height: inherit;
 }
 
 div.event a.change_privacy.public#change_privacy img:hover, div.event a.change_privacy.private#change_privacy img {
-	content: url("resources/images/locked.png");
+	background: url("resources/images/locked.png");
 	width: inherit;
 	height: inherit;
+	background-size: cover;
+    background-repeat: no-repeat;
 }
 
 div.event h1.name {
