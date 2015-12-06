@@ -14,7 +14,7 @@ try {
 		showError ( 'You need to login to search for events.' );
 	} else {
 		$time = microtime(true);
-		$events = searchEvents ( $_POST ["query"], getUserID () );
+		$events = searchEvents ( addslashes($_POST ["query"]), getUserID () );
 		$time = (microtime(true) - $time);
 		$time = sprintf('%0.5f', $time);
 		$numEvents = count ( $events );
