@@ -8,16 +8,31 @@ class Event {
 	private $description;
 	private $date;
 	private $public;
-
-    public function getOwner() {return $this->owner;}
-
-	public function setId($id) {$this->id = $id;}
-	public function setName($name) {$this->name = $name;}
-	public function setDescription($description) {$this->description = $description;}
-	public function setDate($date) {$this->date = $date;}
-	public function setPublic($public) {$this->public = $public;}
-	public function setOwner($owner) {$this->owner = $owner;}
-
+	private $imagePath;
+	public function getOwner() {
+		return $this->owner;
+	}
+	public function setId($id) {
+		$this->id = $id;
+	}
+	public function setName($name) {
+		$this->name = $name;
+	}
+	public function setDescription($description) {
+		$this->description = $description;
+	}
+	public function setDate($date) {
+		$this->date = $date;
+	}
+	public function setPublic($public) {
+		$this->public = $public;
+	}
+	public function setOwner($owner) {
+		$this->owner = $owner;
+	}
+	public function setImagePath($imagePath) {
+		$this->imagePath = $imagePath;
+	}
 	public static function find($id) {
 		$event_query = getEvent ( $id );
 		
@@ -27,7 +42,8 @@ class Event {
 		$event->setDescription ( $event_query ["description"] );
 		$event->setName ( $event_query ["name"] );
 		$event->setPublic ( $event_query ["public"] );
-		$event->setOwner($event_query["owner"]);
+		$event->setOwner ( $event_query ["owner"] );
+		$event->setImagePath ( $event_query ["imagePath"] );
 		
 		return $event;
 	}
@@ -38,7 +54,8 @@ class Event {
 		return get_object_vars ( $this );
 	}
 	public function delete() {
-		deleteEvent($this->id);
+		deleteEvent ( $this->id );
+		unlink($event_
 	}
 }
 function canSeeEvent($idUser, $idEvent) {

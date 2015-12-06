@@ -7,7 +7,6 @@ CREATE TABLE User
   name VARCHAR NOT NULL,
   username CHAR(25) NOT NULL,
   email VARCHAR NOT NULL,
-  emailValidated BOOLEAN NOT NULL DEFAULT 0,
   hash VARCHAR NOT NULL
 );
 
