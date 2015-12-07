@@ -29,6 +29,9 @@ if (isset ( $_GET ['invite_comment'] )) {
 		case 7:
 			showError ( "Missing invited user username" );
 			break;
+		case 8:
+			showError("You cannot invite the event's owner.");
+			break;
 	}
 }
 ?>

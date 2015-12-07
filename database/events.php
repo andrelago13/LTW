@@ -7,6 +7,8 @@ class AlreadyInvitedException extends Exception {
 }
 class InvalidUsername extends Exception {
 }
+class IllegalUserInvitedException extends Exception {
+}
 
 function isEventPublic($idEvent) {
 	global $db;
@@ -45,6 +47,10 @@ function isUserInvitedToEvent($idUser, $idEvent) {
 function inviteUserToEvent($idInviter, $idUser, $idEvent) {
 	if(isUserInvitedToEvent($idUser, $idEvent))
 		throw new AlreadyInvitedException ( "User is already invited to the event." );
+		
+	if(isUserEventOwner($idUser, $idEvent)) {
+		throw new IllegalUserInvitedException("You cannot invite the event's owner.");
+	}
 	
 	global $db;
 	$stmt = $db->prepare('INSERT INTO EventInvite(idEvent, idInvited, idInviter) VALUES (:idevent, :invitee, :inviter)');
@@ -55,7 +61,7 @@ function inviteUserToEvent($idInviter, $idUser, $idEvent) {
 }
 function isUserEventOwner($idUser, $idEvent) {
 	global $db;
-	$stmt = $db->prepare ( 'SELECT * FROM Event WHERE idEvent = :event AND owner = :user' );
+	$stmt = $db->prepare ( 'SELECT * FROM Event WHERE id = :event AND owner = :user' );
 	$stmt->bindParam ( ':event', $idEvent, PDO::PARAM_INT );
 	$stmt->bindParam ( ':user', $idUser, PDO::PARAM_INT );
 	$stmt->execute ();

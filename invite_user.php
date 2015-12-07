@@ -45,6 +45,9 @@ try {
             	} catch (AlreadyInvitedException $e) {
             		http_response_code ( 400 );
                 	header("Location: view_event.php?id=" . $event_id . "&invite_comment=1");
+            	} catch (IllegalUserInvitedException $e) {
+            		http_response_code ( 400 );
+                	header("Location: view_event.php?id=" . $event_id . "&invite_comment=8");
             	}
             } else {
                 http_response_code(403);
